@@ -1,0 +1,17 @@
+$height: 50px;
+
+:host {
+    display: block;
+    height: $height;
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    align-items: center;
+}
