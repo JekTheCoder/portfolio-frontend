@@ -1,1 +1,6 @@
-<p>navigator works!</p>
+<div class="point-container">
+    <ng-container *ngFor="let point of points; let i = index">
+        <div class="point"></div>
+        <div class="line" *ngIf="i < points.length"></div>
+    </ng-container>
+</div>

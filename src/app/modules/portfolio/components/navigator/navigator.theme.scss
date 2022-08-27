@@ -2,4 +2,24 @@
 @use '@angular/material' as mat;
 
 @mixin theme($material-theme, $app-theme) {
+    $color-config: mat.get-color-config($material-theme);
+    $is-dark-theme:   map.get($color-config, 'is-dark');
+    
+    $background: #000;
+    @if $is-dark-theme {
+        $background: #fff;
+    }
+
+    app-navigator {
+        .point {
+            &.active {
+                background-color: $background;
+            }
+            border: 1px solid $background;
+        }
+
+        .line {
+            background-color: $background;
+        }
+    }
 }

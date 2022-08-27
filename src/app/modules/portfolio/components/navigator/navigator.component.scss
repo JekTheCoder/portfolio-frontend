@@ -1,0 +1,18 @@
+$point-size: 2px;
+
+.point-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.point {
+    width: $point-size;
+    height: $point-size;
+    border-radius: 50%;
+}
+
+.line {
+    width: 2px;
+    height: $point-size * 2;
+}
