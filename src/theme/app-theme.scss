@@ -2,10 +2,12 @@
 @use '@angular/material' as mat;
 
 @use  '../app/modules/_app/components/header/header.theme.scss' as app-header;
+@use  '../app/modules/portfolio/components/portfolio/portfolio.theme.scss' as app-portfolio;
 
 @mixin theme($material-theme, $app-theme) {
     $background-palette: map.get($app-theme, 'background');
     background-color: mat.get-color-from-palette($background-palette);
 
     @include app-header.theme($material-theme, $app-theme);
+    @include app-portfolio.theme($material-theme, $app-theme);
 }
