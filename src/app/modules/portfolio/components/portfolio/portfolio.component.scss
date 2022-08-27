@@ -11,4 +11,11 @@
     max-width: 1200px;
     padding: 10px;
     margin-top: 10px;
+
+    display: grid;
+    grid-template-columns: 1fr 20px;
+
+    .right>app-navigator {
+        position: sticky;
+    }
 }
