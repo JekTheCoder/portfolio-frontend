@@ -3,4 +3,5 @@
     <span>lorem</span>
     <span>lorem</span>
     <span>lorem</span>
+    <input type="checkbox" [formControl]="darkModeControl" (ngModelChange)="setDarkMode($event)" [ngModel]="darkmode$ | async">
 </header>

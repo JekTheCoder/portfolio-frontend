@@ -1,4 +1,6 @@
 import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { DarkModeService } from '../../services/dark-mode.service';
 import { animations } from './header.animations';
 
 @Component({
@@ -19,7 +21,10 @@ export class HeaderComponent implements OnChanges {
   protected mouseleave() { this.emitOpenState(false); }
   protected state?: 'open' | 'closed';
 
-  constructor() { }
+  protected darkModeControl = new FormControl();
+  protected darkmode$ = this.darkMode.getDarkMode$();
+
+  constructor(private darkMode: DarkModeService) { }
 
   ngOnChanges(): void {
     this.updateState();
@@ -34,6 +39,10 @@ export class HeaderComponent implements OnChanges {
     this.open = state;
     this.ngOnChanges();
     this.openChange.emit(state);
+  }
+
+  protected setDarkMode(value: boolean) {
+    this.darkMode.setDarkMode(value);
   }
 
 }
