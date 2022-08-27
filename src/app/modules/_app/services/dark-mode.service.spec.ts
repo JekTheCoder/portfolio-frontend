@@ -10,7 +10,7 @@ const mockLocalStorage: Partial<Storage> = {
   setItem: jasmine.createSpy()
 };
 
-fdescribe('DarkmodeService', () => {
+describe('DarkmodeService', () => {
   let service: DarkModeService;
 
   beforeEach(() => {
