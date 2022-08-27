@@ -1,7 +1,11 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
 
+@use  '../app/modules/_app/components/header/header.theme.scss' as app-header;
+
 @mixin theme($material-theme, $app-theme) {
     $background-palette: map.get($app-theme, 'background');
     background-color: mat.get-color-from-palette($background-palette);
+
+    @include app-header.theme($material-theme, $app-theme);
 }
