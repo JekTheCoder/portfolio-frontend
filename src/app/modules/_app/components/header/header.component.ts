@@ -32,7 +32,6 @@ export class HeaderComponent implements OnChanges {
 
   protected updateState() {
     this.state = this.open ? 'open' : 'closed';
-    console.log(this.state)
   }
 
   protected emitOpenState(state: boolean) {
