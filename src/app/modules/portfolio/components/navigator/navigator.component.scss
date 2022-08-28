@@ -1,9 +1,27 @@
 $point-size: 8px;
 
-.point-container {
+:host {
+    display: grid;
+    grid-template-columns: 1fr $point-size;
+}
+
+.text-container {
+    display: grid;
+    grid-auto-rows: $point-size $point-size*2;
+    padding-right: 5px;
+
+    .text {
+        width: 100%;
+        text-align: right;
+        font-size: $point-size*1.4;
+    }
+}
+
+.points-container {
+    width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
 }
 
 .point {
@@ -13,6 +31,6 @@ $point-size: 8px;
 }
 
 .line {
-    width: 2px;
+    width: 1px;
     height: $point-size * 2;
 }
