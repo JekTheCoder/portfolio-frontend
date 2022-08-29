@@ -1,4 +1,4 @@
-<div class="text-container" *ngIf="showPointName$ | async">
+<div class="text-container" *ngLet="showPointName$ | async as showText" [ngClass]="{ 'no-visible': showText }">
     <ng-container *ngFor="let fragment of fragments; let i = index">
         <a class="text" routerLink="./" [fragment]="fragment">{{ fragment }}</a>
         <div *ngIf="i < fragments.length - 1"></div>
