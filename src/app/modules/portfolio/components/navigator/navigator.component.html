@@ -1,12 +1,12 @@
 <div class="text-container" *ngIf="showPointName$ | async">
-    <ng-container *ngFor="let point of points; let i = index">
-        <a class="text" routerLink="./" [fragment]="point">{{ point }}</a>
-        <div *ngIf="i < points.length - 1"></div>
+    <ng-container *ngFor="let fragment of fragments; let i = index">
+        <a class="text" routerLink="./" [fragment]="fragment">{{ fragment }}</a>
+        <div *ngIf="i < fragments.length - 1"></div>
     </ng-container>
 </div>
 <div class="points-container">
-    <ng-container *ngFor="let point of points; let i = index">
-        <a routerLink="./" [fragment]="point" class="point"></a>
-        <div class="line" *ngIf="i < points.length - 1"></div>
+    <ng-container *ngFor="let fragment of fragments; let i = index">
+        <a routerLink="./" [fragment]="fragment" class="point"></a>
+        <div class="line" *ngIf="i < fragments.length - 1"></div>
     </ng-container>
 </div>

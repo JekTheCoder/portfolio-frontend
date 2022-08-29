@@ -9,7 +9,7 @@ import { ResizeObservableFactoryService } from '../../services/resize-observable
 })
 export class NavigatorComponent implements OnInit, OnDestroy {
 
-  @Input() points: string[] = []
+  @Input() fragments: string[] = []
   private nativeElement: HTMLElement | null;
 
   protected showPointName$ = new BehaviorSubject<boolean>(false);
