@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, debounceTime, map, Subject, takeUntil, tap } from 'rxjs';
 import { ResizeObservableFactoryService } from '../../services/resize-observable-factory.service';
 
@@ -13,12 +14,15 @@ export class NavigatorComponent implements OnInit, OnDestroy {
   private nativeElement: HTMLElement | null;
 
   protected showPointName$ = new BehaviorSubject<boolean>(false);
-  protected unsuscriber$ = new Subject<void>();
+  protected activeFragment$ = this.route.fragment;
+
+  private unsuscriber$ = new Subject<void>();
 
   constructor(
     { nativeElement }: ElementRef,
     private resizeFactory: ResizeObservableFactoryService,
-    private changeDec: ChangeDetectorRef
+    private changeDec: ChangeDetectorRef,
+    private route: ActivatedRoute
     ) { this.nativeElement = nativeElement; }
 
   ngOnInit(): void {
