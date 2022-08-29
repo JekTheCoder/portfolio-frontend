@@ -37,7 +37,6 @@ $point-size: 10px;
     height: $point-size * 2;
 }
 
-.not-visible {
-    width: 0;
-    overflow: hidden;
+.no-visible {
+    display: none;
 }
