@@ -24,6 +24,11 @@ export class HeaderComponent implements OnChanges {
   protected darkModeControl = new FormControl();
   protected darkmode$ = this.darkMode.getDarkMode$();
 
+  protected links = [
+    { url: 'portfolio', name: 'portfolio' },
+    { name: 'blog', url: 'blog' }
+  ]
+
   constructor(private darkMode: DarkModeService) { }
 
   ngOnChanges(): void {

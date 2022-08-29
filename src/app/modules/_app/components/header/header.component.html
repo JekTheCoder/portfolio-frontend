@@ -1,7 +1,7 @@
 <header [@header]="state">
-    <span>lorem</span>
-    <span>lorem</span>
-    <span>lorem</span>
-    <span>lorem</span>
+    <a *ngFor="let link of links"
+        [routerLink]="link.url"
+        routerLinkActive="active"
+    >{{ link.name }}</a>
     <input type="checkbox" (ngModelChange)="setDarkMode($event)" [ngModel]="darkmode$ | async">
 </header>
