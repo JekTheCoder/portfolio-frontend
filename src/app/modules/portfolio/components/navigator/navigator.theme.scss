@@ -5,9 +5,9 @@
     $color-config: mat.get-color-config($material-theme);
     $is-dark-theme:   map.get($color-config, 'is-dark');
     
-    $color: #fff;
+    $color: #000;
     @if $is-dark-theme {
-        $background: #000;
+        $color: #fff;
     }
 
     app-navigator {
