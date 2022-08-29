@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing'
+import { NgLetDirective } from 'src/app/common/directives/ng-let.directive';
 import { NavigatorComponent } from './navigator.component';
 
 describe('NavigatorComponent', () => {
@@ -8,7 +9,8 @@ describe('NavigatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavigatorComponent ]
+      declarations: [ NavigatorComponent ],
+      imports: [RouterTestingModule, NgLetDirective]
     })
     .compileComponents();
 

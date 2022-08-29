@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { NavigatorComponent } from './components/navigator/navigator.component';
+import { NgLetDirective } from 'src/app/common/directives/ng-let.directive';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { NavigatorComponent } from './components/navigator/navigator.component';
   ],
   imports: [
     CommonModule,
-    PortfolioRoutingModule
+    PortfolioRoutingModule,
+    NgLetDirective
   ]
 })
 export class PortfolioModule { }
