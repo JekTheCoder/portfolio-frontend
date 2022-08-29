@@ -16,7 +16,9 @@
             </div>
         </section>
         <section #projects></section>
-        <section #contactMe></section>
+        <section #contactMe>
+            <app-contact-me></app-contact-me>
+        </section>
     </div>
     <div class="right">
         <app-navigator *ngIf="sectionsKeys" [fragments]="sectionsKeys"></app-navigator>
