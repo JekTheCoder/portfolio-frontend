@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
-import { BehaviorSubject, debounceTime, fromEvent, map, Observable, Subject, takeUntil } from 'rxjs';
+import { ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { BehaviorSubject, debounceTime, map, Subject, takeUntil, tap } from 'rxjs';
 import { ResizeObservableFactoryService } from '../../services/resize-observable-factory.service';
 
 @Component({
@@ -17,19 +17,22 @@ export class NavigatorComponent implements OnInit, OnDestroy {
 
   constructor(
     { nativeElement }: ElementRef,
-    private resizeFactory: ResizeObservableFactoryService
+    private resizeFactory: ResizeObservableFactoryService,
+    private changeDec: ChangeDetectorRef
     ) { this.nativeElement = nativeElement; }
 
   ngOnInit(): void {
     if (!this.nativeElement) return;
     const obs$ = this.resizeFactory.createReizeObservable(this.nativeElement)
       .pipe(
-        map(e => e[0].target as HTMLElement),
-        map(el => el.clientWidth),
-        map(width => width > 80),
-        takeUntil(this.unsuscriber$)
+        takeUntil(this.unsuscriber$),
+        debounceTime(100),
+        map(e => e[0].contentRect.width),
+        map(width => width > 150),
     );
-    obs$.subscribe(this.showPointName$);
+    obs$
+      .pipe(tap(this.showPointName$))
+      .subscribe(() => this.changeDec.detectChanges());
   }
 
   ngOnDestroy(): void {
