@@ -1,22 +1,57 @@
-$content-max-width: 1200px;
+$content-max-width: 800px;
+$margin-top: 100px;
 
 #top {
+    position: relative;
+
     img {
         width: 100%;
         object-fit: cover;
         height: 600px;
+    }
+
+    h2 {
+        bottom: 10px;
+        left: 10px;
+        position: absolute;
+        max-width: 60%;
+        font-size: 15vw;
     }
 }
 
 #content {
     padding: 10px;
     margin-top: 10px;
+    padding-top: $margin-top;
 
     display: grid;
     grid-template-columns: 1fr minmax(0, $content-max-width) 1fr;
 
     .right>app-navigator {
-        top: 10px;
+        top: $margin-top;
         position: sticky;
+    }
+
+    #about-me {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        p {
+            text-align: start;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 80px;
+            max-width: 50%;
+        }
+
+        .link {
+            font-weight: 600;
+            text-decoration: underline;
+            color: unset;
+        }
     }
 }
