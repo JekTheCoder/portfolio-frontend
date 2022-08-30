@@ -20,11 +20,9 @@ $margin-top: 100px;
 }
 
 #content {
-    padding: 10px;
-    margin-top: 10px;
-    padding-top: $margin-top;
-
     display: grid;
+    padding: 0 10px;
+    position: relative;
     grid-template-columns: 1fr minmax(0, $content-max-width) 1fr;
 
     .right>app-navigator {
@@ -33,7 +31,7 @@ $margin-top: 100px;
     }
 
     #about-me {
-        height: 80vh;
+        height: 100vh;
         display: flex;
         justify-content: center;
         flex-direction: column;
