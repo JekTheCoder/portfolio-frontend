@@ -1,19 +1,31 @@
 <h3>Contact me</h3>
-<p>
-    <a href="https://github.com/JekTheCoder" target="_blank">
-        <fa-icon [icon]="githubIcon"></fa-icon>&nbsp;
-        <span>https://github.com/JekTheCoder</span>
-    </a>
-</p>
-<p>
-    <a href="mailto:hinostrozajeshua@gmail.com">
-        <fa-icon [icon]="mailIcon"></fa-icon>&nbsp;
-        <span>hinostrozajeshua@gmail.com</span>
-    </a>
-</p>
-<p>
-    <a href="https://www.linkedin.com/in/jeshua-hinostroza/" target="_blank">
-        <fa-icon [icon]="linkedInIcon"></fa-icon>&nbsp;
-        <span>https://www.linkedin.com/in/jeshua-hinostroza/</span>
-    </a>
-</p>
+<div class="">
+    <p>
+        <a href="https://github.com/JekTheCoder" target="_blank">
+            <fa-icon [icon]="githubIcon"></fa-icon>&nbsp;
+            <span>https://github.com/JekTheCoder</span>
+        </a>
+    </p>
+    <p>
+        <a href="mailto:hinostrozajeshua@gmail.com">
+            <fa-icon [icon]="mailIcon"></fa-icon>&nbsp;
+            <span>hinostrozajeshua@gmail.com</span>
+        </a>
+    </p>
+    <p>
+        <a href="https://www.linkedin.com/in/jeshua-hinostroza/" target="_blank">
+            <fa-icon [icon]="linkedInIcon"></fa-icon>&nbsp;
+            <span>https://www.linkedin.com/in/jeshua-hinostroza/</span>
+        </a>
+    </p>
+</div>
+<div class="separator"></div>
+<h4>Or...</h4>
+<div class="">
+    <form [formGroup]="contactMeForm">
+        <input type="text" formControlName="name">
+        <input type="email" formControlName="email">
+        <textarea formControlName="message"></textarea>
+        <button type="submit">submit</button>
+    </form>
+</div>
