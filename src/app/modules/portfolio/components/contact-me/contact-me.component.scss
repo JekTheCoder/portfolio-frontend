@@ -9,3 +9,18 @@ a {
 .separator {
     margin-top: 20px;
 }
+
+.contact-me-form {
+    padding-right: 20px;
+    .mat-form-field {
+        display: block;
+    }
+
+    button {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+
+        transition: background-color .2s;
+    }
+}

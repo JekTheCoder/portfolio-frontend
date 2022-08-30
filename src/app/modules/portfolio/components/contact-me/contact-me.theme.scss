@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin theme($material-theme, $app-theme) {
+    $color-config: mat.get-color-config($material-theme);
+    $is-dark-theme:   map.get($color-config, 'is-dark');
+    
+    $color: #000;
+    $button-background: rgb(0,0,0);
+    @if $is-dark-theme {
+        $color: #fff;
+        $button-background: rgb(218, 218, 218);
+    }
+
+    app-contact-me {
+        .contact-me-form button {
+            color: $color;
+            background: none;
+
+            &:active:focus {
+                background-color: rgba($color: $button-background, $alpha: .15)
+            }
+
+            &:hover {
+                background-color: rgba($color: $button-background, $alpha: .08)
+            }
+        }
+    }
+}
