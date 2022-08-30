@@ -11,13 +11,15 @@ import { NavigatorComponent } from './components/navigator/navigator.component';
 import { NgLetDirective } from 'src/app/common/directives/ng-let.directive';
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 
 @NgModule({
   declarations: [
     PortfolioComponent,
     NavigatorComponent,
-    ContactMeComponent
+    ContactMeComponent,
+    ProjectsComponent
   ],
   imports: [
     CommonModule,
