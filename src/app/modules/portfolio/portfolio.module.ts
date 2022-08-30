@@ -12,6 +12,7 @@ import { NgLetDirective } from 'src/app/common/directives/ng-let.directive';
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { ProjectComponent } from './components/project/project.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
     PortfolioComponent,
     NavigatorComponent,
     ContactMeComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ProjectComponent
   ],
   imports: [
     CommonModule,
