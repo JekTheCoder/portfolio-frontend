@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+
 import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { NavigatorComponent } from './components/navigator/navigator.component';
@@ -17,7 +19,8 @@ import { ContactMeComponent } from './components/contact-me/contact-me.component
   imports: [
     CommonModule,
     PortfolioRoutingModule,
-    NgLetDirective
+    NgLetDirective,
+    FontAwesomeModule,
   ]
 })
 export class PortfolioModule { }
