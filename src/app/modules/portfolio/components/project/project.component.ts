@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { animations } from "./project.animations";
 
 @Component({
@@ -8,6 +8,10 @@ import { animations } from "./project.animations";
   animations
 })
 export class ProjectComponent implements OnInit {
+
+  @Input() image: { src?: string, alt?: string } = {};
+
+  state = 'mobile'
 
   constructor() { }
 

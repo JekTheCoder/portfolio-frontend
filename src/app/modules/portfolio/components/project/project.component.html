@@ -1,1 +1,9 @@
-<p>project works!</p>
+<div class="container">
+    <div class="text" [@textTrigger]="state">
+        <ng-content></ng-content>
+    </div>
+    <div class="" (click)="state = state === 'desktop' ? 'mobile': 'desktop' ">
+        <img [src]="image.src" [alt]="image.alt">
+    </div>
+</div>
+
