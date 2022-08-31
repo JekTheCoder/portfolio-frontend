@@ -22,15 +22,15 @@ const textAnimation = trigger('textTrigger',  [
 ]);
 
 const imageAnimation = trigger('imageTrigger',  [
-    state('desktop', style({ width: '100%', height: '220px' })),
-    state('mobile', style({ width: '50%', height: '100%' })),
+    state('desktop', style({ width: '100%', height: '{{height}}px' }), { params: { 'height': '200' } }),
+    state('mobile', style({ width: '{{width}}px', height: '100%' }), { params: { width: '200' } }),
     transition('desktop => mobile', [
-        animate(firstResizingTime, style({ width: '50%' })),
+        animate(firstResizingTime, style({ width: '{{width}}px' })),
         query('@*', animateChild()),
         animate(secondResizingTime, style({ height: '100%' })),
     ]),
     transition('mobile => desktop', [
-        animate(firstResizingTime, style({ height: '220px' })),
+        animate(firstResizingTime, style({ height: '{{height}}px' })),
         query('@*', animateChild()),
         animate(secondResizingTime, style({ width: '100%' })),
     ])
