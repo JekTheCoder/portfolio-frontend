@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" #container>
   <div class="text" [@textTrigger]="state">
     <ng-content></ng-content>
   </div>
@@ -7,12 +7,13 @@
     [@imageTrigger]="state"
     (click)="state = state === 'desktop' ? 'mobile' : 'desktop'"
   >
-    <img [src]="mImage.src" [alt]="mImage.alt" class="mobile" />
+    <img [src]="mImage.src" [alt]="mImage.alt" class="mobile" #imgMobile/>
     <img
       [src]="image.src"
       [alt]="image.alt"
       [@mobileImage]="state"
       class="desktop"
+      #imgDesktop
     />
     
   </div>
