@@ -1,9 +1,19 @@
 <div class="container">
-    <div class="text" [@textTrigger]="state">
-        <ng-content></ng-content>
-    </div>
-    <div class="" (click)="state = state === 'desktop' ? 'mobile': 'desktop' ">
-        <img [src]="image.src" [alt]="image.alt">
-    </div>
+  <div class="text" [@textTrigger]="state">
+    <ng-content></ng-content>
+  </div>
+  <div
+    class="img-c"
+    [@imageTrigger]="state"
+    (click)="state = state === 'desktop' ? 'mobile' : 'desktop'"
+  >
+    <img [src]="mImage.src" [alt]="mImage.alt" class="mobile" />
+    <img
+      [src]="image.src"
+      [alt]="image.alt"
+      [@mobileImage]="state"
+      class="desktop"
+    />
+    
+  </div>
 </div>
-

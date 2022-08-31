@@ -1,3 +1,29 @@
-img {
-    max-width: 100px;
+.container {
+    height: 360px;
+    position: relative;
+}
+
+.img-c {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 2px #000;
+
+    >img {
+        object-fit: cover;
+    }
+    > img.mobile {
+        width: 100%;
+        
+        position: absolute;
+        bottom: 0;
+    }
+    > img.desktop {
+        height: 100%;
+        position: absolute;
+        right: 0;
+    }
 }
