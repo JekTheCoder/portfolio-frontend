@@ -31,6 +31,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   @ViewChild('container') container!: ElementRef<HTMLElement>;
   @ViewChild('imgMobile') imageMobile!: ElementRef<HTMLImageElement>;
   @ViewChild('imgDesktop') imageDesktop!: ElementRef<HTMLImageElement>;
+  @ViewChild('text') text!: ElementRef<HTMLElement>;
 
   state?: State;
 
@@ -46,6 +47,22 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
   resizeImages() {
     const containerBox = this.container.nativeElement.getBoundingClientRect();
+    const textBox = this.text.nativeElement.getBoundingClientRect();    
+
+    const textHeight = textBox.height * containerBox.width / textBox.width;
+    containerBox.height += textHeight * .4;
+
+    this.resizeDesktopImage(containerBox);
+
+    containerBox.height += this.imageDesktopHeight;
+    
+    this.resizeMobileImage(containerBox);
+    
+    this.container.nativeElement.style.height = containerBox.height + 'px';
+    this.toggleState();
+  }
+
+  protected resizeDesktopImage(containerBox: DOMRect) {
     const imageDesktop = this.imageDesktop.nativeElement;
 
     const imageDesktopHeight = this.boxSize.calculateResizeDimension(containerBox.width, imageDesktop.naturalWidth, imageDesktop.naturalHeight);
@@ -53,14 +70,12 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     imageDesktop.style.height = imageDesktopHeight + 'px';
 
     this.imageDesktopHeight = imageDesktopHeight;
-    containerBox.height = containerBox.height + imageDesktopHeight;
-    this.container.nativeElement.style.height = containerBox.height + 'px';
+  }
 
+  protected resizeMobileImage(containerBox: DOMRect) {
     const imageMobileWidth = this.boxSize.calculateResizeDimension(containerBox.height, this.imageMobile.nativeElement.naturalHeight, this.imageMobile.nativeElement.naturalWidth);
     this.imageMobileWidth = imageMobileWidth;
     this.imageMobile.nativeElement.style.width = imageMobileWidth + 'px';
-
-    this.toggleState();
   }
 
   toggleState() {
