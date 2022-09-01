@@ -8,16 +8,14 @@ const textAnimation = trigger('textTrigger',  [
     state('mobile', style({ width: '40%' })),
     state('desktop', style({ width: '100%' })),
     transition('mobile => desktop', [
-        animate('200ms', style({ color: 'transparent' })),
-        style({ color: 'transparent' }),
+        animate('400ms', style({ opacity: 0 })),
         animate('400ms', style({ width: '100%' })),
-        animate('200ms', style({ color: 'unset' }))
+        animate('400ms', style({ opacity: 1 }))
     ]),
     transition('desktop => mobile', [
-        animate('200ms', style({ color: 'transparent' })),
-        style({ color: 'transparent' }),
-        animate('800ms', style({ width: '40%' })),
-        animate('200ms', style({ color: 'unset' }))
+        animate('400ms', style({ opacity: 0 })),
+        animate('400ms', style({ width: '40%' })),
+        animate('400ms', style({ opacity: 1 })),
     ])
 ]);
 
