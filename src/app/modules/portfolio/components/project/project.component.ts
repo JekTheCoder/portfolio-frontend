@@ -4,7 +4,6 @@ import {
   ElementRef,
   HostListener,
   Input,
-  OnInit,
   ViewChild,
 } from '@angular/core';
 import { BoxSizeService } from '../../services/box-size.service';
@@ -64,7 +63,7 @@ export class ProjectComponent implements AfterViewInit {
 
   onImagesLoad() {
     this.resizeImages();
-    this.setState('desktop');
+    this.setState('mobile');
   }
 
   resizeImages() {
