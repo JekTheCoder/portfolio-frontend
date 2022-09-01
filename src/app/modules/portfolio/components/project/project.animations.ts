@@ -1,51 +1,43 @@
-import { animate, query, state, style, transition, trigger, animateChild, group, sequence } from "@angular/animations";
+import { animate, query, state, style, transition, trigger, animateChild } from "@angular/animations";
+
+const firstResizingTime = '300ms';
+const opacityTime = '200ms';
+const secondResizingTime = firstResizingTime;
 
 const textAnimation = trigger('textTrigger',  [
-    state('mobile', style({ width: '40%' })),
+    state('mobile', style({ width: '{{text-width}}px', height: '100%' }), { params: { 'text-width': '' } }),
     state('desktop', style({ width: '100%' })),
     transition('mobile => desktop', [
-        animate('200ms', style({ color: 'transparent' })),
-        style({ color: 'transparent' }),
-        animate('400ms', style({ width: '100%' })),
-        animate('200ms', style({ color: 'unset' }))
+        animate('400ms', style({ opacity: 0 })),
+        animate('400ms', style({ width: '100%', height: '*' })),
+        animate('400ms', style({ opacity: 1 }))
     ]),
     transition('desktop => mobile', [
-        animate('200ms', style({ color: 'transparent' })),
-        style({ color: 'transparent' }),
-        animate('800ms', style({ width: '40%' })),
-        animate('200ms', style({ color: 'unset' }))
+        animate('400ms', style({ opacity: 0 })),
+        animate('400ms', style({ width: '{{text-width}}px', height: '100%' })),
+        animate('400ms', style({ opacity: 1 })),
     ])
 ]);
 
-const desktopToMobile = [
-    animate('400ms', style({ width: '50%' })),
-    animate('400ms', style({ height: '100%' }))
-];
-
-const mobileToDesktop = [
-    animate('400ms', style({ height: '220px' })),
-    animate('400ms', style({ width: '100%' })),
-];
-
 const imageAnimation = trigger('imageTrigger',  [
-    state('desktop', style({ width: '100%', height: '220px' })),
-    state('mobile', style({ width: '50%', height: '100%' })),
-    transition('desktop => mobile', 
-        group([
-            sequence(desktopToMobile),
-            query('@*', animateChild())
-        ]
-    )),
-    transition('mobile => desktop', group([
-        sequence(mobileToDesktop),
-        query('@*', animateChild())
-    ]))
+    state('desktop', style({ width: '100%', height: '{{height}}px' }), { params: { 'height': '200' } }),
+    state('mobile', style({ width: '{{width}}px', height: '100%' }), { params: { width: '200' } }),
+    transition('desktop => mobile', [
+        animate(firstResizingTime, style({ width: '{{width}}px' })),
+        query('@*', animateChild()),
+        animate(secondResizingTime, style({ height: '100%' })),
+    ]),
+    transition('mobile => desktop', [
+        animate(firstResizingTime, style({ height: '{{height}}px' })),
+        query('@*', animateChild()),
+        animate(secondResizingTime, style({ width: '100%' })),
+    ])
 ]);
 
 const mobileImage = trigger('mobileImage',  [
     state('mobile', style({ opacity: '0' })),
     state('desktop', style({ opacity: '1' })),
-    transition('mobile <=> desktop', [animate('400ms')]),
+    transition('mobile <=> desktop', [animate(opacityTime)]),
 ]);
 
 export const animations = [textAnimation, imageAnimation, mobileImage];

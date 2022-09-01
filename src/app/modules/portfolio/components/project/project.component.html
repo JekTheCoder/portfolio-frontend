@@ -1,19 +1,24 @@
-<div class="container">
-  <div class="text" [@textTrigger]="state">
+<div class="container" #container>
+  <div class="text" [@textTrigger]="state" #text>
     <ng-content></ng-content>
   </div>
   <div
     class="img-c"
     [@imageTrigger]="state"
-    (click)="state = state === 'desktop' ? 'mobile' : 'desktop'"
+    (click)="toggleState()"
   >
-    <img [src]="mImage.src" [alt]="mImage.alt" class="mobile" />
+    <img [src]="mImage.src" [alt]="mImage.alt" class="mobile" #imgMobile/>
     <img
       [src]="image.src"
       [alt]="image.alt"
       [@mobileImage]="state"
       class="desktop"
+      #imgDesktop
+
+      (load)="onImagesLoad()"
     />
-    
+    <div class="click-me">
+      <span>Click Me</span>
+    </div>
   </div>
 </div>
