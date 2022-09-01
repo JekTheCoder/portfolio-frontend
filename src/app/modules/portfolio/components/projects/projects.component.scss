@@ -24,6 +24,8 @@ section {
 }
 
 .app-project-text {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -32,6 +34,9 @@ section {
         margin-bottom: 10px;
     }
 
+    .source {
+        word-break: break-all;
+    }
     .source .link:nth-child(2) {
         padding-right: 20px;
     }
