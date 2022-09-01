@@ -5,7 +5,7 @@ const opacityTime = '200ms';
 const secondResizingTime = firstResizingTime;
 
 const textAnimation = trigger('textTrigger',  [
-    state('mobile', style({ width: '40%' })),
+    state('mobile', style({ width: '{{text-width}}px', height: '100%' }), { params: { 'text-width': '' } }),
     state('desktop', style({ width: '100%' })),
     transition('mobile => desktop', [
         animate('400ms', style({ opacity: 0 })),
@@ -14,7 +14,7 @@ const textAnimation = trigger('textTrigger',  [
     ]),
     transition('desktop => mobile', [
         animate('400ms', style({ opacity: 0 })),
-        animate('400ms', style({ width: '40%' })),
+        animate('400ms', style({ width: '{{text-width}}px' })),
         animate('400ms', style({ opacity: 1 })),
     ])
 ]);

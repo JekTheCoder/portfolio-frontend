@@ -23,7 +23,10 @@ type State =
     }
   | {
       value: 'mobile';
-      params: { width: number | string };
+      params: {
+        width: number | string;
+        'text-width': number | string;
+      };
     };
 
 @Component({
@@ -45,8 +48,10 @@ export class ProjectComponent implements AfterViewInit {
 
   protected imageDesktopHeight!: number;
   protected imageMobileWidth!: number;
+  protected textWidth!: number;
 
   protected textBox!: DOMRect;
+  protected containerBox!: DOMRect;
 
   constructor(private boxSize: BoxSizeService) {}
 
@@ -56,7 +61,8 @@ export class ProjectComponent implements AfterViewInit {
 
   @HostListener('window:resize')
   onResize() {
-    if (this.state?.value !== 'mobile') this.textBox = this.text.nativeElement.getBoundingClientRect();
+    if (this.state?.value !== 'mobile')
+      this.textBox = this.text.nativeElement.getBoundingClientRect();
     this.resizeImages();
     this.setState(this.state!.value);
   }
@@ -67,18 +73,18 @@ export class ProjectComponent implements AfterViewInit {
   }
 
   resizeImages() {
-    const containerBox = this.container.nativeElement.getBoundingClientRect();
+    this.containerBox = this.container.nativeElement.getBoundingClientRect();
     const textHeight =
-      (this.textBox.height * containerBox.width) / this.textBox.width;
-    containerBox.height = textHeight + 40;
+      (this.textBox.height * this.containerBox.width) / this.textBox.width;
+    this.containerBox.height = textHeight + 40;
 
-    this.resizeDesktopImage(containerBox);
+    this.resizeDesktopImage(this.containerBox);
 
-    containerBox.height += this.imageDesktopHeight;
+    this.containerBox.height += this.imageDesktopHeight;
 
-    this.resizeMobileImage(containerBox);
+    this.resizeMobileImage(this.containerBox);
 
-    this.container.nativeElement.style.height = containerBox.height + 'px';
+    this.container.nativeElement.style.height = this.containerBox.height + 'px';
   }
 
   protected resizeDesktopImage(containerBox: DOMRect) {
@@ -101,16 +107,20 @@ export class ProjectComponent implements AfterViewInit {
     );
     this.imageMobile.nativeElement.style.height = containerBox.height + 'px';
     this.imageMobileWidth = imageMobileWidth;
+    this.textWidth = containerBox.width - imageMobileWidth - 20;
   }
 
   toggleState() {
     this.state =
-      this.state?.value === 'mobile'
+      this.state?.value !== 'mobile'
         ? {
+            value: 'mobile',
+            params: { width: this.imageMobileWidth, 'text-width': this.textWidth },
+          }
+        : {
             value: 'desktop',
             params: { height: this.imageDesktopHeight },
-          }
-        : { value: 'mobile', params: { width: this.imageMobileWidth } };
+          };
   }
 
   protected setState(state: 'desktop' | 'mobile') {
@@ -118,7 +128,7 @@ export class ProjectComponent implements AfterViewInit {
       state === 'mobile'
         ? {
             value: 'mobile',
-            params: { width: this.imageMobileWidth },
+            params: { width: this.imageMobileWidth, 'text-width': this.textWidth },
           }
         : {
             value: 'desktop',
