@@ -18,3 +18,30 @@ section {
         }
     }
 }
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+.app-project-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h4 {
+        margin-bottom: 10px;
+    }
+
+    .source .link:nth-child(2) {
+        padding-right: 20px;
+    }
+}
+
+a.link {
+    color: unset;
+    text-decoration: none;
+
+    span {
+        text-decoration: underline;
+    }
+}

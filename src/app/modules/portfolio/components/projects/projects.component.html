@@ -1,36 +1,30 @@
-<h3>My Projects</h3>
-
-<!-- <section class="img-r">
-    <div class="">
-        <div class="">
-            <h4>E-Shop Commerce</h4>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos fugiat, repellendus
-                veniam nisi ex adipisci fugit eligendi esse laborum praesentium, distinctio placeat illo?
-                Labore, non eligendi. Deserunt fuga necessitatibus esse?
-            </p>
-        </div>
-        <div class="">
-            <p>Lorem, ipsum.</p>
-        </div>
-    </div>
-    <div class="gap"></div>
-    <div class="img-c">
-        <img src="/assets/h-eshop.PNG" alt="e-shop">
-    </div>
-</section> -->
+<h3 class="section-title">My Projects</h3>
 <app-project [image]="{ src: '/assets/h-eshop.PNG', alt: 'e-shop' }" [mImage]="{ src: '/assets/m-eshop.PNG' }">
-    <div text>
+    <div text class="app-project-text">
         <div class="">
             <h4>E-Shop Commerce</h4>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos fugiat, repellendus
-                veniam nisi ex adipisci fugit eligendi esse laborum praesentium, distinctio placeat illo?
-                Labore, non eligendi. Deserunt fuga necessitatibus esse?
-            </p>
+            <div>
+                <p>Generic E-Comerce Website built within Angular v14.</p>
+                <p>It consumes <a href="https://fakestoreapi.com/" target="_blank">fakestore</a> api</p>
+                <br>
+                <p>Some of the most destacable features are:</p>
+                <ul>
+                    <li>Dark / Light mode switcher</li>
+                    <li>Product Filter</li>
+                    <li>Infinite Carousel</li>
+                </ul>
+            </div>
         </div>
-        <div class="">
-            <p>Lorem, ipsum.</p>
+        <div class="source">
+            <p>Source</p>
+            <a class="link" href="https://github.com/JekTheCoder/e-shop" target="_blank">
+                <fa-icon [icon]="githubIcon"></fa-icon>&nbsp;
+                <span>github</span>
+            </a>
+            <a class="link" href="https://jekthecoder.github.io/e-shop/" target="_blank">
+                <fa-icon [icon]="globeIcon"></fa-icon>&nbsp;
+                <span>demo</span>
+            </a>
         </div>
     </div>
 </app-project>
