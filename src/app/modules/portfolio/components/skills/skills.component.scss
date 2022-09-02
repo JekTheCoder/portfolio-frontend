@@ -3,6 +3,7 @@
     height: 40px;
     padding: 10px 0;
 
+    ::ng-deep
     >* {
         height: 100%;
         transition: transform .4s;
