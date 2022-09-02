@@ -10,7 +10,6 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { NavigatorComponent } from './components/navigator/navigator.component';
 import { NgLetDirective } from 'src/app/common/directives/ng-let.directive';
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { BackendProjectComponent } from './components/backend-project/backend-project.component';
 import { SkillsComponent } from './components/skills/skills.component';
@@ -31,7 +30,6 @@ import { ProjectsModule } from '../projects/projects.module';
     PortfolioRoutingModule,
     NgLetDirective,
     FontAwesomeModule,
-    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     ProjectsModule

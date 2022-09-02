@@ -20,23 +20,3 @@
     </p>
 </div>
 <div class="separator"></div>
-<h4>Or...</h4>
-<div class="">
-    <h4>Send me a message!</h4>
-    <form [formGroup]="contactMeForm" class="contact-me-form">
-        <mat-form-field>
-            <mat-label>Your Name</mat-label>
-            <input matInput type="text" formControlName="name">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>@email</mat-label>
-            <input matInput type="email" formControlName="email">
-            <mat-error>Email is required!</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Message</mat-label>
-            <textarea matInput formControlName="message"></textarea>
-        </mat-form-field>
-        <button type="submit">submit</button>
-    </form>
-</div>
