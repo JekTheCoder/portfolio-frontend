@@ -2,16 +2,23 @@
 @use '@angular/material' as mat;
 
 @use  '../app/modules/_app/components/header/header.theme.scss' as app-header;
-@use  '../app/modules/portfolio/components/portfolio/portfolio.theme.scss' as app-portfolio;
 @use '../app/modules/portfolio/components/navigator/navigator.theme.scss' as app-navigator;
 @use '../app/modules/portfolio/components/contact-me/contact-me.theme.scss' as app-contact-me;
 
 @mixin theme($material-theme, $app-theme) {
     $background-palette: map.get($app-theme, 'background');
+    $color-config: mat.get-color-config($material-theme);
+    $is-dark-theme:   map.get($color-config, 'is-dark');
+
+    $color: #000;
+    @if $is-dark-theme {
+        $color: #fff;
+    }
+
     background-color: mat.get-color-from-palette($background-palette);
+    color: $color;
 
     @include app-header.theme($material-theme, $app-theme);
-    @include app-portfolio.theme($material-theme, $app-theme);
     @include app-navigator.theme($material-theme, $app-theme);
     @include app-contact-me.theme($material-theme, $app-theme);
 }
