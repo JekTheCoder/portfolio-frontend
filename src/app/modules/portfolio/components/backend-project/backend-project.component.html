@@ -2,8 +2,10 @@
 <div class="">
   <div class="preview">
     <div class="abs-container">
-        <div [@arrow]="expanded ? 'up' : 'down'">
-            <fa-icon [icon]="arrowIcon" (click)="expanded = !expanded"></fa-icon>
+        <div class="arrow-wrapper">
+            <div [@arrow]="expanded ? 'up' : 'down'">
+                <fa-icon [icon]="arrowIcon" (click)="expanded = !expanded"></fa-icon>
+            </div>
         </div>
     </div>
 
