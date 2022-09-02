@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectComponent } from './components/project/project.component';
 import { BackendProjectComponent } from './components/backend-project/backend-project.component';
+import { SkillsComponent } from './components/skills/skills.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { BackendProjectComponent } from './components/backend-project/backend-pr
     ContactMeComponent,
     ProjectsComponent,
     ProjectComponent,
-    BackendProjectComponent
+    BackendProjectComponent,
+    SkillsComponent
   ],
   imports: [
     CommonModule,
