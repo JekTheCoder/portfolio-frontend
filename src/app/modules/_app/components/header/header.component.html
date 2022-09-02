@@ -3,5 +3,11 @@
         [routerLink]="link.url"
         routerLinkActive="active"
     >{{ link.name }}</a>
-    <input type="checkbox" (ngModelChange)="setDarkMode($event)" [ngModel]="darkmode$ | async">
+    <div class="" *ngLet="(darkmode$ | async) as darkmode">
+        <mat-slide-toggle [ngModel]="darkmode" (ngModelChange)="setDarkMode($event)"></mat-slide-toggle>&nbsp;
+        <fa-icon [icon]="moonIcon" *ngIf="darkmode; else sunIconEl" style="color: #fff;"></fa-icon>
+        <ng-template #sunIconEl>
+            <fa-icon [icon]="sunIcon" style="color: #000;"></fa-icon>
+        </ng-template>
+    </div>
 </header>

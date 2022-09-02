@@ -1,5 +1,6 @@
-import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnChanges, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { DarkModeService } from '../../services/dark-mode.service';
 import { animations } from './header.animations';
 
@@ -20,6 +21,9 @@ export class HeaderComponent implements OnChanges {
   @HostListener('mouseleave')
   protected mouseleave() { this.emitOpenState(false); }
   protected state?: 'open' | 'closed';
+
+  protected moonIcon = faMoon;
+  protected sunIcon = faSun;
 
   protected darkModeControl = new FormControl();
   protected darkmode$ = this.darkMode.getDarkMode$();
