@@ -13,6 +13,7 @@ import { ContactMeComponent } from './components/contact-me/contact-me.component
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectComponent } from './components/project/project.component';
+import { BackendProjectComponent } from './components/backend-project/backend-project.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ProjectComponent } from './components/project/project.component';
     NavigatorComponent,
     ContactMeComponent,
     ProjectsComponent,
-    ProjectComponent
+    ProjectComponent,
+    BackendProjectComponent
   ],
   imports: [
     CommonModule,
