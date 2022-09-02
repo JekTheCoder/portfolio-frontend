@@ -9,3 +9,17 @@ h4 {
 h5 {
     font-size: 20px;
 }
+
+.all {
+    overflow: hidden;
+}
+
+.preview {
+    position: relative;
+}
+
+.abs-container {
+    right: -10px;
+    position: absolute;
+    bottom: 0;
+}
