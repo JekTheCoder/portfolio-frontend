@@ -12,9 +12,9 @@ import { NgLetDirective } from 'src/app/common/directives/ng-let.directive';
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectsComponent } from './components/projects/projects.component';
-import { ProjectComponent } from './components/project/project.component';
 import { BackendProjectComponent } from './components/backend-project/backend-project.component';
 import { SkillsComponent } from './components/skills/skills.component';
+import { ProjectsModule } from '../projects/projects.module';
 
 
 @NgModule({
@@ -23,7 +23,6 @@ import { SkillsComponent } from './components/skills/skills.component';
     NavigatorComponent,
     ContactMeComponent,
     ProjectsComponent,
-    ProjectComponent,
     BackendProjectComponent,
     SkillsComponent
   ],
@@ -34,7 +33,8 @@ import { SkillsComponent } from './components/skills/skills.component';
     FontAwesomeModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ProjectsModule
   ]
 })
 export class PortfolioModule { }
