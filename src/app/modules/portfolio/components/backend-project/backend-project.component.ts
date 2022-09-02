@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faGlobeAmericas } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-backend-project',
@@ -22,6 +22,7 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 export class BackendProjectComponent implements OnInit {
 
   arrowIcon = faArrowDown;
+  globeIcon = faGlobeAmericas;
 
   expanded = false; 
 

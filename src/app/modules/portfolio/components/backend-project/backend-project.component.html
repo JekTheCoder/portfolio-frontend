@@ -2,11 +2,11 @@
 <div class="">
   <div class="preview">
     <div class="abs-container">
-        <div class="arrow-wrapper">
-            <div [@arrow]="expanded ? 'up' : 'down'">
-                <fa-icon [icon]="arrowIcon" (click)="expanded = !expanded"></fa-icon>
-            </div>
+      <div class="arrow-wrapper">
+        <div [@arrow]="expanded ? 'up' : 'down'">
+          <fa-icon [icon]="arrowIcon" (click)="expanded = !expanded"></fa-icon>
         </div>
+      </div>
     </div>
 
     <p>Backend server built within nestjs and node.</p>
@@ -27,16 +27,31 @@
     </p>
   </div>
   <div class="all" #all [@text]="expanded ? 'expanded' : 'not-expanded'">
-    <br>
+    <br />
     <p>
       In order to test the interaction of the application with the database. For
       those components (services) wich interact directly with the database, a
       fake and test only database is created for unit testing using
-      better-slite3. This way, the unit test ensures that all relation ships and
-      entities columns metadata are great and that the aplication will not crash
-      in production. This extra security could not be access by just mocking the
+      better-slite3.
+    </p>
+    <p>
+      This way, the unit test ensures that all relation ships and entities
+      columns metadata are great and that the aplication will not crash in
+      production. This extra security could not be access by just mocking the
       database.
     </p>
+  </div>
+  <div class="source">
+    <h5>Source</h5>
+    <a
+      href="https://github.com/JekTheCoder/nest-backend"
+      title="nest-backend"
+      target="_blank"
+      class="link"
+    >
+      <fa-icon [icon]="globeIcon"></fa-icon> &nbsp;
+      <span>github</span>
+    </a>
   </div>
 </div>
 <h5 style="margin-top: 40px">Technologies Used</h5>
