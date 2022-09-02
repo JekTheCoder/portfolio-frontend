@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [style.height]="height+'px'">
     <img *ngFor="let skill of skills" [src]="skill">
     <ng-content></ng-content>
 </div>

@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SkillsComponent implements OnInit {
 
+  @Input() height?: number;
   @Input() skills: string[] = [];
 
   constructor() { }
