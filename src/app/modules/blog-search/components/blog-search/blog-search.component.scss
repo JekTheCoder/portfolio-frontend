@@ -13,3 +13,15 @@
         width: 100%;
     }
 }
+
+.content {
+    display: flex;
+    justify-content: center;
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        flex: 1;
+    }
+}

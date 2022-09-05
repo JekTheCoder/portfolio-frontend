@@ -8,4 +8,11 @@
             </button>
         </mat-form-field>
     </div>
+    <div class="content">
+        <div class="grid-container">
+            <ng-container *ngIf="blogs$ | async as blogs">
+                <app-blog-card *ngFor="let blog of blogs" [blog]="blog"></app-blog-card>
+            </ng-container>
+        </div>
+    </div>
 </div>
