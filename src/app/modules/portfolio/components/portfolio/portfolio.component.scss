@@ -29,11 +29,6 @@ $margin-top: 100px;
             margin-bottom: 10px;
         }
 
-        h2 {
-            font-size: 78px;
-            max-width: 50%;
-        }
-
         .link {
             font-weight: 600;
             text-decoration: underline;
@@ -44,5 +39,16 @@ $margin-top: 100px;
     #projects {
         max-width: 1000px;
         padding-top: 60px;
+    }
+}
+
+h2 {
+    font-size: 12vw;
+    max-width: 50%;
+}
+
+@media (min-width: 1000px) {
+    h2.name {
+        font-size: 120px;
     }
 }
