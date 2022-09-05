@@ -17,6 +17,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/blog/blog.module').then(m => m.BlogModule)
   },
   {
+    path: 'blog/search',
+    loadChildren: () => import('./modules/blog-search/blog-search.module').then(m => m.BlogSearchModule)
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }
