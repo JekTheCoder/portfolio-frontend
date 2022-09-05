@@ -1,0 +1,15 @@
+.container {
+    padding-top: 60px;
+
+    margin: auto;
+    max-width: 1200px;
+}
+
+.searcher {
+    margin: auto;
+    max-width: 600px;
+
+    >* {
+        width: 100%;
+    }
+}
