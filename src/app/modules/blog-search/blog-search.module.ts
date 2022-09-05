@@ -9,11 +9,13 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { BlogSearchRoutingModule } from './blog-search-routing.module';
 import { BlogSearchComponent } from './components/blog-search/blog-search.component';
+import { BlogCardComponent } from './components/blog-card/blog-card.component';
 
 
 @NgModule({
   declarations: [
-    BlogSearchComponent
+    BlogSearchComponent,
+    BlogCardComponent
   ],
   imports: [
     CommonModule,
