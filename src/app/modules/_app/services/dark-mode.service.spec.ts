@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { BODY } from '../providers/body.provider';
-import { LOCAL_STORAGE } from '../providers/local-storage.provider';
+import { LOCAL_STORAGE } from '../../../common/providers/local-storage.provider';
 
 import { DarkModeService } from './dark-mode.service';
 

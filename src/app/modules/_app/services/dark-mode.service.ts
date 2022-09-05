@@ -1,7 +1,7 @@
 import { Inject, Injectable, RendererFactory2 } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { BODY } from '../providers/body.provider';
-import { LOCAL_STORAGE } from '../providers/local-storage.provider';
+import { LOCAL_STORAGE } from '../../../common/providers/local-storage.provider';
 
 @Injectable({
   providedIn: 'root'
