@@ -6,7 +6,8 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: BlogSearchComponent
+    component: BlogSearchComponent,
+    title: 'Jeshua Hinostroza | blog'
   }
 ];
 

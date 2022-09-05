@@ -4,9 +4,15 @@ import { BlogComponent } from './components/blog/blog.component';
 
 const routes: Routes = [
   {
-    'path': '',
+    'path': 'id/:id',
     pathMatch: 'full',
-    component: BlogComponent
+    component: BlogComponent,
+    title: 'Jeshua Hinostroza | blog'
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/blog/search'
   }
 ];
 
