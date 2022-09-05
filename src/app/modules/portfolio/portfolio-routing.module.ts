@@ -6,7 +6,8 @@ const routes: Routes = [
   {
     component: PortfolioComponent,
     path: '',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    title: 'Jeshua Hinostroza | portfolio'
   }
 ];
 
