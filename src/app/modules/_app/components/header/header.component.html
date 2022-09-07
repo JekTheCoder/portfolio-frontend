@@ -6,22 +6,21 @@
     >{{ link.name }}</a
   >
 
-  <div class="right">
-
-    <div class="" *ngLet="darkmode$ | async as darkmode">
-      <mat-slide-toggle
-        [ngModel]="darkmode"
-        (ngModelChange)="setDarkMode($event)"
-      ></mat-slide-toggle
-      >&nbsp;
-      <fa-icon
-        [icon]="darkmode ? moonIcon : sunIcon"
-        [style.color]="darkmode ? '#fff' : '#000'"
-      ></fa-icon>
-    </div>
-
-    <div class="profile">
-    </div>
-
+  
+  <div class="" *ngLet="darkmode$ | async as darkmode">
+    <mat-slide-toggle
+      [ngModel]="darkmode"
+      (ngModelChange)="setDarkMode($event)"
+    ></mat-slide-toggle
+    >&nbsp;
+    <fa-icon
+      [icon]="darkmode ? moonIcon : sunIcon"
+      [style.color]="darkmode ? '#fff' : '#000'"
+    ></fa-icon>
   </div>
+
+  <div class="profile">
+    <app-profile-icon></app-profile-icon>
+  </div>
+  
 </header>
