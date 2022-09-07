@@ -1,13 +1,27 @@
 <header [@header]="state">
-    <a *ngFor="let link of links"
-        [routerLink]="link.url"
-        routerLinkActive="active"
-    >{{ link.name }}</a>
-    <div class="" *ngLet="(darkmode$ | async) as darkmode">
-        <mat-slide-toggle [ngModel]="darkmode" (ngModelChange)="setDarkMode($event)"></mat-slide-toggle>&nbsp;
-        <fa-icon [icon]="moonIcon" *ngIf="darkmode; else sunIconEl" style="color: #fff;"></fa-icon>
-        <ng-template #sunIconEl>
-            <fa-icon [icon]="sunIcon" style="color: #000;"></fa-icon>
-        </ng-template>
+  <a
+    *ngFor="let link of links"
+    [routerLink]="link.url"
+    routerLinkActive="active"
+    >{{ link.name }}</a
+  >
+
+  <div class="right">
+
+    <div class="" *ngLet="darkmode$ | async as darkmode">
+      <mat-slide-toggle
+        [ngModel]="darkmode"
+        (ngModelChange)="setDarkMode($event)"
+      ></mat-slide-toggle
+      >&nbsp;
+      <fa-icon
+        [icon]="darkmode ? moonIcon : sunIcon"
+        [style.color]="darkmode ? '#fff' : '#000'"
+      ></fa-icon>
     </div>
+
+    <div class="profile">
+    </div>
+
+  </div>
 </header>

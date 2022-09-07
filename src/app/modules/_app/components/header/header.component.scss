@@ -18,6 +18,13 @@ header {
     justify-content: space-evenly;
     height: 100%;
     align-items: center;
+
+    position: relative;
+
+    .right {
+        position: absolute;
+        right: 10px;
+    }
 }
 
 a {
