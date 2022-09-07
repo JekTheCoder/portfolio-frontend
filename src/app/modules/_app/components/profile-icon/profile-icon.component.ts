@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-profile-icon',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-icon.component.scss']
 })
 export class ProfileIconComponent implements OnInit {
+
+  profileIcon = faUser;
 
   constructor() { }
 
