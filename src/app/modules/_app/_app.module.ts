@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NgLetDirective } from 'src/app/common/directives/ng-let.directive';
+import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
 
 
 
@@ -17,7 +18,8 @@ import { NgLetDirective } from 'src/app/common/directives/ng-let.directive';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProfileIconComponent
   ],
   imports: [
     CommonModule,
