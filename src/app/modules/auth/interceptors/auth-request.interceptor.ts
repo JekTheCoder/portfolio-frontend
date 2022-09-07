@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Provider } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -42,4 +43,10 @@ export class AuthRequestInterceptor implements HttpInterceptor {
 
     return request;
   }
+}
+
+export const AuthRequestInterceptorProvider: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthRequestInterceptor,
+  multi: true
 }
