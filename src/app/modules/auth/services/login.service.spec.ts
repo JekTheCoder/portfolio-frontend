@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { AuthTokensService } from './auth-tokens.service';
 
 import { LoginService } from './login.service';
 
@@ -8,7 +9,8 @@ describe('LoginService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
+      providers: [{ provide: AuthTokensService, useValue: {} }]
     });
     service = TestBed.inject(LoginService);
   });
