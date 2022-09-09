@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 import { TokensResponse } from '../models/tokens-response.interface';
 import { AuthTokensService } from './auth-tokens.service';
 
-interface LoginDto {
+export interface LoginDto {
   username: string;
   password: string;
 }
