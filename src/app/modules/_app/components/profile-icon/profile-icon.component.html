@@ -1,3 +1,22 @@
-<div class="icon-container">
+<div class="profile">
+  <div
+    class="mouse-trigger"
+    (mouseenter)="overIcon = true"
+    (mouseleave)="overIcon = false"
+  ></div>
+  <div class="icon-container">
     <fa-icon class="icon" [icon]="profileIcon"></fa-icon>
+  </div>
+</div>
+
+<div
+  class="profile-panel"
+  [@profileMenu]="overIcon || overPanel ? 'display' : 'hidden'"
+  (mouseleave)="overPanel = false"
+  (mouseenter)="overPanel = true"
+  style="height: 100px"
+>
+  <ul>
+    <li>dadwa</li>
+  </ul>
 </div>

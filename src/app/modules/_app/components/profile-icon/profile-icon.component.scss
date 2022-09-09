@@ -1,18 +1,51 @@
-.icon-container {
+:host {
+    position: relative;
+}
+
+.profile {
     height: 18px;
     aspect-ratio: 1;
-    overflow: hidden;
+    position: relative;
 
-    border-radius: 50%;
-
-    .icon {
-        width: 100%;
+    .icon-container {
+        width: 100%;    
         height: 100%;
-
-        ::ng-deep
-        svg {
+        overflow: hidden;
+        position: relative;
+    
+        border-radius: 50%;
+    
+        .icon {
             width: 100%;
             height: 100%;
+    
+            ::ng-deep
+            svg {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
+}
+
+.mouse-trigger {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    height: 200%;
+
+    z-index: 100;
+    aspect-ratio: 1;
+}
+
+.profile-panel {
+    position: absolute;
+    top: 32px;
+    right: -10px;
+    z-index: 1100;
+    background-color: #fff;
+    color: #000;
+
+    width: 200px;
+    padding: 5px;
 }

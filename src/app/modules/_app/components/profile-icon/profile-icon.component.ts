@@ -12,6 +12,9 @@ export class ProfileIconComponent implements OnInit {
 
   profileIcon = faUser;
 
+  protected overIcon = false;
+  protected overPanel = false;
+
   constructor() { }
 
   ngOnInit(): void {
