@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/blog-search/blog-search.module').then(m => m.BlogSearchModule)
   },
   {
+    path: 'auth',
+    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }
