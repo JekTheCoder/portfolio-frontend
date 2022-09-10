@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs';
 import { GithubService } from '../../services/github.service';
 import { LoginService } from '../../services/login.service';
@@ -10,25 +10,28 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./github-auth.component.scss'],
 })
 export class GithubAuthComponent implements OnInit {
-
   code?: string;
   register?: string;
   email?: string;
 
-  constructor(route: ActivatedRoute, private loginService: LoginService, private githubService: GithubService) {
+  constructor(
+    route: ActivatedRoute,
+    private loginService: LoginService,
+    private githubService: GithubService,
+    private router: Router
+  ) {
     route.queryParams.pipe(take(1)).subscribe({
-      next: map => {
+      next: (map) => {
         const { code, register, email } = map as { [key in string]?: string };
         this.code = code;
         this.register = register;
         this.email = email;
       },
-      complete: () => this.AuthWithGithub(this.code, this.register, this.email) 
+      complete: () => this.AuthWithGithub(this.code, this.register, this.email),
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   AuthWithGithub(code?: string, register?: string, email?: string) {
     const login = register !== 'true';
@@ -43,10 +46,20 @@ export class GithubAuthComponent implements OnInit {
   }
 
   protected authenticate(code: string, login: boolean) {
-    const authReq = login ? this.loginService.loginGithub(code) : this.loginService.registerGithub(code);
+    const authReq = login
+      ? this.loginService.loginGithub(code)
+      : this.loginService.registerGithub(code);
 
     authReq.subscribe({
-      error: console.error
-    })
+      error: console.error,
+    });
+  }
+
+  protected getBack() {
+    this.router.navigate(['/']);
+  }
+
+  protected redirectToGithub() {
+    
   }
 }

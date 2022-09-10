@@ -4,6 +4,7 @@
 @use  '../app/modules/_app/components/header/header.theme.scss' as app-header;
 @use '../app/modules/portfolio/components/navigator/navigator.theme.scss' as app-navigator;
 @use '../app/modules/portfolio/components/contact-me/contact-me.theme.scss' as app-contact-me;
+@use '../app/modules/auth/components/github-auth/github-auth.theme.scss' as app-github-auth;
 
 @mixin theme($material-theme, $app-theme) {
     $background-palette: map.get($app-theme, 'background');
@@ -21,4 +22,5 @@
     @include app-header.theme($material-theme, $app-theme);
     @include app-navigator.theme($material-theme, $app-theme);
     @include app-contact-me.theme($material-theme, $app-theme);
+    @include app-github-auth.theme($material-theme, $app-theme);
 }

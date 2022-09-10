@@ -1,0 +1,21 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin theme($material-theme, $app-theme) {
+    $background-palette: map.get($app-theme, 'background');
+    $color-config: mat.get-color-config($material-theme);
+    $is-dark-theme:   map.get($color-config, 'is-dark');
+
+    $color: #000;
+    @if $is-dark-theme {
+        $color: #fff;
+    }
+
+    app-github-auth {
+
+        .dialog {
+            background-color: mat.get-color-from-palette($background-palette);
+            box-shadow: 0 0 2px $color;
+        }
+    }
+}
