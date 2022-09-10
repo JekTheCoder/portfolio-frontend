@@ -9,8 +9,7 @@ import {
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
-
-import { AuthTokensService } from '../services/auth-tokens.service';
+import { AuthTokensService } from '../../auth/services/auth-tokens.service';
 import { AuthHeader } from '../providers/auth-header';
 
 @Injectable()

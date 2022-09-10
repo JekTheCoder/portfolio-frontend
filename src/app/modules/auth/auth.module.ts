@@ -7,7 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { GithubAuthComponent } from './components/github-auth/github-auth.component';
-import { AuthRequestInterceptorProvider } from './interceptors/auth-request.interceptor';
 
 @NgModule({
   imports: [
@@ -19,6 +18,5 @@ import { AuthRequestInterceptorProvider } from './interceptors/auth-request.inte
     MatFormFieldModule,
   ],
   declarations: [LoginComponent, GithubAuthComponent],
-  providers: [AuthRequestInterceptorProvider],
 })
 export class AuthModule {}
