@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { skip, take } from 'rxjs';
+import { take } from 'rxjs';
+import { GithubService } from '../../services/github.service';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -12,22 +13,40 @@ export class GithubAuthComponent implements OnInit {
 
   code?: string;
   register?: string;
+  email?: string;
 
-  constructor(route: ActivatedRoute, private loginService: LoginService) {
+  constructor(route: ActivatedRoute, private loginService: LoginService, private githubService: GithubService) {
     route.queryParams.pipe(take(1)).subscribe({
       next: map => {
-        const { code, register } = map as { [key in string]?: string };
+        const { code, register, email } = map as { [key in string]?: string };
         this.code = code;
         this.register = register;
+        this.email = email;
       },
-      complete: () => this.AuthWithGithub(this.code, this.register) 
+      complete: () => this.AuthWithGithub(this.code, this.register, this.email) 
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
-  AuthWithGithub(code?: string, register?: string) {
+  AuthWithGithub(code?: string, register?: string, email?: string) {
     const login = register !== 'true';
-    console.log(code, register)
+    const email_ = email === 'true';
+
+    if (!code) {
+      this.githubService.redirectToGithubAuth(login, email_);
+      return;
+    }
+
+    this.authenticate(code, login);
+  }
+
+  protected authenticate(code: string, login: boolean) {
+    const authReq = login ? this.loginService.loginGithub(code) : this.loginService.registerGithub(code);
+
+    authReq.subscribe({
+      error: console.error
+    })
   }
 }
