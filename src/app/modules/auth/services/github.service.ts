@@ -12,11 +12,11 @@ export class GithubService {
 
   constructor(@Inject(DOCUMENT) private document: Document) { }
 
-  redirectToGithubAuth(login = true, email?: boolean) {
+  redirectToGithubAuth(login = true, email?: boolean, redirect_to = '/') {
     let githubHref = this.githubHref.slice();
     if (email) githubHref += 'user:email';
 
-    githubHref += this.redirectUri + '?register=' + !login;
+    githubHref += this.redirectUri + '?register=' + !login + '&redirect_to='+redirect_to;
 
     this.document.location.href = githubHref;
   }
