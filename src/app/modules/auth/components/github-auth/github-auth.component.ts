@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs';
@@ -10,9 +11,13 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./github-auth.component.scss'],
 })
 export class GithubAuthComponent implements OnInit {
+  messageShown = 0;
+
   code?: string;
-  register?: string;
-  email?: string;
+  email: boolean = false;
+  login: boolean = false;
+
+  redirect_to?: string;
 
   constructor(
     route: ActivatedRoute,
@@ -21,28 +26,25 @@ export class GithubAuthComponent implements OnInit {
     private router: Router
   ) {
     route.queryParams.pipe(take(1)).subscribe({
-      next: (map) => {
-        const { code, register, email } = map as { [key in string]?: string };
-        this.code = code;
-        this.register = register;
-        this.email = email;
-      },
-      complete: () => this.AuthWithGithub(this.code, this.register, this.email),
+      next: (map) => this.setData(map),
+      complete: () => this.handleGithubCode()
     });
   }
 
   ngOnInit(): void {}
 
-  AuthWithGithub(code?: string, register?: string, email?: string) {
-    const login = register !== 'true';
-    const email_ = email === 'true';
+  private setData(map: { [key in string]?: string }) {
+    this.login = map['register'] !== 'true';
+    this.email = map['email'] === 'true';
+    this.code = map['code'];
+    this.redirect_to = map['redirect_to'];
+  }
 
-    if (!code) {
-      this.githubService.redirectToGithubAuth(login, email_);
-      return;
-    }
+  private handleGithubCode() {
+    const code = this.code;
+    if (!code) return this.redirectToGithub();
 
-    this.authenticate(code, login);
+    this.authenticate(code, this.login)
   }
 
   protected authenticate(code: string, login: boolean) {
@@ -51,15 +53,23 @@ export class GithubAuthComponent implements OnInit {
       : this.loginService.registerGithub(code);
 
     authReq.subscribe({
-      error: console.error,
+      error: e => this.handleError(e),
+      next: () => this.getBack()
     });
   }
 
+  private handleError(error: HttpErrorResponse) {
+    if (error.status !== 401) { this.messageShown = -1; return; };
+
+    this.messageShown = 1;
+  }
+
   protected getBack() {
-    this.router.navigate(['/']);
+    let redirecTo = this.redirect_to || '/';
+    this.router.navigate([redirecTo]);
   }
 
   protected redirectToGithub() {
-    
+    this.githubService.redirectToGithubAuth(this.login, this.email)
   }
 }

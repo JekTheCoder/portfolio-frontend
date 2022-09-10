@@ -1,11 +1,21 @@
-<p>Redirecting...</p>
-<p>Please, wait just a moment</p>
-
-<div class="dialog">
+<div class="" [ngSwitch]="true">
+  <div class="" *ngSwitchCase="messageShown === 0">
+    <p>Redirecting...</p>
+    <p>Please, wait just a moment</p>
+  </div>
+  <div class="" *ngSwitchCase="messageShown === 1">
     <p>It seems that your github code is missing or invalid ;(</p>
     <p>Do you want to be redirected to github oauth?</p>
     <div class="buttons">
-        <button mat-button (click)="getBack()">Get Back</button>
-        <button mat-button (click)="redirectToGithub()">Ok</button>
+      <button mat-button (click)="getBack()">Get Back</button>
+      <button mat-button (click)="redirectToGithub()">Ok</button>
     </div>
+  </div>
+
+  <div class="" *ngSwitchDefault>
+    <p>There is an error with the server :(</p>
+    <div class="buttons">
+        <button mat-button (click)="getBack()">Get Back</button>
+    </div>
+  </div>
 </div>
