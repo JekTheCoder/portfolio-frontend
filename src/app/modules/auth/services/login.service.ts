@@ -40,14 +40,14 @@ export class LoginService {
   }
 
   register(registerDto: any) {
-    return this.createLoginObs('auth/register', registerDto);
+    return this.createLoginObs('/auth/register', registerDto);
   }
 
   loginGithub(code: string) {
-    return this.createLoginObs('auth/login/github', { code });
+    return this.createLoginObs('/auth/login/github', { code });
   }
 
   registerGithub(code: string) {
-    return this.createLoginObs('auth/register/github', { code });
+    return this.createLoginObs('/auth/register/github', { code });
   }
 }
