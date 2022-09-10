@@ -14,6 +14,8 @@ export class AuthTokensService implements OnDestroy {
 
   private stop$ = new Subject<void>();
 
+  private readonly resetTime = 1000 * 60 * 14;
+
   constructor(
     @Inject(LOCAL_STORAGE) private localStorage: Storage,
     private http: HttpClient
@@ -39,7 +41,7 @@ export class AuthTokensService implements OnDestroy {
     this.hasAccessToken$.next(true);
     this.localStorage.setItem('refresh_token', refreshToken);
 
-    interval(5000)
+    interval(this.resetTime)
       .pipe(take(1), takeUntil(this.stop$))
       .subscribe(() => this.refresh());
   }
