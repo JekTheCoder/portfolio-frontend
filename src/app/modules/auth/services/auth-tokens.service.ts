@@ -47,7 +47,7 @@ export class AuthTokensService implements OnDestroy {
     if (!refreshToken) return;
 
     this.http
-      .get<TokensResponse>(`${environment.API_URI}/auth/refresh`, {
+      .post<TokensResponse>(`${environment.API_URI}/auth/refresh`, null, {
         headers: {
           Authorization: `Bearer ${refreshToken}`,
         },
