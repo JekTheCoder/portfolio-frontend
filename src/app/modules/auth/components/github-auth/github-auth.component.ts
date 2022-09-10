@@ -70,6 +70,6 @@ export class GithubAuthComponent implements OnInit {
   }
 
   protected redirectToGithub() {
-    this.githubService.redirectToGithubAuth(this.login, this.email)
+    this.githubService.redirectToGithubAuth(this.login, this.email, this.redirect_to);
   }
 }
