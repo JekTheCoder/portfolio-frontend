@@ -52,10 +52,10 @@ export class AuthTokensService implements OnDestroy {
           Authorization: `Bearer ${refreshToken}`,
         },
       })
-      .subscribe(({ access_token, refresh_token }) =>
+      .subscribe(({ token, refreshToken }) =>
         this.setTokens({
-          accessToken: access_token,
-          refreshToken: refresh_token,
+          accessToken: token,
+          refreshToken
         })
       );
   }

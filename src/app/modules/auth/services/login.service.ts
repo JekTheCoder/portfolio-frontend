@@ -22,10 +22,10 @@ export class LoginService {
   ) {}
 
   private handleTokens(tokens: TokensResponse) {
-    const { access_token, refresh_token } = tokens;
+    const { token, refreshToken } = tokens;
     this.authTokenService.setTokens({
-      accessToken: access_token,
-      refreshToken: refresh_token,
+      accessToken: token,
+      refreshToken
     });
   }
 
