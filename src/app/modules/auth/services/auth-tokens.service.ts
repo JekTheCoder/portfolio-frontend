@@ -1,7 +1,7 @@
 import { Inject, Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LOCAL_STORAGE } from '@common/providers/local-storage.provider';
-import { interval, Subject, take, takeUntil } from 'rxjs';
+import { interval, Subject, take, takeUntil, ReplaySubject, distinct } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TokensResponse } from '../models/tokens-response.interface';
 
@@ -10,17 +10,22 @@ import { TokensResponse } from '../models/tokens-response.interface';
 })
 export class AuthTokensService implements OnDestroy {
   accessToken?: string;
+  private hasAccessToken$ = new ReplaySubject<boolean>(1);
 
   private stop$ = new Subject<void>();
 
   constructor(
     @Inject(LOCAL_STORAGE) private localStorage: Storage,
     private http: HttpClient
-  ) {}
+  ) {
+    this.refresh();
+  }
 
   ngOnDestroy(): void {
     this.stop$.next();
     this.stop$.complete();
+
+    this.hasAccessToken$.complete();
   }
 
   setTokens({
@@ -31,6 +36,7 @@ export class AuthTokensService implements OnDestroy {
     refreshToken: string;
   }) {
     this.accessToken = accessToken;
+    this.hasAccessToken$.next(true);
     this.localStorage.setItem('refresh_token', refreshToken);
 
     interval(5000)
@@ -63,5 +69,9 @@ export class AuthTokensService implements OnDestroy {
   removeToken() {
     this.stopRefresh();
     this.localStorage.removeItem('refresh_token');
+  }
+
+  getHasAccessToken() {
+    return this.hasAccessToken$.asObservable().pipe(distinct());
   }
 }
