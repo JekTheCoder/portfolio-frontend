@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
+import { AuthHttpClient } from './providers/auth-http-client';
 
 
 @NgModule({
-  declarations: [],
+  providers: [AuthHttpClient]
 })
 export class AuthHttpModule { }
