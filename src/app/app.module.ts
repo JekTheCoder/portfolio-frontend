@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthModule } from './modules/auth/auth.module';
 import { AuthRequestInterceptorProvider } from './modules/auth/interceptors/auth-request.interceptor';
 import { _AppModule } from './modules/_app/_app.module';
 
@@ -17,7 +18,8 @@ import { _AppModule } from './modules/_app/_app.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     _AppModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
   providers: [
     AuthRequestInterceptorProvider
