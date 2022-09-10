@@ -23,15 +23,11 @@ export class AuthRequestInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler,
   ): Observable<HttpEvent<unknown>> {
-    const requireAuth = request.headers.has(AuthHeader);
-    if (requireAuth) request = this.injectAuthorization(request);
-
-    return next.handle(request);
+    return next.handle(this.injectAuthorization(request));
   }
 
   injectAuthorization(request: HttpRequest<unknown>): HttpRequest<unknown> {
     request = request.clone();
-    request.headers.delete(AuthHeader);
 
     if (!this.authTokens.accessToken) {
       this.router.navigate(['/']);
