@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AuthTokensService } from '../../auth/services/auth-tokens.service';
 import { Observable, switchMap, of } from 'rxjs';
 import { Profile } from '../models/profile.interface';
-import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { AuthHttpClient } from '../../auth-http/providers/auth-http-client';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +11,10 @@ import { environment } from 'src/environments/environment';
 export class ProfileService {
   constructor(
     private authTokensService: AuthTokensService,
-    private http: HttpClient
+    private http: AuthHttpClient
   ) {}
 
-  readonly profilePath = environment + '/profile';
+  readonly profilePath = environment.API_URI + '/profile';
 
   getProfile(): Observable<Profile | null> {
     return this.authTokensService
