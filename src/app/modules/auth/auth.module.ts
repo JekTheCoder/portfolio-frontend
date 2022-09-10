@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { GithubAuthComponent } from './components/github-auth/github-auth.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatFormFieldModule,
   ],
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, GithubAuthComponent],
 })
 export class AuthModule {}
