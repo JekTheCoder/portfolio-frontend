@@ -4,13 +4,13 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 import { AuthTokensService } from '../../auth/services/auth-tokens.service';
 import { AuthHeader } from '../providers/auth-header';
+import { AUTH_HTTP_INTERCEPTORS } from '../providers/auth-http-interceptors';
 
 @Injectable()
 export class AuthRequestInterceptor implements HttpInterceptor {
@@ -45,7 +45,7 @@ export class AuthRequestInterceptor implements HttpInterceptor {
 }
 
 export const AuthRequestInterceptorProvider: Provider = {
-  provide: HTTP_INTERCEPTORS,
+  provide: AUTH_HTTP_INTERCEPTORS,
   useClass: AuthRequestInterceptor,
   multi: true
 }
