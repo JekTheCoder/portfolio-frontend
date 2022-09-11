@@ -14,6 +14,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { BackendProjectComponent } from './components/backend-project/backend-project.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsModule } from '../projects/projects.module';
+import { ImageService } from './services/image.service';
+import { ResizeObservableFactoryService } from './services/resize-observable-factory.service';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { ProjectsModule } from '../projects/projects.module';
     MatFormFieldModule,
     MatInputModule,
     ProjectsModule
-  ]
+  ],
+  providers: [ImageService, ResizeObservableFactoryService]
 })
 export class PortfolioModule { }

@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { BlogSearchRoutingModule } from './blog-search-routing.module';
 import { BlogSearchComponent } from './components/blog-search/blog-search.component';
 import { BlogCardComponent } from './components/blog-card/blog-card.component';
+import { BlogPreviewService } from './services/blog-preview.service';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { BlogCardComponent } from './components/blog-card/blog-card.component';
     MatInputModule,
     MatIconModule,
     MatButtonModule
-  ]
+  ],
+  providers: [BlogPreviewService]
 })
 export class BlogSearchModule { }
