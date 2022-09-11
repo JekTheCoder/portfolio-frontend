@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BlogCreateService } from './service/blog-create.service';
+import { NgLetDirective } from '@common/directives/ng-let.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BlogCreateService } from './service/blog-create.service';
     ReactiveFormsModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgLetDirective
   ],
   providers: [BlogCreateService]
 })

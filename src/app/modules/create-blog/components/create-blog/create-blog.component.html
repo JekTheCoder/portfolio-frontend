@@ -5,9 +5,13 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Lets create something!</mat-label>
-        <textarea matInput formArrayName="content" style="height: 200px;"></textarea>
+        <textarea matInput formControlName="content" style="height: 200px;"></textarea>
     </mat-form-field>
     <div class="">
-        <button type="sumbit" mat-button>Create</button>
+        <button type="sumbit" mat-button (click)="createBlog()">Create</button>
     </div>
 </form>
+
+<div class="dialog" [@fadeInOut]="blog ? 'in' : 'out'" *ngLet="blogCreated$ | async as blog">
+    dadadada
+</div>
