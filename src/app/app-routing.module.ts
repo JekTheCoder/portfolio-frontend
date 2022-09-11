@@ -27,7 +27,7 @@ const routes: Routes = [
     title: 'Blog | create',
     canLoad: [PermissionGuard],
     data: {
-      permissions: ['self:blog:create']
+      permissions: ['self:blogs:create']
     }
   },
   {
