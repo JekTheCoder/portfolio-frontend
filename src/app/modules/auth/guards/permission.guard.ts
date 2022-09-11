@@ -8,19 +8,12 @@ import { ProfileService } from '../../_app/services/profile.service';
 })
 export class PermissionGuard implements CanLoad {
 
-  permissions: string[] = [];
-
   constructor(private profile: ProfileService) {}
 
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> {
+      const permissions: string[] = route.data?.['permissions'] || [];
       return this.profile.getProfile().pipe(map(profile => !!profile));
-  }
-
-  static for(...permissions: string[]): PermissionGuard {
-    const guard = inject(PermissionGuard);
-    guard.permissions = permissions;
-    return guard;
   }
 }
