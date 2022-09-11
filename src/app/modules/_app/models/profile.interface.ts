@@ -13,6 +13,6 @@ export interface Profile {
     __role__: {
         id: unknown,
         name: string,
-        permissions: { id: unknown, name: string }
+        permissions: { id: unknown, name: string }[]
     }
 }
