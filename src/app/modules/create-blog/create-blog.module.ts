@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { BlogCreateService } from './service/blog-create.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule
-  ]
+  ],
+  providers: [BlogCreateService]
 })
 export class CreateBlogModule { }
