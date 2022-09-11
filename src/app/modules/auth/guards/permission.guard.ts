@@ -1,5 +1,5 @@
-import { inject, Injectable } from '@angular/core';
-import { CanLoad, Route, UrlSegment, UrlTree } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { CanLoad, Route, Router, UrlSegment, UrlTree } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { Profile } from '../../_app/models/profile.interface';
 import { ProfileService } from '../../_app/services/profile.service';
@@ -8,16 +8,18 @@ import { ProfileService } from '../../_app/services/profile.service';
   providedIn: 'root',
 })
 export class PermissionGuard implements CanLoad {
-  constructor(private profile: ProfileService) {}
+  constructor(private profile: ProfileService, private router: Router) {}
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean | UrlTree> {
     const permissions: string[] = route.data?.['permissions'] || [];
-    
-    if (permissions.length === 0) console.warn('Not permissions required. This should be an error')  
 
-    return this.profile
-      .getProfile()
-      .pipe(map((profile) => this.hasPemissions(permissions, profile)));
+    if (permissions.length === 0)
+      console.warn('Not permissions required. This should be an error');
+
+    return this.profile.getProfile().pipe(
+      map(profile => this.hasPemissions(permissions, profile)),
+      map((hasPemissions) => hasPemissions ? hasPemissions : this.router.parseUrl('/'))
+    );
   }
 
   private hasPemissions(
