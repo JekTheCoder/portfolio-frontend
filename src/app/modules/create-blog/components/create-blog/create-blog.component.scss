@@ -11,3 +11,22 @@ form {
         display: block;
     }
 }
+
+.dialog {
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    position: absolute;
+
+    background-color: rgb(126, 126, 126);
+    border-radius: 10px;
+
+    top: 50%;
+    right: 50%;
+    translate: 50% -50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

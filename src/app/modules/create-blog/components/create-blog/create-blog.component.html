@@ -12,6 +12,10 @@
     </div>
 </form>
 
-<div class="dialog" [@fadeInOut]="blog ? 'in' : 'out'" *ngLet="blogCreated$ | async as blog">
-    dadadada
+<div class="dialog" [@fadeInOut]="'in'" *ngLet="blogCreated$ | async as blog">
+    <p>Your blog has been created!</p>
+    <div class="buttons">
+        <button mat-button (click)="reset()">Continue creating</button>
+        <a mat-button>Lets view!</a>
+    </div>
 </div>
