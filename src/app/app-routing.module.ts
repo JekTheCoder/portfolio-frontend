@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/blog-search/blog-search.module').then(m => m.BlogSearchModule)
   },
   {
+    path: 'blog/create',
+    loadChildren: () => import('./modules/create-blog/create-blog.module').then(m => m.CreateBlogModule)
+  },
+  {
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
   },
