@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PermissionGuard } from './modules/auth/guards/permission.guard';
 import { NotFoundComponent } from './modules/_app/components/not-found/not-found.component';
 
 const routes: Routes = [
@@ -22,7 +23,12 @@ const routes: Routes = [
   },
   {
     path: 'blog/create',
-    loadChildren: () => import('./modules/create-blog/create-blog.module').then(m => m.CreateBlogModule)
+    loadChildren: () => import('./modules/create-blog/create-blog.module').then(m => m.CreateBlogModule),
+    title: 'Blog | create',
+    canLoad: [PermissionGuard],
+    data: {
+      permissions: ['self:blog:create']
+    }
   },
   {
     path: 'auth',
