@@ -1,1 +1,13 @@
-<p>create-blog works!</p>
+<form [formGroup]="blogForm">
+    <mat-form-field>
+        <mat-label>Let you</mat-label>
+        <input matInput type="text" formControlName="title">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Lets create something!</mat-label>
+        <textarea matInput formArrayName="content" style="height: 200px;"></textarea>
+    </mat-form-field>
+    <div class="">
+        <button type="sumbit" mat-button>Create</button>
+    </div>
+</form>
