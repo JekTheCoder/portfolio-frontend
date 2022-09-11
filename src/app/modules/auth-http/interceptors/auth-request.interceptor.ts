@@ -26,16 +26,16 @@ export class AuthRequestInterceptor implements HttpInterceptor {
   }
 
   injectAuthorization(request: HttpRequest<unknown>): HttpRequest<unknown> {
-    request = request.clone();
-
     if (!this.authTokens.accessToken) {
       this.router.navigate(['/']);
       throw new Error();
     }
 
-    request.headers.set('Authorization', `Bearer ${this.authTokens.accessToken}`);
-
-    return request;
+    return request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${this.authTokens.accessToken}`
+      }
+    });
   }
 }
 
