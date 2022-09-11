@@ -17,7 +17,13 @@
   style="height: 100px"
 >
   <ul>
-    <li><a routerLink="/auth/login">Login</a></li>
-    <li><a routerLink="/auth/register">Register</a></li>
+    <ng-container *ngIf="isLogged$ | async; else notLogged">
+      <li><a routerLink="/profile">Profile</a></li>
+      <li><button>Loggout</button></li>
+    </ng-container>
+    <ng-template #notLogged>
+      <li><a routerLink="/auth/login">Login</a></li>
+      <li><a routerLink="/auth/register">Register</a></li>
+    </ng-template>
   </ul>
 </div>
