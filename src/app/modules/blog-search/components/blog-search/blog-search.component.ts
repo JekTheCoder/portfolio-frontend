@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BlogPreview } from '../../models/blog-preview.model';
+import { Blog } from 'src/app/modules/blog/models/blog';
 import { BlogPreviewService } from '../../services/blog-preview.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { BlogPreviewService } from '../../services/blog-preview.service';
 })
 export class BlogSearchComponent implements OnInit {
 
-  blogs$?: Observable<BlogPreview[]> = this.blogService.getBlogsReview();
+  blogs$?: Observable<Blog[]> = this.blogService.getBlogsReview();
 
   constructor(private blogService: BlogPreviewService) { }
 

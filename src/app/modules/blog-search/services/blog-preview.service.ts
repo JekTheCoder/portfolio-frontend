@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { BlogPreview } from '../models/blog-preview.model';
+import { Blog } from '../../blog/models/blog';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class BlogPreviewService {
 
   constructor(private http: HttpClient) { }
 
-  getBlogsReview(): Observable<BlogPreview[]> {
-    return this.http.get<BlogPreview[]>(`${this.API_URI}/blogs`)
+  getBlogsReview(): Observable<Blog[]> {
+    return this.http.get<Blog[]>(`${this.API_URI}/blogs`)
   }
 }

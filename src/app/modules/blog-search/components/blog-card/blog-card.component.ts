@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BlogPreview } from '../../models/blog-preview.model';
+import { Blog } from 'src/app/modules/blog/models/blog';
 
 @Component({
   selector: 'app-blog-card',
@@ -8,7 +8,7 @@ import { BlogPreview } from '../../models/blog-preview.model';
 })
 export class BlogCardComponent implements OnInit {
 
-  @Input() blog!: BlogPreview
+  @Input() blog!: Blog
 
   constructor() { }
 
