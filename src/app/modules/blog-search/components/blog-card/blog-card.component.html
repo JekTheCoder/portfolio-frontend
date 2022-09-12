@@ -1,6 +1,6 @@
 <div class="card">
-    <div class="top">
-        <img src="" alt="">
+    <div class="top" *ngIf="blog.thumbnail">
+        <img [src]="blog.thumbnail" [alt]="blog.title">
     </div>
     <div class="body">
         <div class="title">{{ blog.title }}</div>
