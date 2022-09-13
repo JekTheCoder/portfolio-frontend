@@ -6,4 +6,7 @@
         <div class="title"><span>{{ blog.title }}</span></div>
         <div class="content-preview"><p>{{ blog.content }}...</p></div>
     </div>
+    <div class="footer">
+        <span>Created At </span><i>{{ blog.createdAt | date }}</i>
+    </div>
 </div>
