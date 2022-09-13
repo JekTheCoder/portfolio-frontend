@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from "rxjs";
 import { environment } from 'src/environments/environment';
-import { Blog } from '../models/blog';
+import { BlogContent } from '../models/blog-content';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class BlogsService {
 
   constructor(private http: HttpClient) { }
 
-  getBlog(id: unknown): Observable<Blog | null> {
-    return this.http.get<Blog | null>(this.blogUrl + id);
+  getBlog(id: unknown): Observable<BlogContent | null> {
+    return this.http.get<BlogContent | null>(this.blogUrl + id);
 
   }
 }

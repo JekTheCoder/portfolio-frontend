@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Observable, switchMap, of, tap } from 'rxjs';
 import { BlogsService } from '../../service/blogs.service';
-import { Blog } from '../../models/blog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { BlogContent } from '../../models/blog-content';
 
 @Component({
   selector: 'app-blog',
@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./blog.component.scss'],
 })
 export class BlogComponent {
-  protected blog$?: Observable<Blog | null>;
+  protected blog$?: Observable<BlogContent | null>;
   blogImagePath = environment.API_URI + '/public/blogs/';
 
   constructor(
