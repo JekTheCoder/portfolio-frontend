@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { Observable, switchMap, of, tap } from 'rxjs';
+import { Observable, switchMap, of, tap, share, map } from 'rxjs';
 import { BlogsService } from '../../service/blogs.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { BlogContent } from '../../models/blog-content';
+import { Comment } from '../../models/comment';
 
 @Component({
   selector: 'app-blog',
@@ -12,6 +13,8 @@ import { BlogContent } from '../../models/blog-content';
 })
 export class BlogComponent {
   protected blog$?: Observable<BlogContent | null>;
+  protected comments$?: Observable<Comment[] | undefined | null>;
+
   blogImagePath = environment.API_URI + '/public/blogs/';
 
   constructor(
@@ -19,10 +22,14 @@ export class BlogComponent {
     route: ActivatedRoute,
     private router: Router
   ) {
-    this.blog$ = route.params.pipe(
+    const request$ = route.params.pipe(
       switchMap((params) => this.getBlog(params)),
-      tap((blog) => this.redirectIfNull(blog))
+      tap((blog) => this.redirectIfNull(blog)),
+      share()
     );
+
+    this.blog$ = request$;
+    this.comments$ = request$.pipe(map(blog => blog?.comments));
   }
 
   private getBlog(params: { [key in string]?: string }) {
@@ -34,6 +41,7 @@ export class BlogComponent {
   }
 
   private redirectIfNull(data: unknown | null) {
+    console.log('this should appear once!');
     if (!data) this.router.navigate(['/blog/search']);
   }
 }

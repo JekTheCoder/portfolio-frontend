@@ -1,14 +1,12 @@
 :host {
     height: 100%;
-}
-
-.container {
     width: 100%;
-
     max-width: 1000px;
     margin: auto;
     padding: 0 10px;
+}
 
+.container {
     .top {
         width: 100%;
         img {
@@ -20,6 +18,10 @@
         padding: 10px;
         min-height: 50px;
     }
+}
+
+section.comments {
+    padding: 10px;
 }
 
 h2 {
