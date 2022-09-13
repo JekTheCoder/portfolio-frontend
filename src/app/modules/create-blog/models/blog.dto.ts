@@ -1,4 +1,4 @@
 export interface BlogDto {
     title: string,
-    content: string
+    content: string,
 }

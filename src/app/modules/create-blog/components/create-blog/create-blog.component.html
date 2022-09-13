@@ -8,6 +8,9 @@
         <textarea matInput formControlName="content" style="height: 200px;"></textarea>
     </mat-form-field>
     <div class="">
+        <input type="file" name="thumbnail" formControlName="thumbnail" #file>
+    </div>
+    <div class="">
         <button type="sumbit" mat-button (click)="createBlog()">Create</button>
     </div>
 </form>
