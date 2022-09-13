@@ -1,9 +1,9 @@
 <div class="card">
     <div class="top" *ngIf="blog.thumbnail">
-        <img [src]="blog.thumbnail" [alt]="blog.title">
+        <img [src]="imagePath + blog.thumbnail" [alt]="blog.title">
     </div>
     <div class="body">
-        <div class="title">{{ blog.title }}</div>
-        <div class="content-preview">{{ blog.content }}</div>
+        <div class="title"><span>{{ blog.title }}</span></div>
+        <div class="content-preview"><p>{{ blog.content }}...</p></div>
     </div>
 </div>

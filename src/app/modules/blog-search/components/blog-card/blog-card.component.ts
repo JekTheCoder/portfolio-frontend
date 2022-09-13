@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Blog } from 'src/app/modules/blog/models/blog';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-blog-card',
@@ -8,7 +9,8 @@ import { Blog } from 'src/app/modules/blog/models/blog';
 })
 export class BlogCardComponent implements OnInit {
 
-  @Input() blog!: Blog
+  @Input() blog!: Blog;
+  imagePath = environment.API_URI + '/public/blogs/';
 
   constructor() { }
 
