@@ -1,1 +1,5 @@
-<p>profile-icon works!</p>
+<fa-icon class="icon" [icon]="profileIcon" *ngIf="!src; else img"></fa-icon>
+<ng-template #img>
+    <img class="icon" [src]="src" [alt]="alt">
+</ng-template>
+
