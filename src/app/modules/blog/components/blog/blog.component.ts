@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Observable, switchMap, of, tap, share, map } from 'rxjs';
-import { BlogsService } from '../../service/blogs.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { BlogContent } from '../../models/blog-content';
 import { Comment } from '../../models/comment';
+import { BlogsService } from '../../services/blogs.service';
 
 @Component({
   selector: 'app-blog',
