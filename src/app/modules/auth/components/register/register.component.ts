@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FileValidator } from 'ngx-material-file-input';
 import { SameAs } from '../../validators/same-as.validator';
 
 @Component({
@@ -25,6 +26,8 @@ export class RegisterComponent implements OnInit {
     name: new FormControl(''),
     lastname: new FormControl(''),
   });
+
+  protected profileControl = new FormControl<File | null>(null, FileValidator.maxContentSize(1048576));
 
   constructor() {
     this.registerForm.controls.repeatPassword.addValidators(

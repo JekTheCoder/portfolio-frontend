@@ -16,6 +16,12 @@ form {
         mat-step {
             padding: 10px;
         }
+
+        mat-step.file {
+            >* {
+                display: block;
+            }
+        }
     }
 
     mat-form-field {

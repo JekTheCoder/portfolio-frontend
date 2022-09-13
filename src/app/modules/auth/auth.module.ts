@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GithubAuthComponent } from './components/github-auth/github-auth.component';
 import { RegisterComponent } from './components/register/register.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { RegisterComponent } from './components/register/register.component';
     MatInputModule,
     MatFormFieldModule,
     MatStepperModule,
-    MaterialFileInputModule
+    MaterialFileInputModule,
+    MatIconModule
   ],
   declarations: [LoginComponent, GithubAuthComponent, RegisterComponent],
 })

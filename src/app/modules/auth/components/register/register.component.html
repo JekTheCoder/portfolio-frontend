@@ -32,9 +32,15 @@
                     <input type="text" matInput formControlName="lastname" name="lastname">
                 </mat-form-field>
             </mat-step>
-            <mat-step>
-                <input type="file" name="profile">
-                <button mat-button type="submit" (click)="submit()">login</button>
+            <mat-step class="file">
+                <mat-form-field appearance="outline">
+                    <mat-label>profile image (optional)</mat-label>
+                    <ngx-mat-file-input accept=".png, .jpg, .jpeg"></ngx-mat-file-input>
+                    <mat-icon matSuffix>folder</mat-icon>
+                </mat-form-field>
+                <div class="">
+                    <button mat-button type="submit" (click)="submit()">register</button>
+                </div>
             </mat-step>
         </mat-stepper>
     </form>
