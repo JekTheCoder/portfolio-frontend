@@ -1,1 +1,16 @@
-<p>comment works!</p>
+<article>
+  <div class=""></div>
+  <div class="">
+    <span>{{ comment.content | slice: 0:commentPreviewLen }}</span>
+    <span *ngIf="expanded">{{
+      comment.content | slice: commentPreviewLen
+    }}</span>
+    <p
+      class="show-more"
+      [style.display]="comment.content.length > commentPreviewLen ? '' : 'none'"
+      (click)="toggleExpanded()"
+    >
+      {{ expanded ? "show less" : "show more" }}
+    </p>
+  </div>
+</article>

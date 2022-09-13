@@ -1,0 +1,15 @@
+article {
+    margin-top: 40px;
+
+    display: grid;
+    grid-template-columns: 40px 1fr;
+}
+
+.show-more {
+    color: #7a7a7a;
+    user-select: none;
+}
+
+span {
+    word-break: break-all;
+}
