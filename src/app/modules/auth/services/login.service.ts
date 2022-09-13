@@ -56,7 +56,7 @@ export class LoginService {
 
     return obs$.pipe(
       switchMap(user =>
-        this.authHttp.post(environment.API_URI + '/profile/image', formData)
+        this.authHttp.post<void>(environment.API_URI + '/profile/image', formData)
       )
     );
   }

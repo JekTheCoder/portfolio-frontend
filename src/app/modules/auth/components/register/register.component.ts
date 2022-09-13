@@ -1,7 +1,13 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FileValidator } from 'ngx-material-file-input';
+import { LoginService } from '../../services/login.service';
 import { SameAs } from '../../validators/same-as.validator';
+
+interface FileValue {
+  _files: File[];
+}
 
 @Component({
   selector: 'app-register',
@@ -27,9 +33,12 @@ export class RegisterComponent implements OnInit {
     lastname: new FormControl(''),
   });
 
-  protected profileControl = new FormControl<File | null>(null, FileValidator.maxContentSize(1048576));
+  protected profileControl = new FormControl<FileValue | null>(
+    null,
+    FileValidator.maxContentSize(1048576)
+  );
 
-  constructor() {
+  constructor(private loginService: LoginService, private location: Location) {
     this.registerForm.controls.repeatPassword.addValidators(
       SameAs(this.registerForm.controls.password)
     );
@@ -37,5 +46,12 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  submit() {}
+  submit() {
+    if (this.registerForm.invalid || this.profileControl.invalid) return;
+    const file = this.profileControl.value?._files[0];
+
+    this.loginService
+      .register(this.registerForm.value as any, file)
+      .subscribe(() => this.location.back());
+  }
 }

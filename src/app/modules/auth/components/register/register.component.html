@@ -35,7 +35,7 @@
             <mat-step class="file">
                 <mat-form-field appearance="outline">
                     <mat-label>profile image (optional)</mat-label>
-                    <ngx-mat-file-input accept=".png, .jpg, .jpeg"></ngx-mat-file-input>
+                    <ngx-mat-file-input accept=".png, .jpg, .jpeg" [formControl]="profileControl"></ngx-mat-file-input>
                     <mat-icon matSuffix>folder</mat-icon>
                 </mat-form-field>
                 <div class="">
