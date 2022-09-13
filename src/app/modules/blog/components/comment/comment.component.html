@@ -1,8 +1,8 @@
 <article>
-  <div class="">
-    <app-profile-icon></app-profile-icon>
+  <div class="profile-icon">
+    <profile-icon></profile-icon>
   </div>
-  <div class="">
+  <div class="comment">
     <span>{{ comment.content | slice: 0:commentPreviewLen }}</span>
     <span *ngIf="expanded">{{
       comment.content | slice: commentPreviewLen

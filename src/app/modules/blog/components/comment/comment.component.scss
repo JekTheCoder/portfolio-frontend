@@ -1,8 +1,8 @@
 article {
-    margin-top: 40px;
-
+    margin-top: 20px;
     display: grid;
     grid-template-columns: 40px 1fr;
+    gap: 10px;
 }
 
 .show-more {
@@ -12,4 +12,8 @@ article {
 
 span {
     word-break: break-all;
+}
+
+.comment {
+    padding: 2px;
 }
