@@ -10,4 +10,4 @@
     </div>
 </article>
 <hr>
-<app-comments [comments$]="comments$"></app-comments>
+<app-comments *ngIf="comments$" [comments$]="comments$"></app-comments>

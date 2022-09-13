@@ -13,7 +13,7 @@ import { BlogsService } from '../../services/blogs.service';
 })
 export class BlogComponent {
   protected blog$?: Observable<BlogContent | null>;
-  protected comments$?: Observable<Comment[] | undefined | null>;
+  protected comments$?: Observable<Comment[]>;
 
   blogImagePath = environment.API_URI + '/public/blogs/';
 
@@ -29,7 +29,7 @@ export class BlogComponent {
     );
 
     this.blog$ = request$;
-    this.comments$ = request$.pipe(map(blog => blog?.comments));
+    this.comments$ = request$.pipe(map(blog => blog!.comments));
   }
 
   private getBlog(params: { [key in string]?: string }) {
@@ -41,7 +41,6 @@ export class BlogComponent {
   }
 
   private redirectIfNull(data: unknown | null) {
-    console.log('this should appear once!');
     if (!data) this.router.navigate(['/blog/search']);
   }
 }
