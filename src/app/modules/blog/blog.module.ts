@@ -5,6 +5,7 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { BlogComponent } from './components/blog/blog.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { ProfileIconComponent } from '@common/components/profile-icon/profile-icon.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CommentComponent } from './components/comment/comment.component';
   ],
   imports: [
     CommonModule,
-    BlogRoutingModule
+    BlogRoutingModule,
+    ProfileIconComponent
   ]
 })
 export class BlogModule { }
