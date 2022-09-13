@@ -12,8 +12,6 @@ import { ProfileService } from '../../services/profile.service';
 })
 export class ProfileIconComponent implements OnInit {
 
-  profileIcon = faUser;
-
   protected overIcon = false;
   protected overPanel = false;
 
