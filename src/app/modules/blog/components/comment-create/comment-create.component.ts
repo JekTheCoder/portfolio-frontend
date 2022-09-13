@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-comment-create',
   templateUrl: './comment-create.component.html',
   styleUrls: ['./comment-create.component.scss']
 })
-export class CommentCreateComponent implements OnInit {
+export class CommentCreateComponent {
 
-  protected commentForm = new FormControl<string>('', Validators.required);
+  @Output() commentChanges = new EventEmitter<string>();
+  protected commentForm = new FormControl<string>('');
 
-  constructor() { }
-
-  ngOnInit(): void {
+  protected emitComment() {
+    const comment = this.commentForm.value;
+    if (comment)
+      this.commentChanges.emit(comment);
   }
-
 }

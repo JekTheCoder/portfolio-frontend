@@ -5,10 +5,10 @@
   <div class="">
     <mat-form-field>
       <mat-label>Add a comment</mat-label>
-      <input type="text" matInput [formControl]="commentForm" />
+      <input type="text" matInput [formControl]="commentForm" name="comment"/>
     </mat-form-field>
     <div class="buttons">
-      <button mat-button>Send</button>
+      <button mat-button (click)="emitComment()">Send</button>
     </div>
   </div>
 </div>
