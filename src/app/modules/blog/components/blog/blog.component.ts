@@ -3,6 +3,7 @@ import { Observable, switchMap, of, tap } from 'rxjs';
 import { BlogsService } from '../../service/blogs.service';
 import { Blog } from '../../models/blog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-blog',
@@ -11,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BlogComponent {
   protected blog$?: Observable<Blog | null>;
+  blogImagePath = environment.API_URI + '/public/blogs/';
 
   constructor(
     private blogServ: BlogsService,

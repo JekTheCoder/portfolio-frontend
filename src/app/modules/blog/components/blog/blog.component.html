@@ -1,4 +1,15 @@
-<div class="container">
-    <p>{{ blog$ | async | json }}</p>
-    <h4>Coming soon!</h4>
-</div>
+<article class="container" *ngIf="blog$ | async as blog">
+    <div class="top" *ngIf="blog.thumbnail">
+        <img [src]="blogImagePath + blog.thumbnail" [alt]="blog.title">
+    </div>
+
+    <h2>{{ blog.title }}</h2>
+    <hr>
+    <div class="article">
+        <p>{{ blog.content }}</p>
+    </div>
+</article>
+<hr>
+<section class="comments">
+    <span></span>
+</section>
