@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GithubAuthComponent } from './components/github-auth/github-auth.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MatIconModule } from '@angular/material/icon';
+import { UsernameService } from './services/username.service';
 
 @NgModule({
   imports: [
@@ -27,5 +28,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   declarations: [LoginComponent, GithubAuthComponent, RegisterComponent],
+  providers: [UsernameService]
 })
 export class AuthModule {}
