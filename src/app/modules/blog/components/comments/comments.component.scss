@@ -5,23 +5,3 @@ section.comments {
         width: 100%;
     }
 }
-
-.create-comment {
-
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    gap: 20px;
-
-    .profile {
-        padding-top: 10px;
-    }
-
-    mat-form-field {
-        width: 100%;
-    }
-
-    .buttons {
-        display: flex;
-        justify-content: flex-end;
-    }
-}

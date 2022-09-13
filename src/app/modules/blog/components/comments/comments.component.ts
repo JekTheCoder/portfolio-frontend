@@ -12,7 +12,7 @@ export class CommentsComponent implements OnInit {
 
   @Input() comments$?: Observable<Comment[] | undefined | null>
 
-  protected commentForm = new FormControl<string>('', Validators.required);
+  
 
   constructor() { }
 
