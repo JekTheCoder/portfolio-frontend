@@ -5,7 +5,7 @@
   <div class="">
     <mat-form-field>
       <mat-label>Add a comment</mat-label>
-      <input type="text" matInput [formControl]="commentForm" name="comment"/>
+      <input type="text" matInput [formControl]="commentForm" name="comment" (keydown.enter)="emitComment()"/>
     </mat-form-field>
     <div class="buttons">
       <button mat-button (click)="emitComment()">Send</button>

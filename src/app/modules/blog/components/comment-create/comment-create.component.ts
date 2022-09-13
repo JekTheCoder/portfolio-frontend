@@ -13,7 +13,9 @@ export class CommentCreateComponent {
 
   protected emitComment() {
     const comment = this.commentForm.value;
-    if (comment)
-      this.commentChanges.emit(comment);
+    if (!comment) return;
+
+    this.commentChanges.emit(comment);
+    this.commentForm.reset();
   }
 }
