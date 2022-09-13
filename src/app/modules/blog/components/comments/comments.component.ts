@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Comment } from '../../models/comment';
 
 @Component({
   selector: 'app-comments',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit {
+
+  @Input() comments$?: Observable<Comment[] | undefined | null>
 
   constructor() { }
 

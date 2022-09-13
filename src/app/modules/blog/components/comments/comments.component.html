@@ -1,1 +1,8 @@
-<p>comments works!</p>
+<section class="comments" *ngIf="comments$ | async as comments">
+    <div class="top">
+        <span>{{ comments.length }} comments</span>
+    </div>
+    <div class="">
+        <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+    </div>
+</section>
