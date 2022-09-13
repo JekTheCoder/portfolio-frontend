@@ -2,6 +2,10 @@
     position: relative;
 }
 
+a {
+    color: unset;
+}
+
 .profile {
     height: 18px;
     aspect-ratio: 1;
@@ -26,6 +30,14 @@
             }
         }
     }
+}
+
+.a-like {
+    text-decoration: underline;
+    color: unset;
+    background: none;
+    border: none;
+    font-size: medium;
 }
 
 .mouse-trigger {
