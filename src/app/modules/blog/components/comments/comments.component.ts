@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Comment } from '../../models/comment';
 
@@ -10,6 +11,8 @@ import { Comment } from '../../models/comment';
 export class CommentsComponent implements OnInit {
 
   @Input() comments$?: Observable<Comment[] | undefined | null>
+
+  protected commentForm = new FormControl<string>('', Validators.required);
 
   constructor() { }
 

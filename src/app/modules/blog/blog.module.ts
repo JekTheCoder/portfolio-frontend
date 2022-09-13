@@ -6,6 +6,10 @@ import { BlogComponent } from './components/blog/blog.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { ProfileIconComponent } from '@common/components/profile-icon/profile-icon.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +21,11 @@ import { ProfileIconComponent } from '@common/components/profile-icon/profile-ic
   imports: [
     CommonModule,
     BlogRoutingModule,
-    ProfileIconComponent
+    ProfileIconComponent,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule
   ]
 })
 export class BlogModule { }

@@ -1,8 +1,25 @@
 <section class="comments" *ngIf="comments$ | async as comments">
-    <div class="top">
-        <span>{{ comments.length }} comments</span>
+  <div class="top">
+    <span>{{ comments.length }} comments</span>
+  </div>
+  <div class="">
+    <div class="create-comment">
+      <div class="profile">
+        <profile-icon></profile-icon>
+      </div>
+      <div class="">
+        <mat-form-field>
+          <mat-label>Add a comment</mat-label>
+          <input type="text" matInput [formControl]="commentForm" />
+        </mat-form-field>
+        <div class="buttons">
+            <button mat-button>Send</button>
+        </div>
+      </div>
     </div>
-    <div class="">
-        <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
-    </div>
+    <app-comment
+      *ngFor="let comment of comments"
+      [comment]="comment"
+    ></app-comment>
+  </div>
 </section>
