@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { animations } from "./profile-icon.animations";
 import { Observable, map } from "rxjs";
 import { ProfileService } from '../../services/profile.service';
+import { AuthTokensService } from 'src/app/modules/auth/services/auth-tokens.service';
 
 @Component({
   selector: 'app-profile-icon',
@@ -17,11 +17,18 @@ export class ProfileIconComponent implements OnInit {
 
   protected isLogged$?: Observable<boolean>;
 
-  constructor(proService: ProfileService) {
+  constructor(
+    proService: ProfileService,
+    private auth: AuthTokensService
+  ) {
     this.isLogged$ = proService.getProfile().pipe(map(profile => Boolean(profile)));
   }
 
   ngOnInit(): void {
+  }
+
+  protected logout() {
+    this.auth.removeToken();
   }
 
 }

@@ -19,7 +19,7 @@
   <ul>
     <ng-container *ngIf="isLogged$ | async; else notLogged">
       <li><a routerLink="/profile">Profile</a></li>
-      <li><button>Loggout</button></li>
+      <li><button (click)="logout()" class="a-like">Loggout</button></li>
     </ng-container>
     <ng-template #notLogged>
       <li><a routerLink="/auth/login">Login</a></li>
