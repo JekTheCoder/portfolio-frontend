@@ -71,6 +71,8 @@ export class AuthTokensService implements OnDestroy {
   removeToken() {
     this.stopRefresh();
     this.localStorage.removeItem('refresh_token');
+    this.accessToken = undefined;
+    this.hasAccessToken$.next(false);
   }
 
   getHasAccessToken() {
