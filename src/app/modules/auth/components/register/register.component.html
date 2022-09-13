@@ -1,1 +1,42 @@
-<p>register works!</p>
+<div class="container">
+    <h4>Register</h4>
+
+    <form [formGroup]="registerForm">
+        <h5>Required!</h5>
+        <mat-form-field>
+            <mat-label>username</mat-label>
+            <input matInput type="text" formControlName="username" name="username">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>password</mat-label>
+            <input matInput type="password" formControlName="password" name="password">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>repeat your password</mat-label>
+            <input matInput type="password" formControlName="repeatPassword" name="repeat-password">
+        </mat-form-field>
+
+        <h5>Optional</h5>
+        <hr>
+        <mat-form-field>
+            <mat-label>email@email.com</mat-label>
+            <input type="email" matInput formControlName="email" name="email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>name</mat-label>
+            <input type="text" matInput formControlName="name" name="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>lastname</mat-label>
+            <input type="text" matInput formControlName="lastname" name="lastname">
+        </mat-form-field>
+        <div class="">
+            <button mat-button type="submit" (click)="submit()">login</button>
+        </div>
+    </form>
+
+    <div class="">
+        <span>Are you registered? click here! </span>
+        <a routerLink="../login">login</a>
+    </div>
+</div>
