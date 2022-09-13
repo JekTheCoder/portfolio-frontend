@@ -16,7 +16,7 @@ export class CommentsService {
 
   constructor(private http: AuthHttpClient) { }
 
-  createComment(comment: CommentDto, blogId: number) {
+  createComment(comment: CommentDto, blogId: unknown) {
     return this.http.post<Comment>(COMMENT_CREATE + blogId, comment)
   }
 }

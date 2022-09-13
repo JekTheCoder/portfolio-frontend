@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable, switchMap, of, tap, share, map } from 'rxjs';
+import { Observable, switchMap, of, tap, shareReplay, map } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { BlogContent } from '../../models/blog-content';
@@ -25,7 +25,7 @@ export class BlogComponent {
     const request$ = route.params.pipe(
       switchMap((params) => this.getBlog(params)),
       tap((blog) => this.redirectIfNull(blog)),
-      share()
+      shareReplay()
     );
 
     this.blog$ = request$;

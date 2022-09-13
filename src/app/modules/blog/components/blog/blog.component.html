@@ -1,13 +1,15 @@
-<article class="container" *ngIf="blog$ | async as blog">
-    <div class="top" *ngIf="blog.thumbnail">
-        <img [src]="blogImagePath + blog.thumbnail" [alt]="blog.title">
-    </div>
-
-    <h2>{{ blog.title }}</h2>
+<ng-container *ngIf="blog$ | async as blog">
+    <article class="container">
+        <div class="top" *ngIf="blog.thumbnail">
+            <img [src]="blogImagePath + blog.thumbnail" [alt]="blog.title">
+        </div>
+    
+        <h2>{{ blog.title }}</h2>
+        <hr>
+        <div class="article">
+            <p>{{ blog.content }}</p>
+        </div>
+    </article>
     <hr>
-    <div class="article">
-        <p>{{ blog.content }}</p>
-    </div>
-</article>
-<hr>
-<app-comments *ngIf="comments$" [comments$]="comments$"></app-comments>
+    <app-comments *ngIf="comments$" [comments$]="comments$" [blogId]="blog.id"></app-comments>
+</ng-container>
