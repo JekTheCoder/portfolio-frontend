@@ -15,11 +15,9 @@
     [@profileMenu]="overIcon || overPanel ? 'display' : 'hidden'"
     (mouseleave)="overPanel = false"
     (mouseenter)="overPanel = true"
-    style="height: 100px"
   >
     <ul>
       <ng-container *ngIf="profile; else notLogged">
-        <li><a routerLink="/profile">Profile</a></li>
         <li><button (click)="logout()" class="a-like">Loggout</button></li>
       </ng-container>
       <ng-template #notLogged>
