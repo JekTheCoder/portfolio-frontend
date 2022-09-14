@@ -1,14 +1,25 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, Location } from '@angular/common';
 import { Injectable, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GithubAuthBuilderService {
 
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private router: Router,
+  ) { }
 
-  getGithubAuthRoute(register: boolean, withEmail: boolean): string {
-    return `/auth/github-auth?register=${register}&email=${withEmail}&redirect_to=${this.document.location.href}`;
-  }
+  navigateGithubAuth(register: boolean, withEmail: boolean): void {
+
+    this.router.navigate(['auth/github-auth'], {
+      queryParams: {
+        register,
+        email: withEmail,
+        redirect_to: this.router.url
+      }
+    });
+  } 
 }

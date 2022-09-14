@@ -24,7 +24,6 @@ export class ProfileIconComponent implements OnInit {
     proService: ProfileService,
     private auth: AuthTokensService,
     private githubAuthBuilder: GithubAuthBuilderService,
-    private router: Router
   ) {
     this.profile$ = proService.getProfile();
   }
@@ -37,8 +36,7 @@ export class ProfileIconComponent implements OnInit {
   }
 
   protected toGithub(register: boolean) {
-    const route = this.githubAuthBuilder.getGithubAuthRoute(register, true);
-    this.router.navigate([route]);
+    this.githubAuthBuilder.navigateGithubAuth(register, true);
   }
 
 }
