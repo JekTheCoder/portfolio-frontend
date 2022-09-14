@@ -14,6 +14,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
+import { GithubAuthBuilderService } from './services/github-auth-builder.service';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ProfileIconComponent } from './components/profile-icon/profile-icon.com
     FontAwesomeModule,
     IconComponent
   ],
+  providers: [GithubAuthBuilderService],
   exports: [HeaderComponent, FooterComponent]
 })
 export class _AppModule { }
