@@ -1,6 +1,6 @@
 <article>
   <div class="profile-icon">
-    <profile-icon></profile-icon>
+    <profile-icon [image]="comment.user.profileImg"></profile-icon>
   </div>
   <div class="comment">
     <span>{{ comment.content | slice: 0:commentPreviewLen }}</span>
