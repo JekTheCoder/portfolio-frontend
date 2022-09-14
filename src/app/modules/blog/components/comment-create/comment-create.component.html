@@ -1,6 +1,6 @@
-<div class="create-comment">
+<div class="create-comment" *ngLet="profile$ | async as profile">
   <div class="profile">
-    <profile-icon></profile-icon>
+    <profile-icon [image]="profile?.profileImg"></profile-icon>
   </div>
   <div class="">
     <mat-form-field>
