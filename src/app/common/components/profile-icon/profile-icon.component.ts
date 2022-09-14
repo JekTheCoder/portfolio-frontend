@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'profile-icon',
@@ -11,6 +12,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrls: ['./profile-icon.component.scss'],
 })
 export class ProfileIconComponent implements OnInit {
+
+  protected PUBLIC_PROFILE_PATH = environment.API_URI + '/public/'
+
   @Input() set image(val: string | { src: string; alt?: string }) {
     if (typeof val === 'string') {
       this.src = val;
