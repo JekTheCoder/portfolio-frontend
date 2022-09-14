@@ -1,0 +1,15 @@
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.profile-header {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    padding: 5px 10px;
+    gap: 10px;
+}
+
+.username {
+    font-size: 24px;
+}
