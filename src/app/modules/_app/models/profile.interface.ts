@@ -5,6 +5,7 @@ export interface Profile {
     lastname?: string | null, 
     email?: string | null,
     roleId: unknown,
+    profileImg?: string | null
     createdAt: Date,
 
     /**

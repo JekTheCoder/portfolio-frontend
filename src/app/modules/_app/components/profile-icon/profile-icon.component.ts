@@ -3,6 +3,7 @@ import { animations } from "./profile-icon.animations";
 import { Observable, map } from "rxjs";
 import { ProfileService } from '../../services/profile.service';
 import { AuthTokensService } from 'src/app/modules/auth/services/auth-tokens.service';
+import { Profile } from '../../models/profile.interface';
 
 @Component({
   selector: 'app-profile-icon',
@@ -15,13 +16,13 @@ export class ProfileIconComponent implements OnInit {
   protected overIcon = false;
   protected overPanel = false;
 
-  protected isLogged$?: Observable<boolean>;
+  protected profile$?: Observable<Profile | null>;
 
   constructor(
     proService: ProfileService,
     private auth: AuthTokensService
   ) {
-    this.isLogged$ = proService.getProfile().pipe(map(profile => Boolean(profile)));
+    this.profile$ = proService.getProfile();
   }
 
   ngOnInit(): void {

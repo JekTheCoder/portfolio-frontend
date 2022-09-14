@@ -13,16 +13,16 @@ import { environment } from 'src/environments/environment';
 })
 export class ProfileIconComponent implements OnInit {
 
-  protected PUBLIC_PROFILE_PATH = environment.API_URI + '/public/'
+  protected PUBLIC_PROFILE_PATH = environment.API_URI + '/public/profile/'
 
-  @Input() set image(val: string | { src: string; alt?: string }) {
+  @Input('image') set image(val: string | { src: string; alt?: string } | null | undefined) {
     if (typeof val === 'string') {
       this.src = val;
       return;
     };
 
-    this.src = val.src;
-    this.alt = val.alt;
+    this.src = val?.src;
+    this.alt = val?.alt;
   }
 
   profileIcon = faUser;
