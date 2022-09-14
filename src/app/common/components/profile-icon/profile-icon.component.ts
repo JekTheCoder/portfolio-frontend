@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ProfileIconComponent implements OnInit {
 
-  protected PUBLIC_PROFILE_PATH = environment.API_URI + '/public/profile/'
+  protected PUBLIC_PROFILE_PATH = environment.API_URI + '/public/profile/';
 
   @Input('image') set image(val: string | { src: string; alt?: string } | null | undefined) {
     if (typeof val === 'string') {
