@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './modules/auth/guards/auth.guard';
 import { PermissionGuard } from './modules/auth/guards/permission.guard';
 import { NotFoundComponent } from './modules/_app/components/not-found/not-found.component';
 
@@ -12,6 +13,11 @@ const routes: Routes = [
   {
     path: 'portfolio',
     loadChildren: () => import('./modules/portfolio/portfolio.module').then(m => m.PortfolioModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'blog',
