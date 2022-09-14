@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   API_URI: 'api.jeshuahinostroza.com',
-  githubClientId: '2641bbe040bcb0d50c27'
+  githubClientId: '29c8e964a7f2c7b84099'
 };
