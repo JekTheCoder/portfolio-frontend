@@ -25,6 +25,8 @@
       <ng-template #notLogged>
         <li><a routerLink="/auth/login">Login</a></li>
         <li><a routerLink="/auth/register">Register</a></li>
+        <li><button (click)="toGithub(false)" class="a-like">Login with github</button></li>
+        <li><button (click)="toGithub(true)" class="a-like">Register with github</button></li>
       </ng-template>
     </ul>
   </div>

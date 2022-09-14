@@ -4,6 +4,8 @@ import { Observable, map } from "rxjs";
 import { ProfileService } from '../../services/profile.service';
 import { AuthTokensService } from 'src/app/modules/auth/services/auth-tokens.service';
 import { Profile } from '../../models/profile.interface';
+import { GithubAuthBuilderService } from '../../services/github-auth-builder.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-icon',
@@ -20,7 +22,9 @@ export class ProfileIconComponent implements OnInit {
 
   constructor(
     proService: ProfileService,
-    private auth: AuthTokensService
+    private auth: AuthTokensService,
+    private githubAuthBuilder: GithubAuthBuilderService,
+    private router: Router
   ) {
     this.profile$ = proService.getProfile();
   }
@@ -30,6 +34,11 @@ export class ProfileIconComponent implements OnInit {
 
   protected logout() {
     this.auth.removeToken();
+  }
+
+  protected toGithub(register: boolean) {
+    const route = this.githubAuthBuilder.getGithubAuthRoute(register, true);
+    this.router.navigate([route]);
   }
 
 }
