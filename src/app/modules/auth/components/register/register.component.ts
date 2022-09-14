@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FileValidator } from 'ngx-material-file-input';
 import { LoginService } from '../../services/login.service';
+import { UsernameService } from '../../services/username.service';
 import { SameAs } from '../../validators/same-as.validator';
+import { UsernameNotExists } from '../../validators/username-exists.validator';
 
 interface FileValue {
   _files: File[];
@@ -38,9 +40,20 @@ export class RegisterComponent implements OnInit {
     FileValidator.maxContentSize(1048576)
   );
 
-  constructor(private loginService: LoginService, private location: Location) {
+  constructor(
+    private loginService: LoginService,
+    private location: Location,
+    private usernameService: UsernameService
+  ) {
     this.registerForm.controls.repeatPassword.addValidators(
       SameAs(this.registerForm.controls.password)
+    );
+
+    this.registerForm.controls.username.addAsyncValidators(
+      UsernameNotExists(
+        this.usernameService,
+        this.registerForm.controls.username
+      )
     );
   }
 
