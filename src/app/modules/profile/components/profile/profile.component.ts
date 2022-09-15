@@ -17,7 +17,6 @@ export class ProfileComponent implements OnInit {
   constructor(
     profile: ProfileService,
     private dialog: MatDialog,
-    private router: Router
   ) {
     this.profile$ = profile.getProfile();
   }
@@ -26,13 +25,5 @@ export class ProfileComponent implements OnInit {
 
   protected openDialog() {
     this.dialog.open(EditProfileDialogComponent);
-  }
-
-  protected toLinkAccount() {
-    this.router.navigate(['/auth/github-auth'], { queryParams: {
-      mode: 'link',
-      email: 'true',
-      redirect_url: this.router.url
-    }});
   }
 }
