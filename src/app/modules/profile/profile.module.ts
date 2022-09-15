@@ -1,23 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NgLetDirective } from '@common/directives/ng-let.directive';
 import { ProfileIconComponent } from '@common/components/profile-icon/profile-icon.component';
-import { MatButtonModule } from '@angular/material/button';
-
+import { EditProfileDialogComponent } from './components/edit-profile-dialog/edit-profile-dialog.component';
 
 @NgModule({
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    EditProfileDialogComponent
   ],
   imports: [
     CommonModule,
     ProfileRoutingModule,
     NgLetDirective,
     ProfileIconComponent,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class ProfileModule { }

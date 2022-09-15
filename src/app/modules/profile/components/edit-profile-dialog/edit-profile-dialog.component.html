@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>username</mat-label>
+        <input matInput type="text" name="username" formControlName="username">
+        <mat-error>This username already exists</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>name</mat-label>
+        <input type="text" name="name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>lastname</mat-label>
+        <input type="text" name="lastname" formControlName="lastname">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>email@mail.com</mat-label>
+        <input type="email" name="email" formControlName="email">
+    </mat-form-field>
+</form>
