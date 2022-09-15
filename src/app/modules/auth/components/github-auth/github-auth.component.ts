@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, switchMap, take, tap } from 'rxjs';
+import { GithubLinkService } from '../../services/github-link.service';
 import { GithubService } from '../../services/github.service';
 import { LoginService } from '../../services/login.service';
 
@@ -31,6 +32,7 @@ export class GithubAuthComponent implements OnInit {
     route: ActivatedRoute,
     private loginService: LoginService,
     private githubService: GithubService,
+    private githubLink: GithubLinkService,
     private router: Router
   ) {
     route.queryParams.pipe(
@@ -66,8 +68,10 @@ export class GithubAuthComponent implements OnInit {
 
   protected authenticate(data: Data & { code: string }) {
     const authReq = data.mode === 'login' ? 
-    this.loginService.loginGithub(data.code) : 
-    this.loginService.registerGithub(data.code);
+    this.loginService.loginGithub(data.code) :
+    data.mode === 'register' ? 
+    this.loginService.registerGithub(data.code) :
+    this.githubLink.linkAccountWithGithub(data.code);
 
     return authReq.pipe(tap(({
       error: e => this.handleError(e),
