@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Profile } from 'src/app/modules/_app/models/profile.interface';
 import { ProfileService } from 'src/app/modules/_app/services/profile.service';
@@ -13,13 +14,25 @@ import { EditProfileDialogComponent } from '../edit-profile-dialog/edit-profile-
 export class ProfileComponent implements OnInit {
   protected profile$?: Observable<Profile | null>;
 
-  constructor(profile: ProfileService, private dialog: MatDialog) {
+  constructor(
+    profile: ProfileService,
+    private dialog: MatDialog,
+    private router: Router
+  ) {
     this.profile$ = profile.getProfile();
   }
 
   ngOnInit(): void {}
 
   protected openDialog() {
-    this.dialog.open(EditProfileDialogComponent)
+    this.dialog.open(EditProfileDialogComponent);
+  }
+
+  protected toLinkAccount() {
+    this.router.navigate(['/auth/github-auth'], { queryParams: {
+      mode: 'link',
+      email: 'true',
+      redirect_url: this.router.url
+    }});
   }
 }

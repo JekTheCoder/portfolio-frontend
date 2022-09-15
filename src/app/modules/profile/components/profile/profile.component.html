@@ -19,7 +19,7 @@
     <main>
         <ul>
             <li><button class="btn" mat-button (click)="openDialog()">Edit account</button></li>
-            <li><a routerLink="" class="btn" mat-button>Link my account with github!</a></li>
+            <li><button class="btn" mat-button (click)="toLinkAccount()">Link my account with github!</button></li>
             <li><a mat-button [disabled]="!profile.email" class="btn">recover / change my password</a></li>
         </ul>
     </main>
