@@ -50,6 +50,10 @@ export class GithubAuthComponent implements OnInit {
     const mode = this.modes.find(mode => map['mode'] === mode) || 'login';
     const redirect_to = map['redirect_to'];
 
+    this.email = email;
+    this.mode = mode;
+    this.redirect_to = redirect_to;
+
     return {
       mode,
       email,
