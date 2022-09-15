@@ -3,9 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FileValidator } from 'ngx-material-file-input';
 import { Observable } from 'rxjs';
+import { UsernameService } from 'src/app/modules/auth/services/username.service';
 import { Profile } from 'src/app/modules/_app/models/profile.interface';
 
 import { ProfileService } from 'src/app/modules/_app/services/profile.service';
+import { UsernameNotExists } from '../../../auth/validators/username-exists.validator';
 
 
 interface FileValue {
@@ -23,7 +25,7 @@ export class EditProfileDialogComponent implements OnInit {
   protected profile$?: Observable<Profile>;
 
   protected form = new FormGroup({
-    username: new FormControl(''),
+    username: new FormControl('', { nonNullable: true }),
     name: new FormControl(''),
     lastname: new FormControl(''),
     email: new FormControl('', Validators.email)
@@ -32,9 +34,12 @@ export class EditProfileDialogComponent implements OnInit {
   protected profileControl = new FormControl<FileValue | null>(null, FileValidator.maxContentSize(1048576));
 
   constructor(
+    private usersService: UsernameService,
     private profile: ProfileService,
     @Optional() private dialogRef?: MatDialogRef<EditProfileDialogComponent>
-  ) { }
+  ) {
+    this.form.controls.username.addAsyncValidators(UsernameNotExists(usersService, this.form.controls.username));
+  }
 
   ngOnInit(): void {
   }
