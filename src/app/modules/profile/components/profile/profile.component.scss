@@ -1,6 +1,12 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
-    max-width: 1200px;
-    margin: auto;
+    max-width: 400px;
+    width: 100%;
 }
 
 .profile-header {
@@ -12,4 +18,13 @@
 
 .username {
     font-size: 24px;
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    width: 100%;
+    text-align: center;
 }

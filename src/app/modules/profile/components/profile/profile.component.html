@@ -1,5 +1,5 @@
 <div class="container" *ngIf="profile$ | async as profile">
-    <div class="profile-header">
+    <header class="profile-header">
         <profile-icon></profile-icon>
         <div class="">
             <div class="">
@@ -14,6 +14,12 @@
                 <p>{{ profile.createdAt | date }}</p>
             </div>
         </div>
-    </div>
+    </header>
     <hr>
+    <main>
+        <ul>
+            <li><button class="btn" mat-button>Edit account</button></li>
+            <li><a routerLink="" class="btn" mat-button>Link my account with github!</a></li>
+        </ul>
+    </main>
 </div>
