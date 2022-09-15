@@ -1,9 +1,18 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { take } from 'rxjs';
+import { map, switchMap, take, tap } from 'rxjs';
 import { GithubService } from '../../services/github.service';
 import { LoginService } from '../../services/login.service';
+
+type Modes = readonly ['login', 'register', 'link'];
+type Mode = Modes[number];
+interface Data {
+  mode: Mode,
+  email: boolean,
+  code?: string,
+  redirect_to?: string
+}
 
 @Component({
   selector: 'app-github-auth',
@@ -13,11 +22,10 @@ import { LoginService } from '../../services/login.service';
 export class GithubAuthComponent implements OnInit {
   messageShown = 0;
 
-  code?: string;
-  email: boolean = false;
-  login: boolean = false;
-
-  redirect_to?: string;
+  protected readonly modes: Modes = ['login', 'register', 'link'] as const;
+  protected redirect_to?: string;
+  protected mode?: Mode;
+  protected email?: boolean;
 
   constructor(
     route: ActivatedRoute,
@@ -25,37 +33,46 @@ export class GithubAuthComponent implements OnInit {
     private githubService: GithubService,
     private router: Router
   ) {
-    route.queryParams.pipe(take(1)).subscribe({
-      next: (map) => this.setData(map),
-      complete: () => this.handleGithubCode()
-    });
+    route.queryParams.pipe(
+      take(1), 
+      map(queryParam => this.setData(queryParam)), 
+      map(data => this.redirectIfCodeNull(data)),
+      switchMap(data => this.authenticate(data))
+    ).subscribe();
   }
 
   ngOnInit(): void {}
 
-  private setData(map: { [key in string]?: string }) {
-    this.login = map['register'] !== 'true';
-    this.email = map['email'] === 'true';
-    this.code = map['code'];
-    this.redirect_to = map['redirect_to'];
+  private setData(map: { [key in string]?: string }): Data {
+    const email = map['email'] === 'true';
+    const mode = this.modes.find(mode => map['mode'] === mode) || 'login';
+    const redirect_to = map['redirect_to'];
+
+    return {
+      mode,
+      email,
+      code: map['code'],
+      redirect_to
+    }
   }
 
-  private handleGithubCode() {
-    const code = this.code;
-    if (!code) return this.redirectToGithub();
-
-    this.authenticate(code, this.login)
+  redirectIfCodeNull(data: Data) {
+    if (!data.code) {
+      this.redirectToGithub();
+      throw new Error();
+    }
+    return data as Data & { code: string };
   }
 
-  protected authenticate(code: string, login: boolean) {
-    const authReq = login
-      ? this.loginService.loginGithub(code)
-      : this.loginService.registerGithub(code);
+  protected authenticate(data: Data & { code: string }) {
+    const authReq = data.mode === 'login' ? 
+    this.loginService.loginGithub(data.code) : 
+    this.loginService.registerGithub(data.code);
 
-    authReq.subscribe({
+    return authReq.pipe(tap(({
       error: e => this.handleError(e),
       next: () => this.getBack()
-    });
+    })));
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -70,6 +87,6 @@ export class GithubAuthComponent implements OnInit {
   }
 
   protected redirectToGithub() {
-    this.githubService.redirectToGithubAuth(this.login, this.email, this.redirect_to);
+    this.githubService.redirectToGithubAuth(this.mode || 'login', this.email, this.redirect_to);
   }
 }
