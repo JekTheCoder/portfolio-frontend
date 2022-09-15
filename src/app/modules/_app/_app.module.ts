@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
 import { GithubAuthBuilderService } from './services/github-auth-builder.service';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { GithubAuthBuilderService } from './services/github-auth-builder.service
     MatSlideToggleModule,
     NgLetDirective,
     FontAwesomeModule,
-    IconComponent
+    IconComponent,
+    MatButtonModule
   ],
   providers: [GithubAuthBuilderService],
   exports: [HeaderComponent, FooterComponent]

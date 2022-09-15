@@ -18,13 +18,14 @@
   >
     <ul>
       <ng-container *ngIf="profile; else notLogged">
-        <li><button (click)="logout()" class="a-like">Loggout</button></li>
+        <li><a mat-button routerLink="/profile">Profile</a></li>
+        <li><button mat-button (click)="logout()">Loggout</button></li>
       </ng-container>
       <ng-template #notLogged>
-        <li><a routerLink="/auth/login">Login</a></li>
-        <li><a routerLink="/auth/register">Register</a></li>
-        <li><button (click)="toGithub(false)" class="a-like">Login with github</button></li>
-        <li><button (click)="toGithub(true)" class="a-like">Register with github</button></li>
+        <li><a mat-button routerLink="/auth/login">Login</a></li>
+        <li><a mat-button routerLink="/auth/register">Register</a></li>
+        <li><button mat-button (click)="toGithub(false)">Login with github</button></li>
+        <li><button mat-button (click)="toGithub(true)">Register with github</button></li>
       </ng-template>
     </ul>
   </div>
