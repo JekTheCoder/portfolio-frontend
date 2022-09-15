@@ -1,7 +1,7 @@
 import { Inject, Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LOCAL_STORAGE } from '@common/providers/local-storage.provider';
-import { interval, Subject, take, takeUntil, ReplaySubject, distinct } from 'rxjs';
+import { interval, Subject, take, takeUntil, ReplaySubject, distinctUntilChanged } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TokensResponse } from '../models/tokens-response.interface';
 
@@ -27,6 +27,7 @@ export class AuthTokensService implements OnDestroy {
     this.stop$.next();
     this.stop$.complete();
 
+    console.log('destoy')
     this.hasAccessToken$.complete();
   }
 
@@ -76,6 +77,6 @@ export class AuthTokensService implements OnDestroy {
   }
 
   getHasAccessToken() {
-    return this.hasAccessToken$.asObservable().pipe(distinct());
+    return this.hasAccessToken$.asObservable().pipe(distinctUntilChanged());
   }
 }
