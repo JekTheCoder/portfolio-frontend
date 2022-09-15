@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { FileValidator } from 'ngx-material-file-input';
+import { Observable } from 'rxjs';
+import { Profile } from 'src/app/modules/_app/models/profile.interface';
+
+import { ProfileService } from 'src/app/modules/_app/services/profile.service';
 
 
 interface FileValue {
@@ -15,6 +20,8 @@ interface FileValue {
 })
 export class EditProfileDialogComponent implements OnInit {
 
+  protected profile$?: Observable<Profile>;
+
   protected form = new FormGroup({
     username: new FormControl(''),
     name: new FormControl(''),
@@ -24,9 +31,33 @@ export class EditProfileDialogComponent implements OnInit {
 
   protected profileControl = new FormControl<FileValue | null>(null, FileValidator.maxContentSize(1048576));
 
-  constructor() { }
+  constructor(
+    private profile: ProfileService,
+    @Optional() private dialogRef?: MatDialogRef<EditProfileDialogComponent>
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  protected submit() {
+    if (!this.form.touched && (this.form.invalid || this.profileControl.invalid)) return;
+
+    const value = this.getTouchedValues();
+    const file = this.profileControl.value?._files[0];
+
+    this.profile$ = this.profile.updateProfile(value, file);
+    this.profile$.subscribe({
+      complete: () => this.dialogRef?.close()
+    });
+  }
+
+  private getTouchedValues() {
+    let value: { [key in string]: unknown } = {};
+    Object.entries(this.form.controls).forEach(([key, control]) => {
+      if (control.touched) value[key] = control.value;
+    });
+
+    return value;
   }
 
 }
