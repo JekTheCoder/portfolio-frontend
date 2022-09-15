@@ -4,16 +4,13 @@ import {
   Observable,
   switchMap,
   of,
-  shareReplay,
   map,
   ReplaySubject,
-  tap
+  tap,
 } from 'rxjs';
 import { Profile } from '../models/profile.interface';
 import { environment } from 'src/environments/environment';
 import { AuthHttpClient } from '../../auth-http/providers/auth-http-client';
-
-const CACHE_SIZE = 1;
 
 @Injectable({
   providedIn: 'root',
@@ -35,27 +32,35 @@ export class ProfileService {
   }
 
   updateProfile(profile: any, profileImage?: File): Observable<Profile> {
-    const profile$ = this.appendProfile(this.http.put<Profile>(this.profilePath, profile));
+    let profile$ = this.appendProfile(
+      this.http
+        .put<void>(this.profilePath, profile)
+        .pipe(switchMap(() => this.http.get<Profile>(this.profilePath)))
+    );
     if (!profileImage) return profile$;
 
-    return profile$.pipe(
+    profile$ = profile$.pipe(
       switchMap((profile) =>
         this.postProfileImage(profileImage).pipe(map(() => profile))
       )
     );
+
+    profile$.subscribe();
+    return this.profileCache$.asObservable();
   }
 
   private getCachedProfile(): Observable<Profile> {
-    const obs = this.http.get<Profile>(this.profilePath);
-    this.appendProfile(obs);
-    return obs;
+    this.appendProfile(this.http.get<Profile>(this.profilePath)).subscribe();
+    return this.profileCache$.asObservable();
   }
 
   private appendProfile(obs: Observable<Profile>) {
-    return obs.pipe(tap({
-      next: (p) => this.profileCache$.next(p),
-      error: (e) => this.profileCache$.error(e),
-    }));
+    return obs.pipe(
+      tap({
+        next: (p) => this.profileCache$.next(p),
+        error: (e) => this.profileCache$.error(e),
+      })
+    );
   }
 
   postProfileImage(profileImage: File) {

@@ -47,7 +47,7 @@ export class EditProfileDialogComponent implements OnInit {
 
     this.profile$ = this.profile.updateProfile(value, file);
     this.profile$.subscribe({
-      complete: () => this.dialogRef?.close()
+      next: () => this.dialogRef?.close()
     });
   }
 
