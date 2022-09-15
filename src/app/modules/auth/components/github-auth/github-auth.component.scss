@@ -10,7 +10,12 @@
 }
 
 p {
-    font-size: 2em;
+    text-align: center;
+    font-size: 18px;
+
+    &.title {
+        font-size: 34px;
+    }
 }
 
 .dialog {
@@ -22,4 +27,14 @@ p {
     p {
         font-size: 18px;
     }
+}
+
+.message-container {
+    padding: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 50px;
 }
