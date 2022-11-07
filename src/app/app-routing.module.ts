@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'portfolio',
-    loadChildren: () => import('./modules/portfolio/portfolio.module').then(m => m.PortfolioModule)
+    loadChildren: () => import('./pages/portfolio/portfolio.module').then(m => m.PortfolioModule)
   },
   {
     path: 'profile',

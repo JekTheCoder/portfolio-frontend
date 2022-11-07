@@ -6,8 +6,8 @@ import {
   Input,
   ViewChild,
 } from '@angular/core';
-import { BoxSizeService } from '../../services/box-size.service';
 import { animations } from './project.animations';
+import { BoxSizeService } from './services/box-size.service';
 
 interface Image {
   src?: string;

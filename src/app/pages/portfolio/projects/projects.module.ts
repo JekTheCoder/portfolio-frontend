@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProjectComponent } from './component/project/project.component';
 import { BoxSizeService } from './services/box-size.service';
-
+import { ProjectComponent } from './project.component';
 
 
 @NgModule({
