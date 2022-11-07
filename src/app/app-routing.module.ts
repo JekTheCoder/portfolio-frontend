@@ -21,20 +21,26 @@ const routes: Routes = [
   },
   {
     path: 'blog',
-    loadChildren: () => import('./modules/blog/blog.module').then(m => m.BlogModule)
-  },
-  {
-    path: 'blog/search',
-    loadChildren: () => import('./pages/blog-search/blog-search.module').then(m => m.BlogSearchModule)
-  },
-  {
-    path: 'blog/create',
-    loadChildren: () => import('./modules/create-blog/create-blog.module').then(m => m.CreateBlogModule),
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule),          
+      },
+      {
+        path: 'search',
+        loadChildren: () => import('./pages/blog-search/blog-search.module').then(m => m.BlogSearchModule)    
+      },
+      {
+        path: 'create',
+        loadChildren: () => import('./modules/create-blog/create-blog.module').then(m => m.CreateBlogModule),
     title: 'Blog | create',
-    canLoad: [PermissionGuard],
-    data: {
-      permissions: ['self:blogs:create']
-    }
+      canLoad: [PermissionGuard],
+      data: {
+        permissions: ['self:blogs:create']
+      }    
+      }
+    ]
   },
   {
     path: 'auth',
