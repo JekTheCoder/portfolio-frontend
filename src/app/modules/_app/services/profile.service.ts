@@ -10,7 +10,7 @@ import {
 } from 'rxjs';
 import { Profile } from '../models/profile.interface';
 import { environment } from 'src/environments/environment';
-import { AuthHttpClient } from '../../auth-http/providers/auth-http-client';
+import { AuthHttpClient } from '@core/auth-http/providers/auth-http-client';
 
 @Injectable({
   providedIn: 'root',

@@ -24,7 +24,8 @@
     ],
     "paths": {
       "@common/*": ["src/app/common/*"],
-      "@blogs/*": ["src/app/modules/blogs/*"]
+      "@blogs/*": ["src/app/modules/blogs/*"],
+      "@core/*": ["src/app/core/*"]
     }
   },
   "angularCompilerOptions": {

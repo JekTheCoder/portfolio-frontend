@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FileValidator } from 'ngx-material-file-input';
 import { LoginService } from '../../services/login.service';
-import { UsernameService } from '../../services/username.service';
-import { SameAs } from '../../validators/same-as.validator';
-import { UsernameNotExists } from '../../validators/username-exists.validator';
+import { UsernameService } from '../../../../pages/profile/services/username.service';
+import { SameAs } from '../../../../pages/profile/validators/same-as.validator';
+import { UsernameNotExists } from '../../../../pages/profile/validators/username-exists.validator';
 
 interface FileValue {
   _files: File[];

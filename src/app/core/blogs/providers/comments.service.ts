@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthHttpClient } from 'src/app/modules/auth-http/providers/auth-http-client';
+import { AuthHttpClient } from '@core/auth-http/providers/auth-http-client';
 import { environment } from 'src/environments/environment';
 import { BlogsModule } from '../blogs.module';
 import { Comment } from '../models/comment';

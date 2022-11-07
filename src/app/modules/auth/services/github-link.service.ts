@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
+import { AuthHttpClient } from '@core/auth-http/providers/auth-http-client';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-import { AuthHttpClient } from '../../auth-http/providers/auth-http-client';
 
 @Injectable({
   providedIn: 'root'

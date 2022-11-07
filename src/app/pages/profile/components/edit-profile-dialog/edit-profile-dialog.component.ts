@@ -3,11 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FileValidator } from 'ngx-material-file-input';
 import { Observable } from 'rxjs';
-import { UsernameService } from 'src/app/modules/auth/services/username.service';
+import { UsernameService } from 'src/app/pages/profile/services/username.service';
+import { UsernameNotExists } from 'src/app/pages/profile/validators/username-exists.validator';
 import { Profile } from 'src/app/modules/_app/models/profile.interface';
 
 import { ProfileService } from 'src/app/modules/_app/services/profile.service';
-import { UsernameNotExists } from '../../../auth/validators/username-exists.validator';
 
 
 interface FileValue {

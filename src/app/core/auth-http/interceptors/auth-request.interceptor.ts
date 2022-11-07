@@ -8,8 +8,8 @@ import {
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
-import { AuthTokensService } from '../../auth/services/auth-tokens.service';
 import { AUTH_HTTP_INTERCEPTORS } from '../providers/auth-http-interceptors';
+import { AuthTokensService } from 'src/app/modules/auth/services/auth-tokens.service';
 
 @Injectable()
 export class AuthRequestInterceptor implements HttpInterceptor {
