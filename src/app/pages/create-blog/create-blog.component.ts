@@ -1,16 +1,16 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { fadeInOut200 } from '@common/animations/fade-in-out.animation';
 import { Observable } from 'rxjs';
 import { Blog } from 'src/app/core/blogs/models/blog';
-import { BlogDto } from '../../models/blog.dto';
-import { BlogCreateService } from '../../service/blog-create.service';
-import { animations } from "./create-blog.animations";
+import { BlogDto } from './models/blog.dto';
+import { BlogCreateService } from './service/blog-create.service';
 
 @Component({
   selector: 'app-create-blog',
   templateUrl: './create-blog.component.html',
   styleUrls: ['./create-blog.component.scss'],
-  animations
+  animations: [fadeInOut200]
 })
 export class CreateBlogComponent implements OnInit {
 

@@ -33,7 +33,7 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        loadChildren: () => import('./modules/create-blog/create-blog.module').then(m => m.CreateBlogModule),
+        loadChildren: () => import('./pages/create-blog/create-blog.module').then(m => m.CreateBlogModule),
     title: 'Blog | create',
       canLoad: [PermissionGuard],
       data: {

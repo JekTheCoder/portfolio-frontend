@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { map, Observable, switchMap } from 'rxjs';
 import { Blog } from 'src/app/core/blogs/models/blog';
+import { AuthHttpClient } from 'src/app/modules/auth-http/providers/auth-http-client';
 import { environment } from 'src/environments/environment';
-import { AuthHttpClient } from '../../auth-http/providers/auth-http-client';
 import { BlogDto } from '../models/blog.dto';
 
 const CREATE_ROUTE = environment.API_URI + '/blogs';
