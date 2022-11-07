@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Blog } from 'src/app/modules/blog/models/blog';
+import { Blog } from 'src/app/core/blogs/models/blog';
 import { BlogDto } from '../../models/blog.dto';
 import { BlogCreateService } from '../../service/blog-create.service';
 import { animations } from "./create-blog.animations";

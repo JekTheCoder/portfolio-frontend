@@ -6,7 +6,7 @@
 @use '../app/pages/portfolio/sections/contact-me/contact-me.theme.scss' as app-contact-me;
 @use '../app/modules/auth/components/github-auth/github-auth.theme.scss' as app-github-auth;
 @use '../app/modules/_app/components/profile-icon/profile-icon.theme.scss' as app-profile-icon;
-@use '../app/modules/blog-search/components/blog-card/blog-card.theme.scss' as app-blog-card;
+@use '../app/pages/blog-search/components/blog-card/blog-card.theme.scss' as app-blog-card;
 
 @mixin theme($material-theme, $app-theme) {
     $background-palette: map.get($app-theme, 'background');

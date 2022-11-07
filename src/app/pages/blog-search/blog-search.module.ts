@@ -8,9 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 import { BlogSearchRoutingModule } from './blog-search-routing.module';
-import { BlogSearchComponent } from './components/blog-search/blog-search.component';
 import { BlogCardComponent } from './components/blog-card/blog-card.component';
 import { BlogPreviewService } from './services/blog-preview.service';
+import { BlogSearchComponent } from './blog-search.component';
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import { BlogPreviewService } from './services/blog-preview.service';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [BlogPreviewService]
 })

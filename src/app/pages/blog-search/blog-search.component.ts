@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Blog } from 'src/app/modules/blog/models/blog';
-import { BlogPreviewService } from '../../services/blog-preview.service';
+import { Blog } from 'src/app/core/blogs/models/blog';
+import { BlogPreviewService } from './services/blog-preview.service';
 
 @Component({
   selector: 'app-blog-search',

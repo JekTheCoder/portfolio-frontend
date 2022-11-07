@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AuthHttpClient } from '../../auth-http/providers/auth-http-client';
+import { AuthHttpClient } from 'src/app/modules/auth-http/providers/auth-http-client';
 import { environment } from 'src/environments/environment';
+import { BlogsModule } from '../blogs.module';
 import { Comment } from '../models/comment';
 
 const COMMENT_CREATE = environment.API_URI + '/comments/';
@@ -10,7 +11,7 @@ interface CommentDto {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: BlogsModule
 })
 export class CommentsService {
 

@@ -25,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'blog/search',
-    loadChildren: () => import('./modules/blog-search/blog-search.module').then(m => m.BlogSearchModule)
+    loadChildren: () => import('./pages/blog-search/blog-search.module').then(m => m.BlogSearchModule)
   },
   {
     path: 'blog/create',

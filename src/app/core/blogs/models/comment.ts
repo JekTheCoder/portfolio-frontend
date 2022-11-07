@@ -1,4 +1,4 @@
-import { Profile } from "../../_app/models/profile.interface";
+import { Profile } from "src/app/modules/_app/models/profile.interface";
 
 export interface Comment {
     id: unknown,

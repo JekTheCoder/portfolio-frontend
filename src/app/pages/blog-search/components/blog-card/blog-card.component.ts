@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Blog } from 'src/app/modules/blog/models/blog';
+import { Blog } from 'src/app/core/blogs/models/blog';
 import { environment } from 'src/environments/environment';
 
 @Component({

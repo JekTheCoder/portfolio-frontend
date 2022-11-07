@@ -13,9 +13,8 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { CommentCreateComponent } from './components/comment-create/comment-create.component';
 
-import { BlogsService } from './services/blogs.service';
-import { CommentsService } from './services/comments.service';
 import { NgLetDirective } from '@common/directives/ng-let.directive';
+import { BlogsModule } from 'src/app/core/blogs/blogs.module';
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import { NgLetDirective } from '@common/directives/ng-let.directive';
     CommentComponent,
     CommentCreateComponent
   ],
-  providers: [BlogsService, CommentsService],
   imports: [
     CommonModule,
     BlogRoutingModule,
@@ -34,7 +32,8 @@ import { NgLetDirective } from '@common/directives/ng-let.directive';
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
-    NgLetDirective
+    NgLetDirective,
+    BlogsModule
   ]
 })
 export class BlogModule { }
