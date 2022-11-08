@@ -4,9 +4,10 @@ import { LOCAL_STORAGE } from '@common/providers/local-storage.provider';
 import { interval, Subject, take, takeUntil, ReplaySubject, distinctUntilChanged } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TokensResponse } from '../models/tokens-response.interface';
+import { AuthModule } from '../auth.module';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: AuthModule,
 })
 export class AuthTokensService implements OnDestroy {
   accessToken?: string;

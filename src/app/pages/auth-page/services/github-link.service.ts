@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { AuthHttpClient } from '@core/auth-http/providers/auth-http-client';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { AuthPageModule } from '../auth-page.module';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: AuthPageModule
 })
 export class GithubLinkService {
 

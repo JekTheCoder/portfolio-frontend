@@ -1,9 +1,10 @@
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from "@angular/common";
 import { environment } from 'src/environments/environment';
+import { AuthPageModule } from '../auth-page.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: AuthPageModule
 })
 export class GithubService {
 

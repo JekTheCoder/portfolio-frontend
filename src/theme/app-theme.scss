@@ -4,7 +4,7 @@
 @use  '../app/modules/_app/components/header/header.theme.scss' as app-header;
 @use '../app/pages/portfolio/sections/navigator/navigator.theme.scss' as app-navigator;
 @use '../app/pages/portfolio/sections/contact-me/contact-me.theme.scss' as app-contact-me;
-@use '../app/modules/auth/components/github-auth/github-auth.theme.scss' as app-github-auth;
+@use '../app/pages/auth-page/components/github-auth/github-auth.theme.scss' as app-github-auth;
 @use '../app/modules/_app/components/profile-icon/profile-icon.theme.scss' as app-profile-icon;
 @use '../app/pages/blog-search/components/blog-card/blog-card.theme.scss' as app-blog-card;
 

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanLoad, Route, Router, UrlSegment, UrlTree } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { Profile } from '../../_app/models/profile.interface';
-import { ProfileService } from '../../_app/services/profile.service';
+import { Profile } from 'src/app/modules/_app/models/profile.interface';
+import { ProfileService } from '../services/profile.service';
 
 @Injectable({
   providedIn: 'root',

@@ -5,9 +5,9 @@ import { FileValidator } from 'ngx-material-file-input';
 import { Observable } from 'rxjs';
 import { UsernameService } from 'src/app/pages/profile/services/username.service';
 import { UsernameNotExists } from 'src/app/pages/profile/validators/username-exists.validator';
-import { Profile } from 'src/app/modules/_app/models/profile.interface';
+import { ProfileService } from '@core/auth/services/profile.service';
+import { Profile } from '@core/auth/models/profile.interface';
 
-import { ProfileService } from 'src/app/modules/_app/services/profile.service';
 
 
 interface FileValue {

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { animations } from "./profile-icon.animations";
-import { Observable, map } from "rxjs";
-import { ProfileService } from '../../services/profile.service';
-import { AuthTokensService } from 'src/app/modules/auth/services/auth-tokens.service';
+import { Observable } from "rxjs";
 import { Profile } from '../../models/profile.interface';
 import { GithubAuthBuilderService } from '../../services/github-auth-builder.service';
-import { Router } from '@angular/router';
+import { ProfileService } from '@core/auth/services/profile.service';
+import { AuthTokensService } from '@core/auth/services/auth-tokens.service';
 
 @Component({
   selector: 'app-profile-icon',

@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthHttpClient } from '@core/auth-http/providers/auth-http-client';
+import { AuthTokensService } from '@core/auth/services/auth-tokens.service';
 
 import { map, switchMap } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
+import { AuthPageModule } from '../auth-page.module';
 import { TokensResponse } from '../models/tokens-response.interface';
-import { AuthTokensService } from './auth-tokens.service';
 
 export interface LoginDto {
   username: string;
@@ -20,7 +21,7 @@ export interface RegisterDto extends LoginDto {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: AuthPageModule
 })
 export class LoginService {
   constructor(

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './modules/auth/guards/auth.guard';
-import { PermissionGuard } from './modules/auth/guards/permission.guard';
+import { AuthGuard } from '@core/auth/guards/auth.guard';
+import { PermissionGuard } from '@core/auth/guards/permission.guard';
 import { NotFoundComponent } from './modules/_app/components/not-found/not-found.component';
 
 const routes: Routes = [
@@ -44,7 +44,7 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./pages/auth-page/auth-page.module').then(m => m.AuthPageModule)
   },
   {
     path: '**',

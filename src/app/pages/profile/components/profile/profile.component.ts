@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ProfileService } from '@core/auth/services/profile.service';
 import { Observable } from 'rxjs';
 import { Profile } from 'src/app/modules/_app/models/profile.interface';
-import { ProfileService } from 'src/app/modules/_app/services/profile.service';
 import { EditProfileDialogComponent } from '../edit-profile-dialog/edit-profile-dialog.component';
 
 @Component({

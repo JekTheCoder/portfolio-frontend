@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ProfileService } from 'src/app/modules/_app/services/profile.service';
+import { ProfileService } from '@core/auth/services/profile.service';
 import { Observable } from 'rxjs';
 import { Profile } from 'src/app/modules/_app/models/profile.interface';
 

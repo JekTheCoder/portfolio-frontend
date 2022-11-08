@@ -11,9 +11,10 @@ import {
 import { Profile } from '../models/profile.interface';
 import { environment } from 'src/environments/environment';
 import { AuthHttpClient } from '@core/auth-http/providers/auth-http-client';
+import { AuthModule } from '../auth.module';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: AuthModule,
 })
 export class ProfileService {
   private profileCache$ = new ReplaySubject<Profile>();
