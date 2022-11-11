@@ -4,7 +4,7 @@
 
 @include mat.core();
 
-$portfolio-frontend-primary: mat.define-palette(mat.$blue-gray-palette, 800);
+$portfolio-frontend-primary: mat.define-palette(mat.$green-palette, 800);
 $portfolio-frontend-accent: mat.define-palette(mat.$blue-palette, 800);
 
 $portfolio-frontend-warn: mat.define-palette(mat.$red-palette);
