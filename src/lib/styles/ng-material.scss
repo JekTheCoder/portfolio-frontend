@@ -8,9 +8,16 @@
     $warn-pallete: map-get($map: $color-config, $key: 'warn');
     $background-palette: map.get($app-theme, 'background');
 
+    $is-dark-theme:   map.get($color-config, 'is-dark');
+
     --color-primary: #{mat.get-color-from-palette($primary-pallete)};
     --color-accent: #{mat.get-color-from-palette($accent-palette)};
     --color-warn: #{mat.get-color-from-palette($warn-pallete)};
 
     --color-background: #{mat.get-color-from-palette($background-palette)};
+
+    --primary-text: #000;
+    @if $is-dark-theme {
+        --primary-text: #fff;
+    }    
 }

@@ -1,7 +1,6 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
 
-@use  '../app/modules/_app/components/header/header.theme.scss' as app-header;
 @use '../app/pages/portfolio/sections/navigator/navigator.theme.scss' as app-navigator;
 @use '../app/pages/portfolio/sections/contact-me/contact-me.theme.scss' as app-contact-me;
 @use '../app/pages/auth-page/components/github-auth/github-auth.theme.scss' as app-github-auth;
@@ -23,7 +22,6 @@
     background-color: mat.get-color-from-palette($background-palette);
     color: $color;
 
-    @include app-header.theme($material-theme, $app-theme);
     @include app-navigator.theme($material-theme, $app-theme);
     @include app-contact-me.theme($material-theme, $app-theme);
     @include app-github-auth.theme($material-theme, $app-theme);
