@@ -1,4 +1,5 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
+import { cubicBezier } from "./cubic-bezier.time";
 
 export function fadeInOut(ms: number) {
     return trigger('fadeInOut', [
@@ -6,11 +7,11 @@ export function fadeInOut(ms: number) {
         state('out', style({ display: 'none' })),
         transition('out => in', [
             style({ display: '*', translate: '0 20%', opacity: '0' }),
-            animate(ms, style({ translate: '0', opacity: '1' }))
+            animate(cubicBezier(ms), style({ translate: '0', opacity: '1' }))
         ]),
         transition('in => out', [
             style({ opacity: '1', translate: '0' }),
-            animate(ms, style({ translate: '0 20%', opacity: '0' }))
+            animate(cubicBezier(ms), style({ translate: '0 20%', opacity: '0' }))
         ])
     ])
 }
