@@ -1,7 +1,7 @@
-<div #hoverDetector class="sticky top-0 h-20">
+<div #hoverDetector class="sticky top-0 z-50">
   <header 
     [@upDown]="hover$ | async"
-    class="w-full flex justify-evenly py-4">
+    class="w-full flex justify-evenly items-center py-4 bg-background">
     <a
       *ngFor="let link of links"
       #active="routerLinkActive"
