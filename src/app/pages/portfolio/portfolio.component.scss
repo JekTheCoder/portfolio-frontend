@@ -15,3 +15,8 @@ $margin-top: 100px;
 .light-bg-gradient {
     background: radial-gradient(ellipse at 60% 0%, rgba(50, 50, 50, 1) 10%, transparent 60%);    
 }
+
+.dark-bg-gradient {
+    // background-color: linear-gradient(to up, rgba(50, 50, 50), transparent);
+    background: linear-gradient(transparent 90%, #0c0e13);
+}

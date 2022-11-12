@@ -11,3 +11,8 @@ p {
 h2, h3, .title {
     @apply font-bold;
 }
+
+.card {
+    @apply bg-background p-4 rounded;
+    box-shadow: 0 0 2px var(--primary-text);
+}

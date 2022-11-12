@@ -1,4 +1,5 @@
 <div *ngIf="isDark$ | async" class="light-bg-gradient h-screen absolute top-0 w-full -z-10"></div>
+<div *ngIf="isDark$ | async" class="dark-bg-gradient h-screen absolute bottom-0 w-full -z-10"></div>
 <div id="content" class="relative">
     <section #aboutMe id="about-me" class="h-screen pt-28 px-12 m-auto max-w-4xl">
         <app-presentation></app-presentation>
@@ -9,16 +10,10 @@
         </div>
 
         <div class="mt-32 flex justify-center">
-            <button app-neon-button color="accent" appSmoothAnchor="content">
+            <button app-neon-button color="accent" appSmoothAnchor="tech-stack">
                 <span>Continue</span>
             </button>
         </div>
     </section>
-    <section #projects id="projects" class="w-full flex justify-center" appTargetFragment="content">
-        <app-projects></app-projects>
-    </section>
-    <section #contactMe>
-        <app-contact-me></app-contact-me>
-    </section>
-    <app-navigator class="fixed top-20 right-10" *ngIf="sectionsKeys" [fragments]="sectionsKeys"></app-navigator>
+    <app-tech-stack appTargetFragment="tech-stack"></app-tech-stack>
 </div>

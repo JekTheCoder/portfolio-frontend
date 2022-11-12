@@ -20,6 +20,7 @@ import { PresentationComponent } from './sections/presentation/presentation.comp
 import { MatButtonModule } from '@angular/material/button';
 import { SmoothAnchorModule } from '@lib/directives/smooth-anchor/smooth-anchor.module';
 import { NeonButtonComponent } from '@lib/components/neon-button/neon-button.component';
+import { TechStackComponent } from './sections/tech-stack/tech-stack.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { NeonButtonComponent } from '@lib/components/neon-button/neon-button.com
     ProjectsComponent,
     BackendProjectComponent,
     SkillsComponent,
-    PresentationComponent
+    PresentationComponent,
+    TechStackComponent
   ],
   imports: [
     CommonModule,
