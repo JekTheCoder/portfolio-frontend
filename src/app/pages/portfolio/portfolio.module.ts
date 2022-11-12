@@ -21,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { SmoothAnchorModule } from '@lib/directives/smooth-anchor/smooth-anchor.module';
 import { NeonButtonComponent } from '@lib/components/neon-button/neon-button.component';
 import { TechStackComponent } from './sections/tech-stack/tech-stack.component';
+import { SvgIconComponent } from '@lib/components/svg-icon/svg-icon.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { TechStackComponent } from './sections/tech-stack/tech-stack.component';
     MatButtonModule,
     SmoothAnchorModule,
     NeonButtonComponent,
+    SvgIconComponent,
   ],
   providers: [ImageService, ResizeObservableFactoryService]
 })
