@@ -6,20 +6,20 @@ import { SmoothAnchorService } from './smooth-anchor.service';
 })
 export class SmoothAnchorDirective {
 
-  @Input('appSmoothAnchor') name?: string | null;
-  private element?: HTMLElement;
+  @Input('appSmoothAnchor') name!: string;
 
   constructor(private smoothAnchorService: SmoothAnchorService) {}
 
   ngOnInit() {
     if (!this.name) throw new Error('No name provided for smooth anchor directive');
-
-    this.element = this.smoothAnchorService.get(this.name);
   }
 
   @HostListener('click')
   scroll() {
-    this.element?.scroll();
+    const element = this.smoothAnchorService.get(this.name);
+
+    if (!element) return console.warn(`Element '${this.name}' not found`);
+    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });;
   }
 
 }
