@@ -23,6 +23,7 @@ import { NeonButtonComponent } from '@lib/components/neon-button/neon-button.com
 import { TechStackComponent } from './sections/tech-stack/tech-stack.component';
 import { SvgIconComponent } from '@lib/components/svg-icon/svg-icon.component';
 import { TechCardComponent } from './generic/tech-card/tech-card.component';
+import { HoverDirective } from '@lib/directives/hover/hover.directive';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { TechCardComponent } from './generic/tech-card/tech-card.component';
     SmoothAnchorModule,
     NeonButtonComponent,
     SvgIconComponent,
+    HoverDirective
   ],
   providers: [ImageService, ResizeObservableFactoryService]
 })

@@ -1,6 +1,10 @@
-<div class="card" #hover [@rightTilt]="hover$ | async">
+<div class="p-4 rounded-md backdrop-brightness-150" appHover [@rightTilt]="hover$ | async">
     <div class="font-bold text-lg text-center block">
         <ng-content select="[title]"></ng-content>
     </div>
-    <ng-content select="[icon]"></ng-content>
+    <div [ngClass]="{
+        'brightness-50': disabled$ | async
+    }">
+        <ng-content select="[icon]"></ng-content>
+    </div>   
 </div>
