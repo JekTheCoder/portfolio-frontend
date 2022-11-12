@@ -4,51 +4,19 @@ $margin-top: 100px;
 #content {
     $sides-width: 200px;
 
-    display: grid;
-    padding: 0 10px;
-    position: relative;
-    grid-template-columns: minmax(0, $sides-width) 1fr minmax(0, $sides-width);
-
-    .right>app-navigator {
-        top: $margin-top;
-        position: sticky;
-    }
-
-    .left>* {
-        margin: auto;
-    }
-
-    #about-me {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-
-        p {
-            text-align: start;
-            margin-bottom: 10px;
-        }
-
-        .link {
-            font-weight: 600;
-            text-decoration: underline;
-            color: unset;
-        }
-    }
-
-    #projects {
-        max-width: 1000px;
-        padding-top: 60px;
-    }
+    // display: grid;
+    // padding: 0 10px;
+    // position: relative;
+    // grid-template-columns: minmax(0, $sides-width) 1fr minmax(0, $sides-width);
 }
 
-h2 {
-    font-size: 12vw;
-    max-width: 50%;
+.gradient {
+    background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-@media (min-width: 1000px) {
-    h2.name {
-        font-size: 120px;
-    }
+.light-bg-gradient {
+    background: radial-gradient(ellipse at top, rgba(255, 255, 255, .1), transparent 70%);    
 }
