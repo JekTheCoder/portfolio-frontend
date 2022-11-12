@@ -3,3 +3,11 @@
 :root {
     --header-height: 4rem;
 }
+
+p, span {
+    @apply text-secondary;
+}
+
+h2, h3, .title {
+    @apply font-bold;
+}

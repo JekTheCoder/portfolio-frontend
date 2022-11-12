@@ -21,7 +21,8 @@ module.exports = {
         background: 'var(--color-background)',
       },
       textColor: {
-        primary: 'var(--primary-text)'
+        primary: 'var(--primary-text)',
+        secondary: 'var(--secondary-text)'
       }
     },
   },
