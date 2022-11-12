@@ -2,15 +2,40 @@
     <div class="max-w-7xl m-auto">
         <h3 class="title text-5xl mb-4">Tech Stack</h3>
         <div class="grid my-grid gap-4">
-            <div class="card">
-                <span class="font-bold text-lg text-center block">Angular</span>
-                <div class="">
-                    <app-svg-icon icon="angular"></app-svg-icon>
-                </div>
-            </div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
+            <app-tech-card>
+                <span title>Angular</span>
+                <app-svg-icon icon="angular"></app-svg-icon>
+            </app-tech-card>
+            <app-tech-card>
+                <span title>NestJs</span>
+                <app-svg-icon icon="nestjs"></app-svg-icon>
+            </app-tech-card>
+            <app-tech-card>
+                <span title>Node.js</span>
+                <app-svg-icon icon="node.js"></app-svg-icon>
+            </app-tech-card>
+            <app-tech-card>
+                <span title>Express</span>
+                <app-svg-icon 
+                [ngClass]="{
+                    'invert': dark$ | async
+                }" 
+                icon="express"
+                ></app-svg-icon>
+            </app-tech-card>
+            <app-tech-card>
+                <span title>Rust</span>
+                <app-svg-icon 
+                [ngClass]="{
+                    'invert': dark$ | async
+                }" 
+                icon="rust"
+                ></app-svg-icon>
+            </app-tech-card>
+            <app-tech-card>
+                <span title>React</span>
+                <app-svg-icon icon="react"></app-svg-icon>
+            </app-tech-card>
         </div>
     </div>
 </section>

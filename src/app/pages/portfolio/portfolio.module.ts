@@ -22,6 +22,7 @@ import { SmoothAnchorModule } from '@lib/directives/smooth-anchor/smooth-anchor.
 import { NeonButtonComponent } from '@lib/components/neon-button/neon-button.component';
 import { TechStackComponent } from './sections/tech-stack/tech-stack.component';
 import { SvgIconComponent } from '@lib/components/svg-icon/svg-icon.component';
+import { TechCardComponent } from './generic/tech-card/tech-card.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { SvgIconComponent } from '@lib/components/svg-icon/svg-icon.component';
     BackendProjectComponent,
     SkillsComponent,
     PresentationComponent,
-    TechStackComponent
+    TechStackComponent,
+    TechCardComponent
   ],
   imports: [
     CommonModule,

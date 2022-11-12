@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DarkModeService } from 'src/app/modules/_app/services/dark-mode.service';
 
 @Component({
   selector: 'app-tech-stack',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TechStackComponent implements OnInit {
 
-  constructor() { }
+  dark$ = this.dark.getDarkMode$();
+
+  constructor(private dark: DarkModeService) { }
 
   ngOnInit(): void {
   }
