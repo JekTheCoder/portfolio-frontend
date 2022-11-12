@@ -1,24 +1,20 @@
 <div *ngIf="isDark$ | async" class="light-bg-gradient h-screen absolute top-0 w-full -z-10"></div>
 <div id="content" class="relative">
     <section #aboutMe id="about-me" class="h-screen pt-28 px-12 m-auto max-w-4xl">
-        <h2 class="name font-bold leading-none mb-6">
-            <span class="block sm:text-9xl text-7xl">JESHUA</span>
-            <span class="gradient sm:text-6xl text-5xl align-text-top">HINOSTROZA</span>
-        </h2>
-        <p class="text-secondary">
-            Hi, I'm full stack developer based on Lima, Peru. <br>
-            I have built clean, optimal and scalable front-ends, <br>
-            and secure and fast back-ends.
-        </p>
-        <p class="text-secondary">I like to code following the best practices and documentation for creating the most
-            optimal solution</p>
+        <app-presentation></app-presentation>
 
         <div class="mt-4">
             <a class="font-medium underline" routerLink="/" fragment="projects">Projects</a> -
             <a class="font-medium underline" routerLink="/" fragment="contact-me">Contact Me</a>
         </div>
+
+        <div class="mt-32 flex justify-center">
+            <button app-neon-button color="accent" appSmoothAnchor="content">
+                <span>Continue</span>
+            </button>
+        </div>
     </section>
-    <section #projects id="projects" class="w-full flex justify-center">
+    <section #projects id="projects" class="w-full flex justify-center" appTargetFragment="content">
         <app-projects></app-projects>
     </section>
     <section #contactMe>

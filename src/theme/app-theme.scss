@@ -6,6 +6,7 @@
 @use '../app/pages/auth-page/components/github-auth/github-auth.theme.scss' as app-github-auth;
 @use '../app/modules/_app/components/profile-icon/profile-icon.theme.scss' as app-profile-icon;
 @use '../app/pages/blog-search/components/blog-card/blog-card.theme.scss' as app-blog-card;
+@use '../lib/components/neon-button/neon-button-theme.scss' as app-neon-button;
 
 @use '../lib/styles/ng-material.scss' as ng-material;
 
@@ -28,4 +29,5 @@
     @include app-profile-icon.theme($material-theme, $app-theme);
     @include app-blog-card.theme($material-theme, $app-theme);
     @include ng-material.theme($material-theme, $app-theme);
+    @include app-neon-button.app-theme($material-theme);
 }

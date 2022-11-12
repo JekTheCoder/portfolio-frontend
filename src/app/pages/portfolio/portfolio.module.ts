@@ -16,6 +16,10 @@ import { ProjectsComponent } from './sections/projects/projects.component';
 import { BackendProjectComponent } from './sections/backend-project/backend-project.component';
 import { SkillsComponent } from './sections/skills/skills.component';
 import { NgLetDirective } from '@common/directives/ng-let.directive';
+import { PresentationComponent } from './sections/presentation/presentation.component';
+import { MatButtonModule } from '@angular/material/button';
+import { SmoothAnchorModule } from '@lib/directives/smooth-anchor/smooth-anchor.module';
+import { NeonButtonComponent } from '@lib/components/neon-button/neon-button.component';
 
 
 @NgModule({
@@ -25,7 +29,8 @@ import { NgLetDirective } from '@common/directives/ng-let.directive';
     ContactMeComponent,
     ProjectsComponent,
     BackendProjectComponent,
-    SkillsComponent
+    SkillsComponent,
+    PresentationComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +40,9 @@ import { NgLetDirective } from '@common/directives/ng-let.directive';
     MatFormFieldModule,
     MatInputModule,
     ProjectsModule,
+    MatButtonModule,
+    SmoothAnchorModule,
+    NeonButtonComponent,
   ],
   providers: [ImageService, ResizeObservableFactoryService]
 })

@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SmoothAnchorService } from '@lib/directives/smooth-anchor/smooth-anchor.service';
 import { Subject, takeUntil } from 'rxjs';
 import { DarkModeService } from 'src/app/modules/_app/services/dark-mode.service';
 
@@ -14,6 +15,7 @@ import { DarkModeService } from 'src/app/modules/_app/services/dark-mode.service
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss'],
+  providers: [SmoothAnchorService]
 })
 export class PortfolioComponent implements AfterViewInit, OnDestroy {
   protected sections: { [key in string]: HTMLElement } = {};
