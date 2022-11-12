@@ -1,4 +1,4 @@
-<div class="light-bg-gradient h-screen absolute top-0 w-full -z-10"></div>
+<div *ngIf="isDark$ | async" class="light-bg-gradient h-screen absolute top-0 w-full -z-10"></div>
 <div id="content" class="relative">
     <section #aboutMe id="about-me" class="h-screen pt-28 px-12 m-auto max-w-4xl">
         <h2 class="name font-bold leading-none mb-6">

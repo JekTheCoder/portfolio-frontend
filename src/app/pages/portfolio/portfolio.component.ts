@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
+import { DarkModeService } from 'src/app/modules/_app/services/dark-mode.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -18,13 +19,19 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy {
   protected sections: { [key in string]: HTMLElement } = {};
   protected sectionsKeys?: string[];
 
-  @ViewChild('aboutMe') aboutMe!: ElementRef;
+  @ViewChild('aboutMe', { static: true }) aboutMe!: ElementRef;
   @ViewChild('projects') projects!: ElementRef;
   @ViewChild('contactMe') contactMe!: ElementRef;
 
   protected unsuscriber$ = new Subject<void>();
 
-  constructor(private route: ActivatedRoute, private changeDec: ChangeDetectorRef) {}
+  isDark$ = this.dark.getDarkMode$();
+
+  constructor(
+    private route: ActivatedRoute, 
+    private changeDec: ChangeDetectorRef,
+    private dark: DarkModeService
+  ) {}
 
   ngAfterViewInit(): void {
     this.sections = {
