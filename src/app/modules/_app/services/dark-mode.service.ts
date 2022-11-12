@@ -16,7 +16,7 @@ export class DarkModeService {
     @Inject(BODY) private body: Body,
     @Inject(LOCAL_STORAGE) private localstorage: Storage
   ) {
-    const isDark = this.localstorage.getItem('dark') === 'true';
+    const isDark = this.localstorage.getItem('dark') !== 'false';
     this.setDarkMode(isDark);
   }
 
