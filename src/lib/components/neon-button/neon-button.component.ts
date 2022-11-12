@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: '[app-neon-button]',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './neon-button.component.html',
   styleUrls: ['./neon-button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NeonButtonComponent implements OnInit {
 

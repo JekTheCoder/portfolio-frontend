@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfileService } from '@core/auth/services/profile.service';
 import { Observable } from 'rxjs';
@@ -9,6 +9,7 @@ import { EditProfileDialogComponent } from '../edit-profile-dialog/edit-profile-
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfileComponent implements OnInit {
   protected profile$?: Observable<Profile | null>;

@@ -1,14 +1,13 @@
-import { Component, OnInit, InjectionToken, Input, Inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, InjectionToken, Input, Inject, ChangeDetectionStrategy } from '@angular/core';
 
 export const ICONS_PATH = new InjectionToken<string>('ICONS_PATH');
 
 @Component({
   selector: 'app-svg-icon',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './svg-icon.component.html',
-  styleUrls: ['./svg-icon.component.scss']
+  styleUrls: ['./svg-icon.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SvgIconComponent implements OnInit {
 

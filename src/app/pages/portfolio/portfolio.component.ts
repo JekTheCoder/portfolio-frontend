@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SmoothAnchorService } from '@lib/directives/smooth-anchor/smooth-anchor.service';
 import { DarkModeService } from 'src/app/modules/_app/services/dark-mode.service';
 
@@ -6,7 +6,8 @@ import { DarkModeService } from 'src/app/modules/_app/services/dark-mode.service
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss'],
-  providers: [SmoothAnchorService]
+  providers: [SmoothAnchorService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PortfolioComponent {
   isDark$ = this.dark.getDarkMode$();
