@@ -1,9 +1,9 @@
 <li class="mt-12 lg:mt-8">
-    <a [routerLink]="src"><h5 class="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200">{{ title }}</h5></a>
-    <ul class="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800">
+    <a [routerLink]="src"><h5 class="mb-8 lg:mb-3 font-semibold text-normal">{{ title }}</h5></a>
+    <ul class="space-y-6 lg:space-y-2 border-l border-slate-100  dark:border-slate-800">
         <li *ngFor="let item of items">
             <a 
-            class="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+            class="block border-l pl-4 -ml-px border-transparent text-secondary hover:brightness-150 hover:border-slate-100"
             [routerLink]="src" [fragment]="item.fragment"
             >
             {{ item.label }}</a>

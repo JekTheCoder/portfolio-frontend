@@ -6,9 +6,23 @@ export const navGroups: NavGroup[] = [
         src: 'angular',
         items: [
             {
-                label: '1',
-                fragment: '1'
+                label: 'Start',
+                fragment: 'start'
             }
         ],
+    },
+    {
+        title: 'NestJS',
+        src: 'nestjs',
+        items: [
+            {
+                label: '12',
+                fragment: 'r'
+            },
+            {
+                label: '12',
+                fragment: 'r'
+            },
+        ]
     }
 ];
