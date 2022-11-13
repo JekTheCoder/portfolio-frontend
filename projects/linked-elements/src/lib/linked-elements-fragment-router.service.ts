@@ -1,11 +1,10 @@
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { distinctUntilChanged, filter, Subject, takeUntil } from 'rxjs';
-import { LinkedElementsModule } from './linked-elements.module';
 import { LinkedElementsService } from './linked-elements.service';
 
 @Injectable({
-  providedIn: LinkedElementsModule
+  providedIn: "root"
 })
 export class LinkedElementsFragmentRouterService implements OnDestroy, OnInit {
 

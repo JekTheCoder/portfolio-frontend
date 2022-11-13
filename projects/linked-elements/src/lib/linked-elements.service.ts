@@ -1,10 +1,9 @@
 import { EventEmitter, Inject, Injectable } from '@angular/core';
-import { LinkedElementsModule } from './linked-elements.module';
 import { BaseScrollStrategy } from './scroll-strategy/base-scroll-strategy';
 import { PrimaryScrollStrategy, SecondaryScrollStrategy } from './scroll-strategy/tokens';
 
 @Injectable({
-  providedIn: LinkedElementsModule
+  providedIn: "root"
 })
 export class LinkedElementsService {
 
