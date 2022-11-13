@@ -2,11 +2,13 @@
     <div class="max-w-7xl m-auto">
         <h3 class="title text-5xl mb-4">Tech Stack</h3>
         <div class="grid my-grid gap-4">
-            <app-tech-card>
-                <span class="bg-red-500 font-semibold text-white" label>top</span>
-                <span title>Angular</span>
-                <app-svg-icon icon="angular"></app-svg-icon>
-            </app-tech-card>
+            <a routerLink="/skills/angular">
+                <app-tech-card>
+                    <span class="bg-red-500 font-semibold text-white" label>top</span>
+                    <span title>Angular</span>
+                    <app-svg-icon icon="angular"></app-svg-icon>
+                </app-tech-card>
+            </a>
             <app-tech-card>
                 <span title>NestJs</span>
                 <app-svg-icon icon="nestjs"></app-svg-icon>

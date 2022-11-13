@@ -47,6 +47,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/auth-page/auth-page.module').then(m => m.AuthPageModule)
   },
   {
+    path: 'skills',
+    loadChildren: () => import('./pages/skills/skills.module').then(m => m.SkillsModule)
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }
