@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { EventEmitter, Inject, Injectable } from '@angular/core';
 import { LinkedElementsModule } from './linked-elements.module';
 import { BaseScrollStrategy } from './scroll-strategy/base-scroll-strategy';
 import { PrimaryScrollStrategy, SecondaryScrollStrategy } from './scroll-strategy/tokens';
@@ -7,6 +7,8 @@ import { PrimaryScrollStrategy, SecondaryScrollStrategy } from './scroll-strateg
   providedIn: LinkedElementsModule
 })
 export class LinkedElementsService {
+
+  linkedElementChanges = new EventEmitter<string>();
 
   private elements = new Map<string, HTMLElement>();
   constructor(
@@ -28,6 +30,7 @@ export class LinkedElementsService {
     const element = this.elements.get(key);
     if (!element) return console.warn(`Element with name '${key}' not found`);
 
+    this.linkedElementChanges.emit(key);
     this.scrollStrategy.scrollIntoView(element);
   }
 
@@ -35,6 +38,14 @@ export class LinkedElementsService {
     const element = this.elements.get(key);
     if (!element) return console.warn(`Element with name '${key}' not found`);
 
+    this.linkedElementChanges.emit(key);
     this.secondaryScrollStrategy.scrollIntoView(element);
+  }
+
+  update(key: string) {
+    const element = this.elements.get(key);
+    if (!element) return console.warn(`Element with name '${key}' not found`);
+
+    this.linkedElementChanges.emit(key);
   }
 }
