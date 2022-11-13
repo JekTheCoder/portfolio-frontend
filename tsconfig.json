@@ -26,7 +26,12 @@
       "@common/*": ["src/app/common/*"],
       "@blogs/*": ["src/app/modules/blogs/*"],
       "@core/*": ["src/app/core/*"],
-      "@lib/*": ["src/lib/*"]
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "linked-elements": [
+        "dist/linked-elements"
+      ]
     }
   },
   "angularCompilerOptions": {

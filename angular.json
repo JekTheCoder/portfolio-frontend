@@ -104,6 +104,37 @@
           }
         }
       }
+    },
+    "linked-elements": {
+      "projectType": "library",
+      "root": "projects/linked-elements",
+      "sourceRoot": "projects/linked-elements/src",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/linked-elements/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/linked-elements/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/linked-elements/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/linked-elements/src/test.ts",
+            "tsConfig": "projects/linked-elements/tsconfig.spec.json",
+            "karmaConfig": "projects/linked-elements/karma.conf.js"
+          }
+        }
+      }
     }
   }
 }
