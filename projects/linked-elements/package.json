@@ -1,6 +1,10 @@
 {
-  "name": "linked-elements",
-  "version": "0.0.1",
+  "name": "ngx-linked-elements",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Jeshua Hinostroza"
+  },
   "peerDependencies": {
     "@angular/common": "^14.1.0",
     "@angular/core": "^14.1.0"
