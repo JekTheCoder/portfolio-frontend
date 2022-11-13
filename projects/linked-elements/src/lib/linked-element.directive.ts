@@ -1,10 +1,10 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 import { LinkedElementsService } from './linked-elements.service';
 
-const selector = '[ngxLinkedElement]';
+const selector = 'ngxLinkedElement';
 
 @Directive({
-  selector,
+  selector: `[${selector}]`,
   standalone: true
 })
 export class LinkedElementDirective implements OnInit {

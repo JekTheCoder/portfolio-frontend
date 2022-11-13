@@ -1,10 +1,10 @@
 import { Directive, HostListener, Input, OnInit } from '@angular/core';
 import { LinkedElementsService } from './linked-elements.service';
 
-const selector = '[ngxLinkTo]';
+const selector = 'ngxLinkTo';
 
 @Directive({
-  selector,
+  selector: `[${selector}]`,
   standalone: true
 })
 export class LinkToDirective implements OnInit {
