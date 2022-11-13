@@ -18,12 +18,12 @@ import { SkillsComponent } from './sections/skills/skills.component';
 import { NgLetDirective } from '@common/directives/ng-let.directive';
 import { PresentationComponent } from './sections/presentation/presentation.component';
 import { MatButtonModule } from '@angular/material/button';
-import { SmoothAnchorModule } from '@lib/directives/smooth-anchor/smooth-anchor.module';
 import { NeonButtonComponent } from '@lib/components/neon-button/neon-button.component';
 import { TechStackComponent } from './sections/tech-stack/tech-stack.component';
 import { SvgIconComponent } from '@lib/components/svg-icon/svg-icon.component';
 import { TechCardComponent } from './generic/tech-card/tech-card.component';
 import { HoverDirective } from '@lib/directives/hover/hover.directive';
+import { LinkedElementsModule } from 'linked-elements';
 
 
 @NgModule({
@@ -47,10 +47,10 @@ import { HoverDirective } from '@lib/directives/hover/hover.directive';
     MatInputModule,
     ProjectsModule,
     MatButtonModule,
-    SmoothAnchorModule,
     NeonButtonComponent,
     SvgIconComponent,
-    HoverDirective
+    HoverDirective,
+    LinkedElementsModule,
   ],
   providers: [ImageService, ResizeObservableFactoryService]
 })
