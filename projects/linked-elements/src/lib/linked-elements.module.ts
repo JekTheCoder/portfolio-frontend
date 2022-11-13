@@ -11,7 +11,8 @@ import { RawScrollStrategy } from './scroll-strategy/raw-scroll.strategy';
     LinkToDirective,
   ],
   exports: [
-    LinkedElementDirective
+    LinkedElementDirective,
+    LinkToDirective,
   ],
   providers: [
     { provide: PrimaryScrollStrategy, useClass: SmoothScrollStrategy },
