@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { LinkedElementsModule } from './linked-elements.module';
 import { BaseScrollStrategy } from './scroll-strategy/base-scroll-strategy';
+import { PrimaryScrollStrategy, SecondaryScrollStrategy } from './scroll-strategy/tokens';
 
 @Injectable({
   providedIn: LinkedElementsModule
@@ -8,7 +9,12 @@ import { BaseScrollStrategy } from './scroll-strategy/base-scroll-strategy';
 export class LinkedElementsService {
 
   private elements = new Map<string, HTMLElement>();
-  constructor(private scrollStrategy: BaseScrollStrategy) {}
+  constructor(
+    @Inject(PrimaryScrollStrategy)
+    private scrollStrategy: BaseScrollStrategy,
+    @Inject(SecondaryScrollStrategy)
+    private secondaryScrollStrategy: BaseScrollStrategy
+  ) {}
 
   set(key: string, element: HTMLElement) {
     this.elements.set(key, element);
@@ -23,5 +29,12 @@ export class LinkedElementsService {
     if (!element) return console.warn(`Element with name '${key}' not found`);
 
     this.scrollStrategy.scrollIntoView(element);
+  }
+
+  rawScroll(key: string) {
+    const element = this.elements.get(key);
+    if (!element) return console.warn(`Element with name '${key}' not found`);
+
+    this.secondaryScrollStrategy.scrollIntoView(element);
   }
 }

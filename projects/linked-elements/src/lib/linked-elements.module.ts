@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
+import { RawScrollStrategy } from '../public-api';
 import { LinkedElementDirective } from './linked-element.directive';
-import { BaseScrollStrategy } from './scroll-strategy/base-scroll-strategy';
 import { SmoothScrollStrategy } from './scroll-strategy/smooth-scroll.strategy';
+import { PrimaryScrollStrategy, SecondaryScrollStrategy } from './scroll-strategy/tokens';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { SmoothScrollStrategy } from './scroll-strategy/smooth-scroll.strategy';
     LinkedElementDirective
   ],
   providers: [
-    { provide: BaseScrollStrategy, useClass: SmoothScrollStrategy }
+    { provide: PrimaryScrollStrategy, useClass: SmoothScrollStrategy },
+    { provide: SecondaryScrollStrategy, useClass: RawScrollStrategy }
   ]
 })
 export class LinkedElementsModule { }
