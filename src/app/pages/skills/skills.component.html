@@ -1,8 +1,12 @@
+<app-sidenav class="block md:hidden">
+	<app-nav-bar class="block bg-background w-full h-screen"></app-nav-bar>
+</app-sidenav>
 <div class="flex flex-row max-w-7xl m-auto px-4">
-	<div class="sm:block hidden">
+	<div class="hidden md:block">
 		<app-nav-bar></app-nav-bar>
 	</div>
 	<div class="flex-1 px-4">
+		<button mat-button appOpenSidenav>a</button>
 		<router-outlet></router-outlet>
 	</div>
 </div>
