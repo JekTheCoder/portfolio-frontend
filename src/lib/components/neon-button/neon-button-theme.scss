@@ -2,49 +2,58 @@
 @use '@angular/material' as mat;
 
 @mixin app-theme($material-theme) {
-    $color-config: mat.get-color-config($material-theme);
-    $primary-pallete: map-get($map: $color-config, $key: 'primary');
-    $accent-pallete: map-get($map: $color-config, $key: 'accent');
-    $warn-pallete: map-get($map: $color-config, $key: 'warn');
+	$color-config: mat.get-color-config($material-theme);
+	$primary-pallete: map-get(
+		$map: $color-config,
+		$key: 'primary',
+	);
+	$accent-pallete: map-get(
+		$map: $color-config,
+		$key: 'accent',
+	);
+	$warn-pallete: map-get(
+		$map: $color-config,
+		$key: 'warn',
+	);
 
-    [app-neon-button] {
-        &[color="primary"] {
-            @include color($primary-pallete);
-        }
+	[app-neon-button] {
+		&[color='primary'] {
+			@include color($primary-pallete);
+		}
 
-        &[color="accent"] {
-            @include color($accent-pallete);
-        }
+		&[color='accent'] {
+			@include color($accent-pallete);
+		}
 
-        &[color="warn"] {
-            @include color($warn-pallete);
-        }
-    }
+		&[color='warn'] {
+			@include color($warn-pallete);
+		}
+	}
 }
 
 @mixin color($pallete) {
-    $color: mat.get-color-from-palette($pallete, A700);
+	$color: mat.get-color-from-palette($pallete, A700);
 
-    @include color_($color);
+	@include color_($color);
 
-    &:hover {
-        $color: mat.get-color-from-palette($pallete, A400);
-        @include color_($color);
-    }
+	&:hover {
+		$color: mat.get-color-from-palette($pallete, A400);
+		@include color_($color);
+	}
 
-    &:active {
-        $color: mat.get-color-from-palette($pallete, 600);
-        @include color_($color);
-    }
+	&:active {
+		$color: mat.get-color-from-palette($pallete, 600);
+		@include color_($color);
+	}
 
-    &:disabled {
-        $color: mat.get-color-from-palette($pallete, 800);
-        @include color_($color);
-    }
+	&:disabled {
+		$color: mat.get-color-from-palette($pallete, 800);
+		@include color_($color);
+	}
 }
 
 @mixin color_($color) {
-    border-color: $color;
-    box-shadow: 0 0 0 2px $color;
-    color: $color;
+	border-color: $color;
+	box-shadow: 0 0 0 2px $color;
+	color: $color;
 }

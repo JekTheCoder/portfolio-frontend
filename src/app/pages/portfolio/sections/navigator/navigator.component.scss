@@ -1,42 +1,42 @@
 $point-size: 10px;
 
 :host {
-    display: grid;
-    grid-template-columns: 1fr $point-size;
+	display: grid;
+	grid-template-columns: 1fr $point-size;
 }
 
 .text-container {
-    display: grid;
-    grid-auto-rows: $point-size $point-size*2;
-    padding-right: 5px;
+	display: grid;
+	grid-auto-rows: $point-size $point-size * 2;
+	padding-right: 5px;
 
-    .text {
-        width: 100%;
-        text-align: right;
-        font-size: $point-size*1.5;
+	.text {
+		width: 100%;
+		text-align: right;
+		font-size: $point-size * 1.5;
 
-        text-decoration: none;
-    }
+		text-decoration: none;
+	}
 }
 
 .points-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 
 .point {
-    width: $point-size;
-    height: $point-size;
-    border-radius: 50%;
+	width: $point-size;
+	height: $point-size;
+	border-radius: 50%;
 }
 
 .line {
-    width: 1px;
-    height: $point-size * 2;
+	width: 1px;
+	height: $point-size * 2;
 }
 
 .no-visible {
-    display: none;
+	display: none;
 }

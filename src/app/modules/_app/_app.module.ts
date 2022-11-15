@@ -8,19 +8,10 @@ import { GithubAuthBuilderService } from './services/github-auth-builder.service
 import { AuthModule } from '@core/auth/auth.module';
 import { HeaderModule } from './components/header/header.module';
 
-
 @NgModule({
-  declarations: [
-    FooterComponent,
-    NotFoundComponent,
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    AuthModule,
-    HeaderModule
-  ],
-  providers: [GithubAuthBuilderService],
-  exports: [HeaderModule, FooterComponent]
+	declarations: [FooterComponent, NotFoundComponent],
+	imports: [CommonModule, RouterModule, AuthModule, HeaderModule],
+	providers: [GithubAuthBuilderService],
+	exports: [HeaderModule, FooterComponent],
 })
-export class _AppModule { }
+export class _AppModule {}

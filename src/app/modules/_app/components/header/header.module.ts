@@ -12,18 +12,18 @@ import { ProfileIconModule } from '../profile-icon/profile-icon.module';
 import { HeaderComponent } from './header.component';
 
 @NgModule({
-    declarations: [HeaderComponent],
-    imports: [
-        CommonModule,
-        RouterModule,
-        MatIconModule,
-        MatSlideToggleModule,
-        FormsModule,
-        FontAwesomeModule,
-        NgLetDirective,
-        MatButtonModule,
-        ProfileIconModule
-    ],
-    exports: [HeaderComponent]
+	declarations: [HeaderComponent],
+	imports: [
+		CommonModule,
+		RouterModule,
+		MatIconModule,
+		MatSlideToggleModule,
+		FormsModule,
+		FontAwesomeModule,
+		NgLetDirective,
+		MatButtonModule,
+		ProfileIconModule,
+	],
+	exports: [HeaderComponent],
 })
 export class HeaderModule {}

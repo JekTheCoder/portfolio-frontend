@@ -15,22 +15,19 @@ import { EditProfileDialogComponent } from './components/edit-profile-dialog/edi
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [
-    ProfileComponent,
-    EditProfileDialogComponent
-  ],
-  imports: [
-    CommonModule,
-    ProfileRoutingModule,
-    NgLetDirective,
-    ProfileIconComponent,
-    MatButtonModule,
-    ReactiveFormsModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MaterialFileInputModule,
-    MatIconModule
-  ]
+	declarations: [ProfileComponent, EditProfileDialogComponent],
+	imports: [
+		CommonModule,
+		ProfileRoutingModule,
+		NgLetDirective,
+		ProfileIconComponent,
+		MatButtonModule,
+		ReactiveFormsModule,
+		MatDialogModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MaterialFileInputModule,
+		MatIconModule,
+	],
 })
-export class ProfileModule { }
+export class ProfileModule {}

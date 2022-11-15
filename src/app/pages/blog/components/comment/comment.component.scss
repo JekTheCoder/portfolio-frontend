@@ -1,18 +1,18 @@
 article {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    gap: 10px;
+	display: grid;
+	grid-template-columns: 40px 1fr;
+	gap: 10px;
 }
 
 .show-more {
-    color: #7a7a7a;
-    user-select: none;
+	color: #7a7a7a;
+	user-select: none;
 }
 
 span {
-    word-break: break-all;
+	word-break: break-all;
 }
 
 .comment {
-    padding: 2px;
+	padding: 2px;
 }

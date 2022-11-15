@@ -1,13 +1,16 @@
 <li class="mt-12 lg:mt-8">
-    <a [routerLink]="src"><h5 class="mb-8 lg:mb-3 font-semibold text-normal">{{ title }}</h5></a>
-    <ul class="space-y-6 lg:space-y-2 border-l border-slate-100  dark:border-slate-800">
-        <li *ngFor="let item of items">
-            <a 
-            class="block border-l pl-4 -ml-px border-transparent text-secondary hover:brightness-150 hover:border-slate-100"
-            [routerLink]="src" [fragment]="item.fragment"
-            >
-            {{ item.label }}</a>
-        </li>
-        
-    </ul>
+	<a [routerLink]="src"
+		><h5 class="mb-8 lg:mb-3 font-semibold text-normal">{{ title }}</h5></a
+	>
+	<ul class="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800">
+		<li *ngFor="let item of items">
+			<a
+				class="block border-l pl-4 -ml-px border-transparent text-secondary hover:brightness-150 hover:border-slate-100"
+				[routerLink]="src"
+				[fragment]="item.fragment"
+			>
+				{{ item.label }}</a
+			>
+		</li>
+	</ul>
 </li>

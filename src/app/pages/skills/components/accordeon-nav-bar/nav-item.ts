@@ -1,4 +1,4 @@
 export interface NavItem {
-    label?: string;
-    fragment?: string;
+	label?: string;
+	fragment?: string;
 }

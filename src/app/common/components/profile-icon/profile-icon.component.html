@@ -1,5 +1,4 @@
 <fa-icon class="icon" [icon]="profileIcon" *ngIf="!src; else img"></fa-icon>
 <ng-template #img>
-    <img class="icon" [src]="PUBLIC_PROFILE_PATH + src" [alt]="alt">
+	<img class="icon" [src]="PUBLIC_PROFILE_PATH + src" [alt]="alt" />
 </ng-template>
-

@@ -12,36 +12,40 @@ $portfolio-frontend-warn: mat.define-palette(mat.$red-palette);
 $dark-background-palette: mat.define-palette(app-palettes.$dark-violet, 800);
 $background-palette: mat.define-palette(app-palettes.$paper-white, 100);
 
-$portfolio-frontend-theme: mat.define-light-theme((
-    color: (
-        primary: $portfolio-frontend-primary,
-        accent: $portfolio-frontend-accent,
-        warn: $portfolio-frontend-warn,
-    )
-));
+$portfolio-frontend-theme: mat.define-light-theme(
+	(
+		color: (
+			primary: $portfolio-frontend-primary,
+			accent: $portfolio-frontend-accent,
+			warn: $portfolio-frontend-warn,
+		),
+	)
+);
 
-$dark-material-theme: mat.define-dark-theme((
-    color: (
-        primary: $portfolio-frontend-primary,
-        accent: $portfolio-frontend-accent,
-        warn: $portfolio-frontend-warn,
-    )
-));
+$dark-material-theme: mat.define-dark-theme(
+	(
+		color: (
+			primary: $portfolio-frontend-primary,
+			accent: $portfolio-frontend-accent,
+			warn: $portfolio-frontend-warn,
+		),
+	)
+);
 
 $app-theme: (
-  background: $background-palette,
+	background: $background-palette,
 );
 
 $app-dark-theme: (
-  background: $dark-background-palette
+	background: $dark-background-palette,
 );
 
 body {
-    @include mat.all-component-themes($portfolio-frontend-theme);
-    @include app-theme.theme($portfolio-frontend-theme, $app-theme);
+	@include mat.all-component-themes($portfolio-frontend-theme);
+	@include app-theme.theme($portfolio-frontend-theme, $app-theme);
 }
 
 body.dark {
-    @include mat.all-component-colors($dark-material-theme);
-    @include app-theme.theme($dark-material-theme, $app-dark-theme);
+	@include mat.all-component-colors($dark-material-theme);
+	@include app-theme.theme($dark-material-theme, $app-dark-theme);
 }

@@ -1,14 +1,18 @@
 <a [routerLink]="['/blog/id', blog.id]" class="wrapper">
-    <div class="card">
-        <div class="top" *ngIf="blog.thumbnail">
-            <img [src]="imagePath + blog.thumbnail" [alt]="blog.title">
-        </div>
-        <div class="body">
-            <div class="title"><span>{{ blog.title }}</span></div>
-            <div class="content-preview"><p>{{ blog.content }}...</p></div>
-        </div>
-        <div class="footer">
-            <span>Created At </span><i>{{ blog.createdAt | date }}</i>
-        </div>
-    </div>
+	<div class="card">
+		<div class="top" *ngIf="blog.thumbnail">
+			<img [src]="imagePath + blog.thumbnail" [alt]="blog.title" />
+		</div>
+		<div class="body">
+			<div class="title">
+				<span>{{ blog.title }}</span>
+			</div>
+			<div class="content-preview">
+				<p>{{ blog.content }}...</p>
+			</div>
+		</div>
+		<div class="footer">
+			<span>Created At </span><i>{{ blog.createdAt | date }}</i>
+		</div>
+	</div>
 </a>

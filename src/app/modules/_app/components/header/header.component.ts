@@ -4,25 +4,24 @@ import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { DarkModeService } from '../../services/dark-mode.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+	selector: 'app-header',
+	templateUrl: './header.component.html',
+	styleUrls: ['./header.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
+	protected moonIcon = faMoon;
+	protected sunIcon = faSun;
 
-  protected moonIcon = faMoon;
-  protected sunIcon = faSun;
+	protected darkModeControl = new FormControl();
+	protected darkmode$ = this.darkmodeService.getDarkMode$();
 
-  protected darkModeControl = new FormControl();
-  protected darkmode$ = this.darkmodeService.getDarkMode$();
+	protected links = [
+		{ url: 'portfolio', name: 'portfolio' },
+		{ name: 'blog', url: 'blog' },
+	];
 
-  protected links = [
-    { url: 'portfolio', name: 'portfolio' },
-    { name: 'blog', url: 'blog' }
-  ]
+	constructor(protected darkmodeService: DarkModeService) {}
 
-  constructor(protected darkmodeService: DarkModeService) { }
-
-  ngOnInit(): void {}
+	ngOnInit(): void {}
 }

@@ -1,28 +1,28 @@
 .container {
-    padding-top: 60px;
+	padding-top: 60px;
 
-    margin: auto;
-    max-width: 1200px;
+	margin: auto;
+	max-width: 1200px;
 }
 
 .searcher {
-    margin: auto;
-    max-width: 600px;
+	margin: auto;
+	max-width: 600px;
 
-    >* {
-        width: 100%;
-    }
+	> * {
+		width: 100%;
+	}
 }
 
 .content {
-    display: flex;
-    justify-content: center;
-    padding: 0 5px;
+	display: flex;
+	justify-content: center;
+	padding: 0 5px;
 
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        flex: 1;
-    }
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 20px;
+		flex: 1;
+	}
 }

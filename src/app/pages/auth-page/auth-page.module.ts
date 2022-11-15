@@ -13,21 +13,19 @@ import { GithubAuthComponent } from './components/github-auth/github-auth.compon
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
-
-
 @NgModule({
-  declarations: [GithubAuthComponent, LoginComponent, RegisterComponent],
-  imports: [
-    CommonModule,
-    AuthPageRoutingModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatStepperModule,
-    MaterialFileInputModule,
-    MatIconModule,
-    AuthHttpModule
-  ]
+	declarations: [GithubAuthComponent, LoginComponent, RegisterComponent],
+	imports: [
+		CommonModule,
+		AuthPageRoutingModule,
+		ReactiveFormsModule,
+		MatButtonModule,
+		MatInputModule,
+		MatFormFieldModule,
+		MatStepperModule,
+		MaterialFileInputModule,
+		MatIconModule,
+		AuthHttpModule,
+	],
 })
-export class AuthPageModule { }
+export class AuthPageModule {}

@@ -1,25 +1,25 @@
 :host {
-    height: 100%;
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
-    padding: 0 10px;
+	height: 100%;
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+	padding: 0 10px;
 }
 
 .container {
-    .top {
-        width: 100%;
-        img {
-            width: 100%;
-        }
-    }
+	.top {
+		width: 100%;
+		img {
+			width: 100%;
+		}
+	}
 
-    .article {
-        padding: 10px;
-        min-height: 50px;
-    }
+	.article {
+		padding: 10px;
+		min-height: 50px;
+	}
 }
 
 h2 {
-    font-size: 40px;
+	font-size: 40px;
 }

@@ -8,61 +8,61 @@ import { UsernameNotExists } from 'src/app/pages/profile/validators/username-exi
 import { ProfileService } from '@core/auth/services/profile.service';
 import { Profile } from '@core/auth/models/profile.interface';
 
-
-
 interface FileValue {
-  _files: File[];
+	_files: File[];
 }
 
-
 @Component({
-  selector: 'app-edit-profile-dialog',
-  templateUrl: './edit-profile-dialog.component.html',
-  styleUrls: ['./edit-profile-dialog.component.scss']
+	selector: 'app-edit-profile-dialog',
+	templateUrl: './edit-profile-dialog.component.html',
+	styleUrls: ['./edit-profile-dialog.component.scss'],
 })
 export class EditProfileDialogComponent implements OnInit {
+	protected profile$?: Observable<Profile>;
 
-  protected profile$?: Observable<Profile>;
+	protected form = new FormGroup({
+		username: new FormControl('', { nonNullable: true }),
+		name: new FormControl(''),
+		lastname: new FormControl(''),
+		email: new FormControl('', Validators.email),
+	});
 
-  protected form = new FormGroup({
-    username: new FormControl('', { nonNullable: true }),
-    name: new FormControl(''),
-    lastname: new FormControl(''),
-    email: new FormControl('', Validators.email)
-  })
+	protected profileControl = new FormControl<FileValue | null>(
+		null,
+		FileValidator.maxContentSize(1048576)
+	);
 
-  protected profileControl = new FormControl<FileValue | null>(null, FileValidator.maxContentSize(1048576));
+	constructor(
+		private usersService: UsernameService,
+		private profile: ProfileService,
+		@Optional() private dialogRef?: MatDialogRef<EditProfileDialogComponent>
+	) {
+		this.form.controls.username.addAsyncValidators(
+			UsernameNotExists(usersService, this.form.controls.username)
+		);
+	}
 
-  constructor(
-    private usersService: UsernameService,
-    private profile: ProfileService,
-    @Optional() private dialogRef?: MatDialogRef<EditProfileDialogComponent>
-  ) {
-    this.form.controls.username.addAsyncValidators(UsernameNotExists(usersService, this.form.controls.username));
-  }
+	ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
+	protected submit() {
+		if (!this.form.touched && (this.form.invalid || this.profileControl.invalid))
+			return;
 
-  protected submit() {
-    if (!this.form.touched && (this.form.invalid || this.profileControl.invalid)) return;
+		const value = this.getTouchedValues();
+		const file = this.profileControl.value?._files[0];
 
-    const value = this.getTouchedValues();
-    const file = this.profileControl.value?._files[0];
+		this.profile$ = this.profile.updateProfile(value, file);
+		this.profile$.subscribe({
+			next: () => this.dialogRef?.close(),
+		});
+	}
 
-    this.profile$ = this.profile.updateProfile(value, file);
-    this.profile$.subscribe({
-      next: () => this.dialogRef?.close()
-    });
-  }
+	private getTouchedValues() {
+		let value: { [key in string]: unknown } = {};
+		Object.entries(this.form.controls).forEach(([key, control]) => {
+			if (control.touched) value[key] = control.value;
+		});
 
-  private getTouchedValues() {
-    let value: { [key in string]: unknown } = {};
-    Object.entries(this.form.controls).forEach(([key, control]) => {
-      if (control.touched) value[key] = control.value;
-    });
-
-    return value;
-  }
-
+		return value;
+	}
 }

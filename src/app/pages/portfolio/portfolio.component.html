@@ -1,19 +1,24 @@
 <ng-container *ngIf="isDark$ | async">
-    <div class="light-bg-gradient h-screen absolute top-0 w-full -z-10"></div>
-    <div class="dark-bg-gradient h-screen absolute bottom-0 w-full -z-10"></div>
+	<div class="light-bg-gradient h-screen absolute top-0 w-full -z-10"></div>
+	<div class="dark-bg-gradient h-screen absolute bottom-0 w-full -z-10"></div>
 </ng-container>
 <section class="h-screen pt-28 px-12 m-auto max-w-4xl">
-    <app-presentation></app-presentation>
+	<app-presentation></app-presentation>
 
-    <div class="mt-4">
-        <a class="font-medium underline" routerLink="/" fragment="projects">Projects</a> -
-        <a class="font-medium underline" routerLink="/" fragment="contact-me">Contact Me</a>
-    </div>
+	<div class="mt-4">
+		<a class="font-medium underline" routerLink="/" fragment="projects">Projects</a> -
+		<a class="font-medium underline" routerLink="/" fragment="contact-me"
+			>Contact Me</a
+		>
+	</div>
 
-    <div class="mt-32 flex justify-center">
-        <button app-neon-button color="accent" ngxLinkTo="tech-stack">
-            <span>Continue</span>
-        </button>
-    </div>
+	<div class="mt-32 flex justify-center">
+		<button app-neon-button color="accent" ngxLinkTo="tech-stack">
+			<span>Continue</span>
+		</button>
+	</div>
 </section>
-<app-tech-stack class="block min-h-[30rem] mb-8" ngxLinkedElement="tech-stack"></app-tech-stack>
+<app-tech-stack
+	class="block min-h-[30rem] mb-8"
+	ngxLinkedElement="tech-stack"
+></app-tech-stack>

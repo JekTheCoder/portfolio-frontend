@@ -1,53 +1,76 @@
 <div class="container">
-    <h4>Register</h4>
+	<h4>Register</h4>
 
-    <form [formGroup]="registerForm">
-        <mat-stepper>
-            <mat-step>
-                <mat-form-field>
-                    <mat-label>username</mat-label>
-                    <input matInput type="text" formControlName="username" name="username">
-                    <mat-error>This username already exists</mat-error>
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>password</mat-label>
-                    <input matInput type="password" formControlName="password" name="password">
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>repeat your password</mat-label>
-                    <input matInput type="password" formControlName="repeatPassword" name="repeat-password">
-                    <mat-error>passwords does not match</mat-error>
-                </mat-form-field>
-            </mat-step>
-            <mat-step>
-                <mat-form-field>
-                    <mat-label>email@email.com</mat-label>
-                    <input type="email" matInput formControlName="email" name="email">
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>name</mat-label>
-                    <input type="text" matInput formControlName="name" name="name">
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>lastname</mat-label>
-                    <input type="text" matInput formControlName="lastname" name="lastname">
-                </mat-form-field>
-            </mat-step>
-            <mat-step class="file">
-                <mat-form-field appearance="outline">
-                    <mat-label>profile image (optional)</mat-label>
-                    <ngx-mat-file-input accept=".png, .jpg, .jpeg" [formControl]="profileControl"></ngx-mat-file-input>
-                    <mat-icon matSuffix>folder</mat-icon>
-                </mat-form-field>
-                <div class="">
-                    <button mat-button type="submit" (click)="submit()">register</button>
-                </div>
-            </mat-step>
-        </mat-stepper>
-    </form>
+	<form [formGroup]="registerForm">
+		<mat-stepper>
+			<mat-step>
+				<mat-form-field>
+					<mat-label>username</mat-label>
+					<input
+						matInput
+						type="text"
+						formControlName="username"
+						name="username"
+					/>
+					<mat-error>This username already exists</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>password</mat-label>
+					<input
+						matInput
+						type="password"
+						formControlName="password"
+						name="password"
+					/>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>repeat your password</mat-label>
+					<input
+						matInput
+						type="password"
+						formControlName="repeatPassword"
+						name="repeat-password"
+					/>
+					<mat-error>passwords does not match</mat-error>
+				</mat-form-field>
+			</mat-step>
+			<mat-step>
+				<mat-form-field>
+					<mat-label>email@email.com</mat-label>
+					<input type="email" matInput formControlName="email" name="email" />
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>name</mat-label>
+					<input type="text" matInput formControlName="name" name="name" />
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>lastname</mat-label>
+					<input
+						type="text"
+						matInput
+						formControlName="lastname"
+						name="lastname"
+					/>
+				</mat-form-field>
+			</mat-step>
+			<mat-step class="file">
+				<mat-form-field appearance="outline">
+					<mat-label>profile image (optional)</mat-label>
+					<ngx-mat-file-input
+						accept=".png, .jpg, .jpeg"
+						[formControl]="profileControl"
+					></ngx-mat-file-input>
+					<mat-icon matSuffix>folder</mat-icon>
+				</mat-form-field>
+				<div class="">
+					<button mat-button type="submit" (click)="submit()">register</button>
+				</div>
+			</mat-step>
+		</mat-stepper>
+	</form>
 
-    <div class="">
-        <span>Are you registered? click here! </span>
-        <a routerLink="../login">login</a>
-    </div>
+	<div class="">
+		<span>Are you registered? click here! </span>
+		<a routerLink="../login">login</a>
+	</div>
 </div>

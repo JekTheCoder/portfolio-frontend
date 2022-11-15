@@ -2,9 +2,9 @@
 @use '@angular/material' as mat;
 
 @mixin theme($material-theme, $app-theme) {
-    $color-config: mat.get-color-config($material-theme);
-    $is-dark-theme:   map.get($color-config, 'is-dark');
+	$color-config: mat.get-color-config($material-theme);
+	$is-dark-theme: map.get($color-config, 'is-dark');
 
-    // app-project {
-    // }
+	// app-project {
+	// }
 }

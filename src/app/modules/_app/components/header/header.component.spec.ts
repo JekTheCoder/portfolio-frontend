@@ -8,28 +8,28 @@ import { DarkModeService } from '../../services/dark-mode.service';
 import { HeaderComponent } from './header.component';
 
 const mockDarkService: Partial<DarkModeService> = {
-  getDarkMode$: () => of(true)
-}
+	getDarkMode$: () => of(true),
+};
 
 describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+	let component: HeaderComponent;
+	let fixture: ComponentFixture<HeaderComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
-      providers: [DarkModeService],
-      imports: [BrowserAnimationsModule, FormsModule, RouterTestingModule]
-    })
-    .overrideProvider(DarkModeService, { useValue: mockDarkService })
-    .compileComponents();
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			declarations: [HeaderComponent],
+			providers: [DarkModeService],
+			imports: [BrowserAnimationsModule, FormsModule, RouterTestingModule],
+		})
+			.overrideProvider(DarkModeService, { useValue: mockDarkService })
+			.compileComponents();
 
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+		fixture = TestBed.createComponent(HeaderComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

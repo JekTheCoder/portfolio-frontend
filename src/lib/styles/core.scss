@@ -1,18 +1,20 @@
 @import './tailwind.scss';
 
 :root {
-    --header-height: 4rem;
+	--header-height: 4rem;
 }
 
 p {
-    @apply text-secondary;
+	@apply text-secondary;
 }
 
-h2, h3, .title {
-    @apply font-bold;
+h2,
+h3,
+.title {
+	@apply font-bold;
 }
 
 .card {
-    @apply bg-background p-4 rounded;
-    box-shadow: 0 0 2px var(--primary-text);
+	@apply bg-background p-4 rounded;
+	box-shadow: 0 0 2px var(--primary-text);
 }

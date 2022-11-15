@@ -1,29 +1,32 @@
 <h4>Edit Profile</h4>
 
 <form [formGroup]="form">
-    <mat-form-field>
-        <mat-label>username</mat-label>
-        <input matInput type="text" name="username" formControlName="username">
-        <mat-error>This username already exists</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>name</mat-label>
-        <input matInput type="text" name="name" formControlName="name">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>lastname</mat-label>
-        <input matInput type="text" name="lastname" formControlName="lastname">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>email@mail.com</mat-label>
-        <input matInput type="email" name="email" formControlName="email">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>profile image</mat-label>
-        <ngx-mat-file-input accept=".png, .jpg, .jpeg" [formControl]="profileControl"></ngx-mat-file-input>
-        <mat-icon matSuffix>folder</mat-icon>
-    </mat-form-field>
-    <div class="">
-        <button  type="submit" mat-button (click)="submit()">update</button>
-    </div>
+	<mat-form-field>
+		<mat-label>username</mat-label>
+		<input matInput type="text" name="username" formControlName="username" />
+		<mat-error>This username already exists</mat-error>
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>name</mat-label>
+		<input matInput type="text" name="name" formControlName="name" />
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>lastname</mat-label>
+		<input matInput type="text" name="lastname" formControlName="lastname" />
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>email@mail.com</mat-label>
+		<input matInput type="email" name="email" formControlName="email" />
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>profile image</mat-label>
+		<ngx-mat-file-input
+			accept=".png, .jpg, .jpeg"
+			[formControl]="profileControl"
+		></ngx-mat-file-input>
+		<mat-icon matSuffix>folder</mat-icon>
+	</mat-form-field>
+	<div class="">
+		<button type="submit" mat-button (click)="submit()">update</button>
+	</div>
 </form>

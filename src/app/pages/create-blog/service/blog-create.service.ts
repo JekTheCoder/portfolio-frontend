@@ -9,27 +9,27 @@ const CREATE_ROUTE = environment.API_URI + '/blogs';
 const SET_THUMBNAIL_ROUTE = environment.API_URI + '/blogs-thumbnail/';
 
 @Injectable({
-  providedIn: 'root',
+	providedIn: 'root',
 })
 export class BlogCreateService {
-  constructor(private http: AuthHttpClient) {}
+	constructor(private http: AuthHttpClient) {}
 
-  createBlog(blogDto: BlogDto, thumbnail?: File | null): Observable<Blog> {
-    const { content, title } = blogDto;
+	createBlog(blogDto: BlogDto, thumbnail?: File | null): Observable<Blog> {
+		const { content, title } = blogDto;
 
-    let request = this.http.post<Blog>(CREATE_ROUTE, { content, title });
-    if (!thumbnail) return request;
+		let request = this.http.post<Blog>(CREATE_ROUTE, { content, title });
+		if (!thumbnail) return request;
 
-    return request.pipe(
-      switchMap(blog =>
-        this.setBlogThumbnail(blog.id, thumbnail).pipe(map(() => blog))
-      )
-    );
-  }
+		return request.pipe(
+			switchMap(blog =>
+				this.setBlogThumbnail(blog.id, thumbnail).pipe(map(() => blog))
+			)
+		);
+	}
 
-  setBlogThumbnail(blogId: unknown, file: File): Observable<void> {
-    const thumbnail = new FormData();
-    thumbnail.append('thumbnail', file, file.name);
-    return this.http.post<void>(SET_THUMBNAIL_ROUTE + blogId, thumbnail);
-  }
+	setBlogThumbnail(blogId: unknown, file: File): Observable<void> {
+		const thumbnail = new FormData();
+		thumbnail.append('thumbnail', file, file.name);
+		return this.http.post<void>(SET_THUMBNAIL_ROUTE + blogId, thumbnail);
+	}
 }

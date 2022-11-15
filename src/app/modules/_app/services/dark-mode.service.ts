@@ -4,32 +4,31 @@ import { BODY } from '../providers/body.provider';
 import { LOCAL_STORAGE } from '../../../common/providers/local-storage.provider';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root',
 })
 export class DarkModeService {
+	private renderer = this.rendererFactory.createRenderer(null, null);
+	protected darkMode$ = new ReplaySubject<boolean>();
 
-  private renderer = this.rendererFactory.createRenderer(null, null);
-  protected darkMode$ = new ReplaySubject<boolean>();
+	constructor(
+		private rendererFactory: RendererFactory2,
+		@Inject(BODY) private body: Body,
+		@Inject(LOCAL_STORAGE) private localstorage: Storage
+	) {
+		const isDark = this.localstorage.getItem('dark') !== 'false';
+		this.setDarkMode(isDark);
+	}
 
-  constructor(
-    private rendererFactory: RendererFactory2,
-    @Inject(BODY) private body: Body,
-    @Inject(LOCAL_STORAGE) private localstorage: Storage
-  ) {
-    const isDark = this.localstorage.getItem('dark') !== 'false';
-    this.setDarkMode(isDark);
-  }
+	setDarkMode(dark: boolean) {
+		dark
+			? this.renderer.addClass(this.body, 'dark')
+			: this.renderer.removeClass(this.body, 'dark');
 
-  setDarkMode(dark: boolean) {
-    dark ?
-    this.renderer.addClass(this.body, 'dark') :
-    this.renderer.removeClass(this.body, 'dark');
+		this.localstorage.setItem('dark', dark ? 'true' : 'false');
+		this.darkMode$.next(dark);
+	}
 
-    this.localstorage.setItem('dark', dark ? 'true' : 'false');
-    this.darkMode$.next(dark);
-  }
-
-  getDarkMode$() {
-    return this.darkMode$.asObservable();
-  }
+	getDarkMode$() {
+		return this.darkMode$.asObservable();
+	}
 }

@@ -3,21 +3,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NeonButtonComponent } from './neon-button.component';
 
 describe('NeonButtonComponent', () => {
-  let component: NeonButtonComponent;
-  let fixture: ComponentFixture<NeonButtonComponent>;
+	let component: NeonButtonComponent;
+	let fixture: ComponentFixture<NeonButtonComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ NeonButtonComponent ]
-    })
-    .compileComponents();
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			imports: [NeonButtonComponent],
+		}).compileComponents();
 
-    fixture = TestBed.createComponent(NeonButtonComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+		fixture = TestBed.createComponent(NeonButtonComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

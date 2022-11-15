@@ -5,22 +5,20 @@ import { NavGroup } from './nav-group';
 import { NavItem } from './nav-item';
 
 @Component({
-  selector: 'app-accordeon-nav-bar',
-  templateUrl: './accordeon-nav-bar.component.html',
-  styleUrls: ['./accordeon-nav-bar.component.scss'],
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  changeDetection: ChangeDetectionStrategy.OnPush
+	selector: 'app-accordeon-nav-bar',
+	templateUrl: './accordeon-nav-bar.component.html',
+	styleUrls: ['./accordeon-nav-bar.component.scss'],
+	standalone: true,
+	imports: [CommonModule, RouterModule],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccordeonNavBarComponent implements OnInit, NavGroup {
+	@Input() title?: string;
+	@Input() src?: string;
 
-  @Input() title?: string;
-  @Input() src?: string;
+	@Input() items!: NavItem[];
 
-  @Input() items!: NavItem[];
+	constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {}
-
+	ngOnInit(): void {}
 }

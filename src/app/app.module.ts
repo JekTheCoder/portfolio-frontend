@@ -10,20 +10,16 @@ import { AppComponent } from './app.component';
 import { _AppModule } from './modules/_app/_app.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    _AppModule,
-    HttpClientModule,
-    AuthHttpModule
-  ],
-  providers: [
-    { provide: ICONS_PATH, useValue: '/assets/icons/' }
-  ],
-  bootstrap: [AppComponent]
+	declarations: [AppComponent],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		AppRoutingModule,
+		_AppModule,
+		HttpClientModule,
+		AuthHttpModule,
+	],
+	providers: [{ provide: ICONS_PATH, useValue: '/assets/icons/' }],
+	bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

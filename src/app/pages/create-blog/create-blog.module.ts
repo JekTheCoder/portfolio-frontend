@@ -10,18 +10,16 @@ import { NgLetDirective } from '@common/directives/ng-let.directive';
 import { CreateBlogComponent } from './create-blog.component';
 
 @NgModule({
-  declarations: [
-    CreateBlogComponent
-  ],
-  imports: [
-    CommonModule,
-    CreateBlogRoutingModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    NgLetDirective
-  ],
-  providers: [BlogCreateService]
+	declarations: [CreateBlogComponent],
+	imports: [
+		CommonModule,
+		CreateBlogRoutingModule,
+		ReactiveFormsModule,
+		MatButtonModule,
+		MatFormFieldModule,
+		MatInputModule,
+		NgLetDirective,
+	],
+	providers: [BlogCreateService],
 })
-export class CreateBlogModule { }
+export class CreateBlogModule {}

@@ -1,24 +1,28 @@
 <div class="container" *ngIf="profile$ | async as profile">
-    <header class="profile-header">
-        <profile-icon></profile-icon>
-        <div class="">
-            <div class="">
-                <span class="username">{{ profile.username }}</span>
-                <ng-container *ngIf="profile.name">
-                    <span>&nbsp;-&nbsp;</span>
-                    <span>{{ profile.name }}&nbsp;</span>
-                    <span *ngIf="profile.lastname">{{ profile.lastname }}</span>
-                </ng-container>
-            </div>
-            <div class="">
-                <p>{{ profile.createdAt | date }}</p>
-            </div>
-        </div>
-    </header>
-    <hr>
-    <main>
-        <ul>
-            <li><button class="btn" mat-button (click)="openDialog()">Edit account</button></li>
-        </ul>
-    </main>
+	<header class="profile-header">
+		<profile-icon></profile-icon>
+		<div class="">
+			<div class="">
+				<span class="username">{{ profile.username }}</span>
+				<ng-container *ngIf="profile.name">
+					<span>&nbsp;-&nbsp;</span>
+					<span>{{ profile.name }}&nbsp;</span>
+					<span *ngIf="profile.lastname">{{ profile.lastname }}</span>
+				</ng-container>
+			</div>
+			<div class="">
+				<p>{{ profile.createdAt | date }}</p>
+			</div>
+		</div>
+	</header>
+	<hr />
+	<main>
+		<ul>
+			<li>
+				<button class="btn" mat-button (click)="openDialog()">
+					Edit account
+				</button>
+			</li>
+		</ul>
+	</main>
 </div>

@@ -7,13 +7,8 @@ import { ProfileIconComponent } from './profile-icon.component';
 import { ProfileIconComponent as IconComponent } from '@common/components/profile-icon/profile-icon.component';
 
 @NgModule({
-    declarations: [ProfileIconComponent],
-    imports: [
-        CommonModule,
-        RouterModule,
-        NgLetDirective,
-        IconComponent
-    ],
-    exports: [ProfileIconComponent]
+	declarations: [ProfileIconComponent],
+	imports: [CommonModule, RouterModule, NgLetDirective, IconComponent],
+	exports: [ProfileIconComponent],
 })
 export class ProfileIconModule {}

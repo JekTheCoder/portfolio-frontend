@@ -5,15 +5,8 @@ import { AngularRoutingModule } from './angular-routing.module';
 import { AngularComponent } from './angular.component';
 import { SvgIconComponent } from '@lib/components/svg-icon/svg-icon.component';
 
-
 @NgModule({
-  declarations: [
-    AngularComponent
-  ],
-  imports: [
-    CommonModule,
-    AngularRoutingModule,
-    SvgIconComponent,
-  ]
+	declarations: [AngularComponent],
+	imports: [CommonModule, AngularRoutingModule, SvgIconComponent],
 })
-export class AngularModule { }
+export class AngularModule {}

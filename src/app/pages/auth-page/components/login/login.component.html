@@ -1,23 +1,25 @@
 <div class="container">
-    <h4>Login</h4>
+	<h4>Login</h4>
 
-    <form [formGroup]="loginForm">
-        <mat-form-field>
-            <mat-label>Who are you?</mat-label>
-            <input matInput type="text" formControlName="username">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>It's a secret!</mat-label>
-            <input matInput type="password" formControlName="password">
-        </mat-form-field>
-        <mat-error *ngIf="loginInvalid">Your username or password is incorrect!</mat-error>
-        <div class="">
-            <button mat-button type="submit" (click)="submit()">login</button>
-        </div>
-    </form>
+	<form [formGroup]="loginForm">
+		<mat-form-field>
+			<mat-label>Who are you?</mat-label>
+			<input matInput type="text" formControlName="username" />
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>It's a secret!</mat-label>
+			<input matInput type="password" formControlName="password" />
+		</mat-form-field>
+		<mat-error *ngIf="loginInvalid"
+			>Your username or password is incorrect!</mat-error
+		>
+		<div class="">
+			<button mat-button type="submit" (click)="submit()">login</button>
+		</div>
+	</form>
 
-    <div class="">
-        <span>Are you not registered? click here! </span>
-        <a routerLink="../register">register</a>
-    </div>
+	<div class="">
+		<span>Are you not registered? click here! </span>
+		<a routerLink="../register">register</a>
+	</div>
 </div>

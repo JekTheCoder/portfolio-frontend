@@ -6,24 +6,21 @@ import { Profile } from 'src/app/modules/_app/models/profile.interface';
 import { EditProfileDialogComponent } from '../edit-profile-dialog/edit-profile-dialog.component';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+	selector: 'app-profile',
+	templateUrl: './profile.component.html',
+	styleUrls: ['./profile.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileComponent implements OnInit {
-  protected profile$?: Observable<Profile | null>;
+	protected profile$?: Observable<Profile | null>;
 
-  constructor(
-    profile: ProfileService,
-    private dialog: MatDialog,
-  ) {
-    this.profile$ = profile.getProfile();
-  }
+	constructor(profile: ProfileService, private dialog: MatDialog) {
+		this.profile$ = profile.getProfile();
+	}
 
-  ngOnInit(): void {}
+	ngOnInit(): void {}
 
-  protected openDialog() {
-    this.dialog.open(EditProfileDialogComponent);
-  }
+	protected openDialog() {
+		this.dialog.open(EditProfileDialogComponent);
+	}
 }

@@ -1,18 +1,18 @@
 <div class="container">
-    <div class="searcher">
-        <mat-form-field color="accent">
-            <mat-label>Let's discover something new</mat-label>
-            <input type="text" matInput>
-            <button matSuffix mat-icon-button>
-                <mat-icon>search</mat-icon>
-            </button>
-        </mat-form-field>
-    </div>
-    <div class="content">
-        <div class="grid-container">
-            <ng-container *ngIf="blogs$ | async as blogs">
-                <app-blog-card *ngFor="let blog of blogs" [blog]="blog"></app-blog-card>
-            </ng-container>
-        </div>
-    </div>
+	<div class="searcher">
+		<mat-form-field color="accent">
+			<mat-label>Let's discover something new</mat-label>
+			<input type="text" matInput />
+			<button matSuffix mat-icon-button>
+				<mat-icon>search</mat-icon>
+			</button>
+		</mat-form-field>
+	</div>
+	<div class="content">
+		<div class="grid-container">
+			<ng-container *ngIf="blogs$ | async as blogs">
+				<app-blog-card *ngFor="let blog of blogs" [blog]="blog"></app-blog-card>
+			</ng-container>
+		</div>
+	</div>
 </div>

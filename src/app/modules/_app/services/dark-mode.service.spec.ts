@@ -6,24 +6,24 @@ import { DarkModeService } from './dark-mode.service';
 
 const mockBODY = document.createElement('div');
 const mockLocalStorage: Partial<Storage> = {
-  getItem: jasmine.createSpy(),
-  setItem: jasmine.createSpy()
+	getItem: jasmine.createSpy(),
+	setItem: jasmine.createSpy(),
 };
 
 describe('DarkmodeService', () => {
-  let service: DarkModeService;
+	let service: DarkModeService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        { provide: BODY, useValue: mockBODY },
-        { provide: LOCAL_STORAGE, useValue: mockLocalStorage },
-      ],
-    });
-    service = TestBed.inject(DarkModeService);
-  });
+	beforeEach(() => {
+		TestBed.configureTestingModule({
+			providers: [
+				{ provide: BODY, useValue: mockBODY },
+				{ provide: LOCAL_STORAGE, useValue: mockLocalStorage },
+			],
+		});
+		service = TestBed.inject(DarkModeService);
+	});
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+	it('should be created', () => {
+		expect(service).toBeTruthy();
+	});
 });

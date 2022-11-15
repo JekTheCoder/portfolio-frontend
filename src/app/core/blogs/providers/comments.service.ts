@@ -7,17 +7,16 @@ import { Comment } from '../models/comment';
 const COMMENT_CREATE = environment.API_URI + '/comments/';
 
 interface CommentDto {
-  content: string
+	content: string;
 }
 
 @Injectable({
-  providedIn: BlogsModule
+	providedIn: BlogsModule,
 })
 export class CommentsService {
+	constructor(private http: AuthHttpClient) {}
 
-  constructor(private http: AuthHttpClient) { }
-
-  createComment(comment: CommentDto, blogId: unknown) {
-    return this.http.post<Comment>(COMMENT_CREATE + blogId, comment)
-  }
+	createComment(comment: CommentDto, blogId: unknown) {
+		return this.http.post<Comment>(COMMENT_CREATE + blogId, comment);
+	}
 }

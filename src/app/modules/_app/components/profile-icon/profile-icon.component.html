@@ -1,33 +1,40 @@
 <ng-container *ngLet="profile$ | async as profile">
-  <div class="profile" >
-    <div
-      class="mouse-trigger"
-      (mouseenter)="overIcon = true"
-      (mouseleave)="overIcon = false"
-    ></div>
-    <div class="icon-container">
-      <profile-icon [image]="profile?.profileImg"></profile-icon>
-    </div>
-  </div>
-  
-  <div
-    class="profile-panel"
-    [@profileMenu]="overIcon || overPanel ? 'display' : 'hidden'"
-    (mouseleave)="overPanel = false"
-    (mouseenter)="overPanel = true"
-  >
-    <ul>
-      <ng-container *ngIf="profile; else notLogged">
-        <li><a mat-button routerLink="/profile">Profile</a></li>
-        <li><button mat-button (click)="logout()">Loggout</button></li>
-      </ng-container>
-      <ng-template #notLogged>
-        <li><a mat-button routerLink="/auth/login">Login</a></li>
-        <li><a mat-button routerLink="/auth/register">Register</a></li>
-        <li><button mat-button (click)="toGithub(false)">Login with github</button></li>
-        <li><button mat-button (click)="toGithub(true)">Register with github</button></li>
-      </ng-template>
-    </ul>
-  </div>
-</ng-container>
+	<div class="profile">
+		<div
+			class="mouse-trigger"
+			(mouseenter)="overIcon = true"
+			(mouseleave)="overIcon = false"
+		></div>
+		<div class="icon-container">
+			<profile-icon [image]="profile?.profileImg"></profile-icon>
+		</div>
+	</div>
 
+	<div
+		class="profile-panel"
+		[@profileMenu]="overIcon || overPanel ? 'display' : 'hidden'"
+		(mouseleave)="overPanel = false"
+		(mouseenter)="overPanel = true"
+	>
+		<ul>
+			<ng-container *ngIf="profile; else notLogged">
+				<li><a mat-button routerLink="/profile">Profile</a></li>
+				<li><button mat-button (click)="logout()">Loggout</button></li>
+			</ng-container>
+			<ng-template #notLogged>
+				<li><a mat-button routerLink="/auth/login">Login</a></li>
+				<li><a mat-button routerLink="/auth/register">Register</a></li>
+				<li>
+					<button mat-button (click)="toGithub(false)">
+						Login with github
+					</button>
+				</li>
+				<li>
+					<button mat-button (click)="toGithub(true)">
+						Register with github
+					</button>
+				</li>
+			</ng-template>
+		</ul>
+	</div>
+</ng-container>

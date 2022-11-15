@@ -1,5 +1,5 @@
 $card-width: 10rem;
 
 .my-grid {
-    grid-template-columns: repeat(auto-fit, minmax(min($card-width, 100%), 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(min($card-width, 100%), 1fr));
 }

@@ -4,17 +4,14 @@ import { Blog } from 'src/app/core/blogs/models/blog';
 import { BlogPreviewService } from './services/blog-preview.service';
 
 @Component({
-  selector: 'app-blog-search',
-  templateUrl: './blog-search.component.html',
-  styleUrls: ['./blog-search.component.scss']
+	selector: 'app-blog-search',
+	templateUrl: './blog-search.component.html',
+	styleUrls: ['./blog-search.component.scss'],
 })
 export class BlogSearchComponent implements OnInit {
+	blogs$?: Observable<Blog[]> = this.blogService.getBlogsReview();
 
-  blogs$?: Observable<Blog[]> = this.blogService.getBlogsReview();
+	constructor(private blogService: BlogPreviewService) {}
 
-  constructor(private blogService: BlogPreviewService) { }
-
-  ngOnInit(): void {
-  }
-
+	ngOnInit(): void {}
 }

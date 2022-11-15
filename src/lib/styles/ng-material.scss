@@ -2,25 +2,34 @@
 @use '@angular/material' as mat;
 
 @mixin theme($material-theme, $app-theme) {
-    $color-config: mat.get-color-config($material-theme);
-    $primary-pallete: map-get($map: $color-config, $key: 'primary');
-    $accent-palette: map-get($map: $color-config, $key: 'accent');
-    $warn-pallete: map-get($map: $color-config, $key: 'warn');
-    $background-palette: map.get($app-theme, 'background');
+	$color-config: mat.get-color-config($material-theme);
+	$primary-pallete: map-get(
+		$map: $color-config,
+		$key: 'primary',
+	);
+	$accent-palette: map-get(
+		$map: $color-config,
+		$key: 'accent',
+	);
+	$warn-pallete: map-get(
+		$map: $color-config,
+		$key: 'warn',
+	);
+	$background-palette: map.get($app-theme, 'background');
 
-    $is-dark-theme:   map.get($color-config, 'is-dark');
+	$is-dark-theme: map.get($color-config, 'is-dark');
 
-    --color-primary: #{mat.get-color-from-palette($primary-pallete)};
-    --color-accent: #{mat.get-color-from-palette($accent-palette)};
-    --color-warn: #{mat.get-color-from-palette($warn-pallete)};
+	--color-primary: #{mat.get-color-from-palette($primary-pallete)};
+	--color-accent: #{mat.get-color-from-palette($accent-palette)};
+	--color-warn: #{mat.get-color-from-palette($warn-pallete)};
 
-    --color-background: #{mat.get-color-from-palette($background-palette)};
+	--color-background: #{mat.get-color-from-palette($background-palette)};
 
-    --primary-text: #000;
-    --secondary-text: rgb(70, 70, 70);
+	--primary-text: #000;
+	--secondary-text: rgb(70, 70, 70);
 
-    @if $is-dark-theme {
-        --secondary-text: rgb(194, 194, 194);
-        --primary-text: #fff;
-    }    
+	@if $is-dark-theme {
+		--secondary-text: rgb(194, 194, 194);
+		--primary-text: #fff;
+	}
 }

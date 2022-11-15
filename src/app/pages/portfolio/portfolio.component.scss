@@ -2,21 +2,25 @@ $content-max-width: 1200px;
 $margin-top: 100px;
 
 #content {
-    $sides-width: 200px;
+	$sides-width: 200px;
 }
 
 .gradient {
-    background: linear-gradient(to right, var(--color-primary), var(--color-accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+	background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .light-bg-gradient {
-    background: radial-gradient(ellipse at 60% 0%, rgba(50, 50, 50, 1) 10%, transparent 60%);    
+	background: radial-gradient(
+		ellipse at 60% 0%,
+		rgba(50, 50, 50, 1) 10%,
+		transparent 60%
+	);
 }
 
 .dark-bg-gradient {
-    // background-color: linear-gradient(to up, rgba(50, 50, 50), transparent);
-    background: linear-gradient(transparent 90%, #0c0e13);
+	// background-color: linear-gradient(to up, rgba(50, 50, 50), transparent);
+	background: linear-gradient(transparent 90%, #0c0e13);
 }

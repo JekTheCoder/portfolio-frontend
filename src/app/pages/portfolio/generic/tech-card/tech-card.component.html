@@ -1,16 +1,21 @@
-<div class="p-4 rounded-md backdrop-brightness-150 overflow-hidden" appHover [@rightTilt]="hover$ | async">
-    <div class="absolute rotate-45 w-24 -right-6 top-2 text-center label">
-        <ng-content select="[label]"></ng-content>
-    </div>
+<div
+	class="p-4 rounded-md backdrop-brightness-150 overflow-hidden"
+	appHover
+	[@rightTilt]="hover$ | async"
+>
+	<div class="absolute rotate-45 w-24 -right-6 top-2 text-center label">
+		<ng-content select="[label]"></ng-content>
+	</div>
 
-    <div [ngClass]="{
-        'brightness-50': disabled$ | async
-    }">
-        <div class="font-bold text-lg text-center block">
-            <ng-content select="[title]"></ng-content>
-        </div>
+	<div
+		[ngClass]="{
+			'brightness-50': disabled$ | async
+		}"
+	>
+		<div class="font-bold text-lg text-center block">
+			<ng-content select="[title]"></ng-content>
+		</div>
 
-        <ng-content select="[icon]"></ng-content>
-    </div>
-
+		<ng-content select="[icon]"></ng-content>
+	</div>
 </div>

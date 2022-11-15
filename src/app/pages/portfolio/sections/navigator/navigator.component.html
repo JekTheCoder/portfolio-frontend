@@ -1,12 +1,21 @@
-<div class="text-container" *ngLet="showPointName$ | async as showText" [ngClass]="{ 'no-visible': !showText }">
-    <ng-container *ngFor="let fragment of fragments; let i = index">
-        <a class="text" routerLink="./" [fragment]="fragment">{{ fragment }}</a>
-        <div *ngIf="i < fragments.length - 1"></div>
-    </ng-container>
+<div
+	class="text-container"
+	*ngLet="showPointName$ | async as showText"
+	[ngClass]="{ 'no-visible': !showText }"
+>
+	<ng-container *ngFor="let fragment of fragments; let i = index">
+		<a class="text" routerLink="./" [fragment]="fragment">{{ fragment }}</a>
+		<div *ngIf="i < fragments.length - 1"></div>
+	</ng-container>
 </div>
 <div class="points-container" *ngLet="activeFragment$ | async as activeFragment">
-    <ng-container *ngFor="let fragment of fragments; let i = index">
-        <a routerLink="./" [fragment]="fragment" class="point" [ngClass]="{ 'active': fragment === activeFragment }"></a>
-        <div class="line" *ngIf="i < fragments.length - 1"></div>
-    </ng-container>
+	<ng-container *ngFor="let fragment of fragments; let i = index">
+		<a
+			routerLink="./"
+			[fragment]="fragment"
+			class="point"
+			[ngClass]="{ active: fragment === activeFragment }"
+		></a>
+		<div class="line" *ngIf="i < fragments.length - 1"></div>
+	</ng-container>
 </div>

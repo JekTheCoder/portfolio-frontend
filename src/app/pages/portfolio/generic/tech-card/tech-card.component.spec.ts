@@ -3,21 +3,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TechCardComponent } from './tech-card.component';
 
 describe('TechCardComponent', () => {
-  let component: TechCardComponent;
-  let fixture: ComponentFixture<TechCardComponent>;
+	let component: TechCardComponent;
+	let fixture: ComponentFixture<TechCardComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ TechCardComponent ]
-    })
-    .compileComponents();
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			declarations: [TechCardComponent],
+		}).compileComponents();
 
-    fixture = TestBed.createComponent(TechCardComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+		fixture = TestBed.createComponent(TechCardComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

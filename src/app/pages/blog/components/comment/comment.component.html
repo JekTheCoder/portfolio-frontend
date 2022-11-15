@@ -1,18 +1,16 @@
 <article>
-  <div class="profile-icon">
-    <profile-icon [image]="comment.user.profileImg"></profile-icon>
-  </div>
-  <div class="comment">
-    <span>{{ comment.content | slice: 0:commentPreviewLen }}</span>
-    <span *ngIf="expanded">{{
-      comment.content | slice: commentPreviewLen
-    }}</span>
-    <p
-      class="show-more"
-      [style.display]="comment.content.length > commentPreviewLen ? '' : 'none'"
-      (click)="toggleExpanded()"
-    >
-      {{ expanded ? "show less" : "show more" }}
-    </p>
-  </div>
+	<div class="profile-icon">
+		<profile-icon [image]="comment.user.profileImg"></profile-icon>
+	</div>
+	<div class="comment">
+		<span>{{ comment.content | slice: 0:commentPreviewLen }}</span>
+		<span *ngIf="expanded">{{ comment.content | slice: commentPreviewLen }}</span>
+		<p
+			class="show-more"
+			[style.display]="comment.content.length > commentPreviewLen ? '' : 'none'"
+			(click)="toggleExpanded()"
+		>
+			{{ expanded ? 'show less' : 'show more' }}
+		</p>
+	</div>
 </article>

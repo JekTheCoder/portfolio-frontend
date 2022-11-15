@@ -16,24 +16,23 @@ import { NgLetDirective } from '@common/directives/ng-let.directive';
 import { BlogsModule } from 'src/app/core/blogs/blogs.module';
 import { BlogComponent } from './blog.component';
 
-
 @NgModule({
-  declarations: [
-    BlogComponent,
-    CommentsComponent,
-    CommentComponent,
-    CommentCreateComponent
-  ],
-  imports: [
-    CommonModule,
-    BlogRoutingModule,
-    ProfileIconComponent,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    NgLetDirective,
-    BlogsModule
-  ]
+	declarations: [
+		BlogComponent,
+		CommentsComponent,
+		CommentComponent,
+		CommentCreateComponent,
+	],
+	imports: [
+		CommonModule,
+		BlogRoutingModule,
+		ProfileIconComponent,
+		MatFormFieldModule,
+		MatInputModule,
+		MatButtonModule,
+		ReactiveFormsModule,
+		NgLetDirective,
+		BlogsModule,
+	],
 })
-export class BlogModule { }
+export class BlogModule {}

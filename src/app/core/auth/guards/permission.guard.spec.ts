@@ -5,59 +5,62 @@ import { ProfileService } from '../../_app/services/profile.service';
 
 import { PermissionGuard } from './permission.guard';
 
-let permissions = [{
-  id: 0,
-  name: ''
-}];
+let permissions = [
+	{
+		id: 0,
+		name: '',
+	},
+];
 
 describe('PermissionGuard', () => {
-  let guard: PermissionGuard;
-  let mockProfileService: Partial<ProfileService> = {
-    getProfile: () => of<Partial<Profile>>({ __role__: { id: 0, permissions, name: '' } }) as any
-  };
+	let guard: PermissionGuard;
+	let mockProfileService: Partial<ProfileService> = {
+		getProfile: () =>
+			of<Partial<Profile>>({ __role__: { id: 0, permissions, name: '' } }) as any,
+	};
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [{ provide: ProfileService, useValue: mockProfileService }]
-    });
-    guard = TestBed.inject(PermissionGuard);
-  });
+	beforeEach(() => {
+		TestBed.configureTestingModule({
+			providers: [{ provide: ProfileService, useValue: mockProfileService }],
+		});
+		guard = TestBed.inject(PermissionGuard);
+	});
 
-  it('should be created', () => {
-    expect(guard).toBeTruthy();
-  });
+	it('should be created', () => {
+		expect(guard).toBeTruthy();
+	});
 
-  describe('canLoad', () => {
-    let reqPermissions: string[] = [];
-    const mockRoute = {
-      data: {
-        permissions: reqPermissions
-      }
-    }
+	describe('canLoad', () => {
+		let reqPermissions: string[] = [];
+		const mockRoute = {
+			data: {
+				permissions: reqPermissions,
+			},
+		};
 
-    beforeEach(() => {
-      permissions.length = 0;
-      reqPermissions.length = 0;
-    })
+		beforeEach(() => {
+			permissions.length = 0;
+			reqPermissions.length = 0;
+		});
 
-    it('should pass if user permissions are great', (done) => {
-      reqPermissions.push('p1');
-      permissions.push({ id: 0, name: 'p1' });
-  
-      guard.canLoad(mockRoute, null as any).subscribe(load => {
-        expect(load).toBeTruthy();
-        done()
-      })
-    });
+		it('should pass if user permissions are great', done => {
+			reqPermissions.push('p1');
+			permissions.push({ id: 0, name: 'p1' });
 
-    it('should not pass if user does not has required permissions', (done) => {
-      reqPermissions.push('p1');
-      permissions.push({ id: 0, name: 'p2' });
+			guard.canLoad(mockRoute, null as any).subscribe(load => {
+				expect(load).toBeTruthy();
+				done();
+			});
+		});
 
-      guard.canLoad(mockRoute, null as any).subscribe(load => {
-        expect(load).toBeFalsy();
-        done();
-      })
-    });
-  });
+		it('should not pass if user does not has required permissions', done => {
+			reqPermissions.push('p1');
+			permissions.push({ id: 0, name: 'p2' });
+
+			guard.canLoad(mockRoute, null as any).subscribe(load => {
+				expect(load).toBeFalsy();
+				done();
+			});
+		});
+	});
 });

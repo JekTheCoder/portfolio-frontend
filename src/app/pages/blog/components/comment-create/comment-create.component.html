@@ -1,14 +1,20 @@
 <div class="create-comment" *ngLet="profile$ | async as profile">
-  <div class="profile">
-    <profile-icon [image]="profile?.profileImg"></profile-icon>
-  </div>
-  <div class="">
-    <mat-form-field>
-      <mat-label>Add a comment</mat-label>
-      <input type="text" matInput [formControl]="commentForm" name="comment" (keydown.enter)="emitComment()"/>
-    </mat-form-field>
-    <div class="buttons">
-      <button mat-button (click)="emitComment()">Send</button>
-    </div>
-  </div>
+	<div class="profile">
+		<profile-icon [image]="profile?.profileImg"></profile-icon>
+	</div>
+	<div class="">
+		<mat-form-field>
+			<mat-label>Add a comment</mat-label>
+			<input
+				type="text"
+				matInput
+				[formControl]="commentForm"
+				name="comment"
+				(keydown.enter)="emitComment()"
+			/>
+		</mat-form-field>
+		<div class="buttons">
+			<button mat-button (click)="emitComment()">Send</button>
+		</div>
+	</div>
 </div>

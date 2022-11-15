@@ -12,21 +12,17 @@ import { BlogCardComponent } from './components/blog-card/blog-card.component';
 import { BlogPreviewService } from './services/blog-preview.service';
 import { BlogSearchComponent } from './blog-search.component';
 
-
 @NgModule({
-  declarations: [
-    BlogSearchComponent,
-    BlogCardComponent
-  ],
-  imports: [
-    CommonModule,
-    BlogSearchRoutingModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule,
-  ],
-  providers: [BlogPreviewService]
+	declarations: [BlogSearchComponent, BlogCardComponent],
+	imports: [
+		CommonModule,
+		BlogSearchRoutingModule,
+		ReactiveFormsModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatIconModule,
+		MatButtonModule,
+	],
+	providers: [BlogPreviewService],
 })
-export class BlogSearchModule { }
+export class BlogSearchModule {}

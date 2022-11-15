@@ -1,22 +1,21 @@
 import { Directive, Output, EventEmitter, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appHover]',
-  standalone: true
+	selector: '[appHover]',
+	standalone: true,
 })
 export class HoverDirective {
+	@Output('appHover') hover = new EventEmitter<boolean>();
 
-  @Output('appHover') hover = new EventEmitter<boolean>();
+	constructor() {}
 
-  constructor() {}
+	@HostListener('mouseenter')
+	onEnter() {
+		this.hover.emit(true);
+	}
 
-  @HostListener('mouseenter')
-  onEnter() {
-    this.hover.emit(true);
-  }
-
-  @HostListener('mouseleave')
-  onLeave() {
-    this.hover.emit(false);
-  }
+	@HostListener('mouseleave')
+	onLeave() {
+		this.hover.emit(false);
+	}
 }

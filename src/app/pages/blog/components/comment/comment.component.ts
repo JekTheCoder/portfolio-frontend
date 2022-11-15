@@ -2,24 +2,21 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Comment } from 'src/app/core/blogs/models/comment';
 
 @Component({
-  selector: 'app-comment',
-  templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.scss']
+	selector: 'app-comment',
+	templateUrl: './comment.component.html',
+	styleUrls: ['./comment.component.scss'],
 })
 export class CommentComponent implements OnInit {
+	@Input() comment!: Comment;
 
-  @Input() comment!: Comment;
+	protected readonly commentPreviewLen = 100;
+	protected expanded = false;
 
-  protected readonly commentPreviewLen = 100;
-  protected expanded = false;
+	constructor() {}
 
-  constructor() { }
+	ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  toggleExpanded() {
-    this.expanded = !this.expanded;
-  }
-
+	toggleExpanded() {
+		this.expanded = !this.expanded;
+	}
 }

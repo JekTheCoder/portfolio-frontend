@@ -1,46 +1,46 @@
 .container {
-    position: relative;
+	position: relative;
 }
 
 .img-c {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 2px #000;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 0 2px #000;
 
-    >img {
-        object-fit: cover;
-    }
-    > img.mobile {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-    }
-    > img.desktop {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-    }
+	> img {
+		object-fit: cover;
+	}
+	> img.mobile {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+	> img.desktop {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
 
-    .click-me {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        color: #fff;
+	.click-me {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		color: #fff;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-        opacity: 0;
-        background-color: rgba($color: #000000, $alpha: .8);
-        transition: opacity .8s;
+		opacity: 0;
+		background-color: rgba($color: #000000, $alpha: 0.8);
+		transition: opacity 0.8s;
 
-        &:hover {
-            opacity: 1;
-        }
-    }
+		&:hover {
+			opacity: 1;
+		}
+	}
 }

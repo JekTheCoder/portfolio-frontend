@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule } from "@angular/material/input";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { ImageService } from './services/image.service';
@@ -25,33 +25,32 @@ import { TechCardComponent } from './generic/tech-card/tech-card.component';
 import { HoverDirective } from '@lib/directives/hover/hover.directive';
 import { LinkedElementsModule } from 'linked-elements';
 
-
 @NgModule({
-  declarations: [
-    PortfolioComponent,
-    NavigatorComponent,
-    ContactMeComponent,
-    ProjectsComponent,
-    BackendProjectComponent,
-    SkillsComponent,
-    PresentationComponent,
-    TechStackComponent,
-    TechCardComponent
-  ],
-  imports: [
-    CommonModule,
-    PortfolioRoutingModule,
-    NgLetDirective,
-    FontAwesomeModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ProjectsModule,
-    MatButtonModule,
-    NeonButtonComponent,
-    SvgIconComponent,
-    HoverDirective,
-    LinkedElementsModule,
-  ],
-  providers: [ImageService, ResizeObservableFactoryService]
+	declarations: [
+		PortfolioComponent,
+		NavigatorComponent,
+		ContactMeComponent,
+		ProjectsComponent,
+		BackendProjectComponent,
+		SkillsComponent,
+		PresentationComponent,
+		TechStackComponent,
+		TechCardComponent,
+	],
+	imports: [
+		CommonModule,
+		PortfolioRoutingModule,
+		NgLetDirective,
+		FontAwesomeModule,
+		MatFormFieldModule,
+		MatInputModule,
+		ProjectsModule,
+		MatButtonModule,
+		NeonButtonComponent,
+		SvgIconComponent,
+		HoverDirective,
+		LinkedElementsModule,
+	],
+	providers: [ImageService, ResizeObservableFactoryService],
 })
-export class PortfolioModule { }
+export class PortfolioModule {}

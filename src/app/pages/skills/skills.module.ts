@@ -7,16 +7,8 @@ import { NavBarComponent, NAV_GROUPS } from './components/nav-bar/nav-bar.compon
 import { navGroups } from './nav-groups';
 
 @NgModule({
-  declarations: [
-    SkillsComponent,
-  ],
-  imports: [
-    CommonModule,
-    SkillsRoutingModule,
-    NavBarComponent,
-  ],
-  providers: [
-    { provide: NAV_GROUPS, useValue: navGroups }
-  ]
+	declarations: [SkillsComponent],
+	imports: [CommonModule, SkillsRoutingModule, NavBarComponent],
+	providers: [{ provide: NAV_GROUPS, useValue: navGroups }],
 })
-export class SkillsModule { }
+export class SkillsModule {}

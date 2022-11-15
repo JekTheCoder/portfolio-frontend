@@ -1,24 +1,28 @@
 <form [formGroup]="blogForm">
-    <mat-form-field>
-        <mat-label>Let you</mat-label>
-        <input matInput type="text" formControlName="title">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Lets create something!</mat-label>
-        <textarea matInput formControlName="content" style="height: 200px;"></textarea>
-    </mat-form-field>
-    <div class="">
-        <input type="file" name="thumbnail" formControlName="thumbnail" #file>
-    </div>
-    <div class="">
-        <button type="sumbit" mat-button (click)="createBlog()">Create</button>
-    </div>
+	<mat-form-field>
+		<mat-label>Let you</mat-label>
+		<input matInput type="text" formControlName="title" />
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Lets create something!</mat-label>
+		<textarea matInput formControlName="content" style="height: 200px"></textarea>
+	</mat-form-field>
+	<div class="">
+		<input type="file" name="thumbnail" formControlName="thumbnail" #file />
+	</div>
+	<div class="">
+		<button type="sumbit" mat-button (click)="createBlog()">Create</button>
+	</div>
 </form>
 
-<div class="dialog" [@fadeInOut]="blog ? 'in' : 'out'" *ngLet="blogCreated$ | async as blog">
-    <p>Your blog has been created!</p>
-    <div class="buttons">
-        <button mat-button (click)="reset()">Continue creating</button>
-        <a mat-button>Lets view!</a>
-    </div>
+<div
+	class="dialog"
+	[@fadeInOut]="blog ? 'in' : 'out'"
+	*ngLet="blogCreated$ | async as blog"
+>
+	<p>Your blog has been created!</p>
+	<div class="buttons">
+		<button mat-button (click)="reset()">Continue creating</button>
+		<a mat-button>Lets view!</a>
+	</div>
 </div>

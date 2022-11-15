@@ -1,35 +1,32 @@
-  <header 
-    class="w-full flex justify-evenly items-center py-4">
-    <a
-      *ngFor="let link of links"
-      #active="routerLinkActive"
-      routerLinkActive
-      [routerLink]="link.url"
-      [ngClass]="{
-        'font-bold': active.isActive
-      }"
-      class="transition-[font-weight]"
-      >{{ link.name }}</a
-    >
-  
-    
-    <div class="" *ngLet="darkmode$ | async as darkmode">
-      <mat-slide-toggle
-        [ngModel]="darkmode"
-        (ngModelChange)="darkmodeService.setDarkMode($event)"
-      ></mat-slide-toggle
-      >&nbsp;
-      <fa-icon
-        [icon]="darkmode ? moonIcon : sunIcon"
-        [ngClass]="{
-          'text-white': darkmode,
-          'text-black': !darkmode
-        }"
-      ></fa-icon>
-    </div>
-  
-    <div class="profile">
-      <app-profile-icon></app-profile-icon>
-    </div>
-    
-  </header>
+<header class="w-full flex justify-evenly items-center py-4">
+	<a
+		*ngFor="let link of links"
+		#active="routerLinkActive"
+		routerLinkActive
+		[routerLink]="link.url"
+		[ngClass]="{
+			'font-bold': active.isActive
+		}"
+		class="transition-[font-weight]"
+		>{{ link.name }}</a
+	>
+
+	<div class="" *ngLet="darkmode$ | async as darkmode">
+		<mat-slide-toggle
+			[ngModel]="darkmode"
+			(ngModelChange)="darkmodeService.setDarkMode($event)"
+		></mat-slide-toggle
+		>&nbsp;
+		<fa-icon
+			[icon]="darkmode ? moonIcon : sunIcon"
+			[ngClass]="{
+				'text-white': darkmode,
+				'text-black': !darkmode
+			}"
+		></fa-icon>
+	</div>
+
+	<div class="profile">
+		<app-profile-icon></app-profile-icon>
+	</div>
+</header>

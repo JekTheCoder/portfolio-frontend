@@ -3,31 +3,33 @@
 
 @use '../app/pages/portfolio/sections/navigator/navigator.theme.scss' as app-navigator;
 @use '../app/pages/portfolio/sections/contact-me/contact-me.theme.scss' as app-contact-me;
-@use '../app/pages/auth-page/components/github-auth/github-auth.theme.scss' as app-github-auth;
-@use '../app/modules/_app/components/profile-icon/profile-icon.theme.scss' as app-profile-icon;
+@use '../app/pages/auth-page/components/github-auth/github-auth.theme.scss' as
+	app-github-auth;
+@use '../app/modules/_app/components/profile-icon/profile-icon.theme.scss' as
+	app-profile-icon;
 @use '../app/pages/blog-search/components/blog-card/blog-card.theme.scss' as app-blog-card;
 @use '../lib/components/neon-button/neon-button-theme.scss' as app-neon-button;
 
 @use '../lib/styles/ng-material.scss' as ng-material;
 
 @mixin theme($material-theme, $app-theme) {
-    $background-palette: map.get($app-theme, 'background');
-    $color-config: mat.get-color-config($material-theme);
-    $is-dark-theme:   map.get($color-config, 'is-dark');
+	$background-palette: map.get($app-theme, 'background');
+	$color-config: mat.get-color-config($material-theme);
+	$is-dark-theme: map.get($color-config, 'is-dark');
 
-    $color: #000;
-    @if $is-dark-theme {
-        $color: #fff;
-    }
+	$color: #000;
+	@if $is-dark-theme {
+		$color: #fff;
+	}
 
-    background-color: mat.get-color-from-palette($background-palette);
-    color: $color;
+	background-color: mat.get-color-from-palette($background-palette);
+	color: $color;
 
-    @include app-navigator.theme($material-theme, $app-theme);
-    @include app-contact-me.theme($material-theme, $app-theme);
-    @include app-github-auth.theme($material-theme, $app-theme);
-    @include app-profile-icon.theme($material-theme, $app-theme);
-    @include app-blog-card.theme($material-theme, $app-theme);
-    @include ng-material.theme($material-theme, $app-theme);
-    @include app-neon-button.app-theme($material-theme);
+	@include app-navigator.theme($material-theme, $app-theme);
+	@include app-contact-me.theme($material-theme, $app-theme);
+	@include app-github-auth.theme($material-theme, $app-theme);
+	@include app-profile-icon.theme($material-theme, $app-theme);
+	@include app-blog-card.theme($material-theme, $app-theme);
+	@include ng-material.theme($material-theme, $app-theme);
+	@include app-neon-button.app-theme($material-theme);
 }
