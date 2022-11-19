@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ProfileService } from '@core/auth/services/profile.service';
 import { Observable } from 'rxjs';
 import { Profile } from 'src/app/modules/_app/models/profile.interface';

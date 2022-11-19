@@ -6,7 +6,7 @@ import { SkillsComponent } from './skills.component';
 import { NavBarComponent, NAV_GROUPS } from './components/nav-bar/nav-bar.component';
 import { navGroups } from './nav-groups';
 import { SidenavModule } from '@lib/components/sidenav/sidenav.module';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatButtonModule } from '@angular/material/button';
 import { SidenavCloserDirective } from './directives/sidenav-closer.directive';
 
 @NgModule({
