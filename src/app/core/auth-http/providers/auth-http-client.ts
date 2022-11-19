@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable, Inject, Optional } from '@angular/core';
 import {
 	HttpBackend,
 	HttpClient,
@@ -12,9 +12,12 @@ import { AUTH_HTTP_INTERCEPTORS } from './auth-http-interceptors';
 export class AuthHttpClient extends HttpClient {
 	constructor(
 		backend: HttpBackend,
-		@Inject(HTTP_INTERCEPTORS) httpInterceptors: HttpInterceptor[],
-		@Inject(AUTH_HTTP_INTERCEPTORS) authHttpInterceptors: HttpInterceptor[]
+		@Optional() @Inject(HTTP_INTERCEPTORS) httpInterceptors: HttpInterceptor[] | null,
+		@Optional() @Inject(AUTH_HTTP_INTERCEPTORS) authHttpInterceptors: HttpInterceptor[] | null
 	) {
+		if (!httpInterceptors) httpInterceptors = [];
+		if (!authHttpInterceptors) authHttpInterceptors = [];
+
 		super(
 			new InterceptingHandler(
 				backend,
