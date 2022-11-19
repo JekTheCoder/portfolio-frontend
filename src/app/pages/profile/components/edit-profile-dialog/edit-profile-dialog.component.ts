@@ -1,6 +1,6 @@
 import { Component, OnInit, Optional } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
 import { FileValidator } from 'ngx-material-file-input';
 import { Observable } from 'rxjs';
 import { UsernameService } from 'src/app/pages/profile/services/username.service';

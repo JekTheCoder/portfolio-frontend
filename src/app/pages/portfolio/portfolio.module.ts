@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 
 import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { ImageService } from './services/image.service';
@@ -17,7 +17,7 @@ import { BackendProjectComponent } from './sections/backend-project/backend-proj
 import { SkillsComponent } from './sections/skills/skills.component';
 import { NgLetDirective } from '@common/directives/ng-let.directive';
 import { PresentationComponent } from './sections/presentation/presentation.component';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { NeonButtonComponent } from '@lib/components/neon-button/neon-button.component';
 import { TechStackComponent } from './sections/tech-stack/tech-stack.component';
 import { SvgIconComponent } from '@lib/components/svg-icon/svg-icon.component';
