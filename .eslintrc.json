@@ -12,7 +12,6 @@
 	},
 	"plugins": ["@typescript-eslint"],
 	"rules": {
-		"indent": ["warn", "tab"],
 		"quotes": [
 			"warn",
 			"single",
