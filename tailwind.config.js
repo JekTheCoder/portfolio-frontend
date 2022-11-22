@@ -19,6 +19,7 @@ module.exports = {
         accent: 'var(--color-accent)',
         warn: 'var(--color-warn)',
         background: 'var(--color-background)',
+				normal: 'var(--primary-text)',
       },
       textColor: {
         normal: 'var(--primary-text)',
