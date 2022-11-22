@@ -6,14 +6,14 @@ import {
 	ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderModule } from '../header/header.module';
 import { UpDown400 } from '@common/animations/up-down.animation';
 import { fromEvent, map, merge, Observable } from 'rxjs';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
 	selector: 'app-sticky-header',
 	standalone: true,
-	imports: [CommonModule, HeaderModule],
+	imports: [CommonModule, HeaderComponent],
 	templateUrl: './sticky-header.component.html',
 	styleUrls: ['./sticky-header.component.scss'],
 	animations: [UpDown400],

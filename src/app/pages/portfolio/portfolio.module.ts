@@ -24,6 +24,7 @@ import { SvgIconComponent } from '@lib/components/svg-icon/svg-icon.component';
 import { TechCardComponent } from './generic/tech-card/tech-card.component';
 import { HoverDirective } from '@lib/directives/hover/hover.directive';
 import { LinkedElementsModule } from 'linked-elements';
+import { HeaderComponent } from 'src/app/modules/_app/components/header/header.component';
 
 @NgModule({
 	declarations: [
@@ -50,6 +51,7 @@ import { LinkedElementsModule } from 'linked-elements';
 		SvgIconComponent,
 		HoverDirective,
 		LinkedElementsModule,
+		HeaderComponent
 	],
 	providers: [ImageService, ResizeObservableFactoryService],
 })

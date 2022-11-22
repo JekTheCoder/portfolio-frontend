@@ -8,10 +8,18 @@ import { navGroups } from './nav-groups';
 import { SidenavModule } from '@lib/components/sidenav/sidenav.module';
 import { MatButtonModule } from '@angular/material/button';
 import { SidenavCloserDirective } from './directives/sidenav-closer.directive';
+import { StickyHeaderComponent } from './components/sticky-header/sticky-header.component';
 
 @NgModule({
 	declarations: [SkillsComponent, SidenavCloserDirective],
-	imports: [CommonModule, SkillsRoutingModule, NavBarComponent, SidenavModule, MatButtonModule],
+	imports: [
+		CommonModule,
+		SkillsRoutingModule,
+		NavBarComponent,
+		SidenavModule,
+		MatButtonModule,
+		StickyHeaderComponent,
+	],
 	providers: [{ provide: NAV_GROUPS, useValue: navGroups }],
 })
 export class SkillsModule {}
