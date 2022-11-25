@@ -6,9 +6,17 @@ export const navGroups: NavGroup[] = [
 		src: 'angular',
 		items: [
 			{
-				label: 'Start',
-				fragment: 'start',
+				label: 'Fully Reactive Components',
+				fragment: 'reactive-section',
 			},
+			{
+				label: 'Deep Rxjs Knowledge',
+				fragment: 'deep-reactive-section',
+			},
+			{
+				label: 'Libraries Section',
+				fragment: 'libraries-section',
+			}
 		],
 	},
 	{

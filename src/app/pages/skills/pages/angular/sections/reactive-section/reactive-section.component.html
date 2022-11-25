@@ -1,0 +1,16 @@
+<h3>Fully Reactive Components</h3>
+<div class="">
+	<p>This concept reffers to </p>
+	<div class="">
+		<mat-slide-toggle [checked]="checked$ | async" (change)="setChecked($event.checked)"></mat-slide-toggle>
+		<mat-slide-toggle [checked]="!(checked$ | async)" (change)="setChecked(!$event.checked)"></mat-slide-toggle>
+	</div>	
+
+	<div class="">
+		<mat-form-field appearance="outline">
+			<mat-label>Your name</mat-label>
+			<input matInput type="text" #name>
+		</mat-form-field>
+		<span>Hello {{ name.value }}</span>
+	</div>
+</div>

@@ -15,8 +15,10 @@ const routes: Routes = [
 		children: [
 			{
 				path: 'angular',
-				loadChildren: () =>
-					import('./pages/angular/angular.module').then(m => m.AngularModule),
+				loadComponent: () =>
+					import('./pages/angular/angular.component').then(
+						m => m.AngularComponent
+					),
 			},
 		],
 	},
