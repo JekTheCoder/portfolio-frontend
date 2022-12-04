@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { NAV_GROUPS } from '../nav-bar/nav-bar.component';
 import { NavGroup } from '../accordeon-nav-bar/nav-group';
-import { Observable, ReplaySubject, map, shareReplay } from 'rxjs';
+import { Observable, map, shareReplay, ReplaySubject, scan } from 'rxjs';
 
 @Component({
 	selector: 'app-page-nav',
@@ -15,20 +15,19 @@ import { Observable, ReplaySubject, map, shareReplay } from 'rxjs';
 	styleUrls: ['./page-nav.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PageNavComponent {
-	prevPage$: Observable<string | null>;
-	nextPage$: Observable<string | null>;
+export class PageNavComponent implements OnInit {
+	prevPage$?: Observable<string | null>;
+	nextPage$?: Observable<string | null>;
 
-	@Input() set path(v: string | null) {
-		if (!v) return;
-		this.path$.next(v);
-	}
+	@Input() initialPath = '';
+	indexCounter$ = new ReplaySubject<number>();
 
-	path$ = new ReplaySubject<string>();
+	constructor(@Inject(NAV_GROUPS) private navGroups: NavGroup[]) {}
 
-	constructor(@Inject(NAV_GROUPS) private navGroups: NavGroup[]) {
-		const currentI$ = this.path$.pipe(
-			map(path => this.identifyRoute(path)),
+	ngOnInit(): void {
+		this.indexCounter$.next(this.identifyRoute(this.initialPath));
+		const currentI$ = this.indexCounter$.pipe(
+			scan((acc, v) => acc + v, 0),
 			shareReplay()
 		);
 
