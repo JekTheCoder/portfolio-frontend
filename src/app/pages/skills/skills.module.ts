@@ -9,9 +9,12 @@ import { SidenavModule } from '@lib/components/sidenav/sidenav.module';
 import { MatButtonModule } from '@angular/material/button';
 import { SidenavCloserDirective } from './directives/sidenav-closer.directive';
 import { StickyHeaderComponent } from './components/sticky-header/sticky-header.component';
+import { MatIconModule } from '@angular/material/icon';
+import { PageNavComponent } from './components/page-nav/page-nav.component';
 
 @NgModule({
 	declarations: [SkillsComponent, SidenavCloserDirective],
+	providers: [{ provide: NAV_GROUPS, useValue: navGroups }],
 	imports: [
 		CommonModule,
 		SkillsRoutingModule,
@@ -19,7 +22,8 @@ import { StickyHeaderComponent } from './components/sticky-header/sticky-header.
 		SidenavModule,
 		MatButtonModule,
 		StickyHeaderComponent,
+		MatIconModule,
+		PageNavComponent,
 	],
-	providers: [{ provide: NAV_GROUPS, useValue: navGroups }],
 })
 export class SkillsModule {}

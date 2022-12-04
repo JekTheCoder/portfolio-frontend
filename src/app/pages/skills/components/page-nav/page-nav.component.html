@@ -1,0 +1,19 @@
+<div class="flex justify-between">
+	<div class="">
+		<a mat-flat-button *ngIf="prevPage$ | async as prevPage" [routerLink]="prevPage">
+			<div class="flex items-center">
+				<mat-icon>keyboard_arrow_left</mat-icon>
+				<span>Previus</span>
+			</div>
+		</a>
+	</div>
+
+	<div class="">
+		<a mat-flat-button *ngIf="nextPage$ | async as nextPage" [routerLink]="nextPage">
+			<div class="flex items-center">
+				<span>Next</span>
+				<mat-icon>keyboard_arrow_right</mat-icon>
+			</div>
+		</a>
+	</div>
+</div>

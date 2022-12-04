@@ -14,7 +14,7 @@ import { NavItem } from './nav-item';
 })
 export class AccordeonNavBarComponent implements OnInit, NavGroup {
 	@Input() title?: string;
-	@Input() src?: string;
+	@Input() src = '';
 
 	@Input() items!: NavItem[];
 

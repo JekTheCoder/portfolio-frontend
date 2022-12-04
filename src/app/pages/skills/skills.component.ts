@@ -1,4 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { map, Observable } from 'rxjs';
 
 @Component({
 	selector: 'app-skills',
@@ -6,8 +8,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 	styleUrls: ['./skills.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SkillsComponent implements OnInit {
-	constructor() {}
+export class SkillsComponent {
+	path$: Observable<string | null>;
 
-	ngOnInit(): void {}
+	constructor(private route: ActivatedRoute) {
+		const child = this.route.firstChild;
+		if (!child) throw new Error();
+
+		this.path$ = child.url.pipe(map(url => url[0].path));
+	}
 }
