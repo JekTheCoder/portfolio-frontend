@@ -5,6 +5,8 @@ import { Subject, distinctUntilChanged } from 'rxjs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { fadeIn200 } from '@lib/animations/fade-in';
+import { fadeOut200 } from '@lib/animations/fade-out';
 
 @Component({
 	selector: 'app-reactive-section',
@@ -19,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 	templateUrl: './reactive-section.component.html',
 	styleUrls: ['./reactive-section.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
+	animations: [fadeIn200, fadeOut200]
 })
 export class ReactiveSectionComponent {
 	private _checked$ = new Subject<boolean>();

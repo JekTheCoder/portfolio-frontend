@@ -1,16 +1,31 @@
-<h3>Fully Reactive Components</h3>
+<h3 class="text-xl">Fully Reactive Components</h3>
 <div class="">
-	<p>This concept reffers to </p>
-	<div class="">
-		<mat-slide-toggle [checked]="checked$ | async" (change)="setChecked($event.checked)"></mat-slide-toggle>
-		<mat-slide-toggle [checked]="!(checked$ | async)" (change)="setChecked(!$event.checked)"></mat-slide-toggle>
-	</div>	
+	<p>
+		The most basic concept within Angular as a Client Side Framework is its reactive
+		data bindings.
+	</p>
+	<div class="flex justify-between px-8 mt-4">
+		<div class="">
+			<mat-slide-toggle
+				[checked]="checked$ | async"
+				(change)="setChecked($event.checked)"
+			></mat-slide-toggle>
+			<mat-slide-toggle
+				[checked]="!(checked$ | async)"
+				(change)="setChecked(!$event.checked)"
+			></mat-slide-toggle>
+		</div>
 
-	<div class="">
-		<mat-form-field appearance="outline">
-			<mat-label>Your name</mat-label>
-			<input matInput type="text" #name>
-		</mat-form-field>
-		<span>Hello {{ name.value }}</span>
+		<div class="">
+			<mat-form-field appearance="outline">
+				<mat-label>Your name</mat-label>
+				<input matInput type="text" #name maxlength="50" />
+			</mat-form-field>
+			<div class="">
+				<span *ngIf="name.value" @fadeIn @fadeOut class="break-all"
+					>Hello, {{ name.value }}!</span
+				>
+			</div>
+		</div>
 	</div>
 </div>

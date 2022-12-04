@@ -3,7 +3,10 @@ import { cubicBezier } from '@common/animations/cubic-bezier.time';
 
 export function fadeIn(ms: string | number) {
 	return trigger('fadeIn', [
-		transition(':leave', animate(cubicBezier(ms), style({ opacity: '0' }))),
+		transition(':enter', [
+			style({ opacity: 0 }),
+			animate(cubicBezier(ms), style({ opacity: '*' }))
+		]),
 	]);
 }
 
