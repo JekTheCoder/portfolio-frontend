@@ -11,9 +11,5 @@
 	</div>
 </div>
 <div class="flex flex-row max-w-7xl m-auto px-4">
-	<app-page-nav
-		*ngIf="path$ | async as path"
-		[initialPath]="path"
-		class="w-full"
-	></app-page-nav>
+	<app-page-nav [path]="path$ | async" class="w-full"></app-page-nav>
 </div>

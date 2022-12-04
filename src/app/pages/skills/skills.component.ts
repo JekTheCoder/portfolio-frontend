@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { map, Observable, filter } from 'rxjs';
 
 @Component({
 	selector: 'app-skills',
@@ -12,9 +12,10 @@ export class SkillsComponent {
 	path$: Observable<string | null>;
 
 	constructor(private route: ActivatedRoute, private router: Router) {
-		const child = this.route.firstChild;
-		if (!child) throw new Error('Router outlet firstChild not found');
-
-		this.path$ = child.url.pipe(map(url => url[0].path));
+		this.path$ = this.router.events.pipe(
+			map(() => this.route.firstChild),
+			filter(Boolean),
+			map(child => child.snapshot.url[0].path)
+		);
 	}
 }

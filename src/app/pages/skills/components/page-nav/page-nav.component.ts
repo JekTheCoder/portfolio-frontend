@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { NAV_GROUPS } from '../nav-bar/nav-bar.component';
 import { NavGroup } from '../accordeon-nav-bar/nav-group';
-import { Observable, map, shareReplay, ReplaySubject, scan } from 'rxjs';
+import { Observable, map, ReplaySubject, shareReplay } from 'rxjs';
 
 @Component({
 	selector: 'app-page-nav',
@@ -19,31 +19,33 @@ export class PageNavComponent implements OnInit {
 	prevPage$?: Observable<string | null>;
 	nextPage$?: Observable<string | null>;
 
-	@Input() initialPath = '';
-	indexCounter$ = new ReplaySubject<number>();
+	@Input() set path(v: string | null) {
+		if (!v) return;
+		this.path$.next(v);
+	}
+
+	path$ = new ReplaySubject<string>();
 
 	constructor(@Inject(NAV_GROUPS) private navGroups: NavGroup[]) {}
 
 	ngOnInit(): void {
-		this.indexCounter$.next(this.identifyRoute(this.initialPath));
-		const currentI$ = this.indexCounter$.pipe(
-			scan((acc, v) => acc + v, 0),
-			shareReplay()
-		);
+		const currentI$ = this.path$.pipe(map(path => this.identifyRoute(path)), shareReplay());
 
 		this.prevPage$ = currentI$.pipe(
 			map(i => {
 				if (--i < 0) return null;
 
 				return this.navGroups[i].src;
-			})
+			}),
+			shareReplay()
 		);
 
 		this.nextPage$ = currentI$.pipe(
 			map(i => {
 				if (++i >= this.navGroups.length) return null;
 				return this.navGroups[i].src;
-			})
+			}),
+			shareReplay()
 		);
 	}
 

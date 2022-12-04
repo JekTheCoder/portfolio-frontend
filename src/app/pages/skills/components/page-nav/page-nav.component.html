@@ -4,7 +4,6 @@
 			mat-flat-button
 			*ngIf="prevPage$ | async as prevPage"
 			[routerLink]="prevPage"
-			(click)="indexCounter$.next(-1)"
 		>
 			<div class="flex items-center">
 				<mat-icon>keyboard_arrow_left</mat-icon>
@@ -18,7 +17,6 @@
 			mat-flat-button
 			*ngIf="nextPage$ | async as nextPage"
 			[routerLink]="nextPage"
-			(click)="indexCounter$.next(1)"
 		>
 			<div class="flex items-center">
 				<span>Next</span>
