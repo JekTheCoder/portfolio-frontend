@@ -2,7 +2,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SvgIconComponent } from '@lib/components/svg-icon/svg-icon.component';
 import { DevSourceComponent } from '@lib/components/dev-source/dev-source.component';
-import { LinkedElementsDirective, LinkedElementsModule } from 'linked-elements';
+import {
+	LinkedElementsDirective,
+	LinkedElementsModule,
+	LinkedElementsRouterDirective,
+} from 'linked-elements';
 
 @Component({
 	selector: 'app-angular-projects',
@@ -11,6 +15,6 @@ import { LinkedElementsDirective, LinkedElementsModule } from 'linked-elements';
 	styleUrls: ['./angular-projects.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [CommonModule, SvgIconComponent, DevSourceComponent, LinkedElementsModule],
-	hostDirectives: [LinkedElementsDirective]
+	hostDirectives: [LinkedElementsDirective, LinkedElementsRouterDirective],
 })
 export class AngularProjectsComponent {}
