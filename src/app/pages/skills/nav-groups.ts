@@ -16,6 +16,20 @@ export const navGroups: NavGroup[] = [
 			{
 				label: 'Libraries Section',
 				fragment: 'libraries-section',
+			},
+		],
+	},
+	{
+		title: 'Angular Projects & Experience',
+		src: 'angular-projects',
+		items: [
+			{
+				label: 'Enneto',
+				fragment: 'enneto'
+			},
+			{
+				label: 'Generic E-Shop',
+				fragment: 'g-eshop'
 			}
 		],
 	},

@@ -24,6 +24,7 @@ import { PageNavComponent } from './components/page-nav/page-nav.component';
 		StickyHeaderComponent,
 		MatIconModule,
 		PageNavComponent,
+		MatIconModule
 	],
 })
 export class SkillsModule {}

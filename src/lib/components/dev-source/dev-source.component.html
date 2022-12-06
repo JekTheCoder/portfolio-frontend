@@ -1,0 +1,9 @@
+<a *ngIf="githubSrc" class="group w-max" target="_blank" [href]="githubSrc">
+	<app-svg-icon class="h-4 w-4 inline-block mr-1 invert" icon="github"></app-svg-icon>
+	<span class="text-white group-hover:underline">Github</span>
+</a>
+
+<a *ngIf="webSrc" target="_blank" class="group w-max" [href]="webSrc">
+	<fa-icon class="mr-1" [icon]="faGlobe"></fa-icon>
+	<span class="text-white group-hover:underline">Visit</span>
+</a>

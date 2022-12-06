@@ -15,9 +15,18 @@ const routes: Routes = [
 		children: [
 			{
 				path: 'angular',
+				title: 'Jeshua | Angular',
 				loadComponent: () =>
 					import('./pages/angular/angular.component').then(
 						m => m.AngularComponent
+					),
+			},
+			{
+				path: 'angular-projects',
+				title: 'Jeshua | Angular Projects And Experience',
+				loadComponent: () =>
+					import('./pages/angular-projects/angular-projects.component').then(
+						m => m.AngularProjectsComponent
 					),
 			},
 		],
