@@ -9,8 +9,8 @@ import { AuthModule } from '@core/auth/auth.module';
 import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
-	declarations: [FooterComponent, NotFoundComponent],
-	imports: [CommonModule, RouterModule, AuthModule, HeaderComponent],
+	declarations: [NotFoundComponent],
+	imports: [CommonModule, RouterModule, AuthModule, HeaderComponent, FooterComponent],
 	providers: [GithubAuthBuilderService],
 	exports: [HeaderComponent, FooterComponent],
 })
