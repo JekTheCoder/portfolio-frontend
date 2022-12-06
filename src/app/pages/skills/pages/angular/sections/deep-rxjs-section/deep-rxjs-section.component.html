@@ -1,1 +1,22 @@
-<p>deep-rxjs-section works!</p>
+<article>
+	<h1 class="text-xl">Advanced Rxjs</h1>
+	<p>
+		For the past two years of studying Angular, I have gained valuable knowledge in
+		regards to reactive and asynchronous programming, as well as RxJS.
+	</p>
+	<p>
+		I have learnt how data is passed through observables and pipes, and how they
+		function, which in turn enabled me to create my own pipes.
+	</p>
+	<div class="flex gap-x-8 items-center my-4">
+		<button mat-icon-button (click)="counter$.next(1)">
+			<mat-icon>add</mat-icon>
+		</button>
+		<span class="w-10 text-center"
+			>Clicked <strong>{{ acumulator$ | async }}</strong> times</span
+		>
+		<span class="w-10 text-center"
+			>The dobule is <strong>{{ double$ | async }}</strong></span
+		>
+	</div>
+</article>

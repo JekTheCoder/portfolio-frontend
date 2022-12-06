@@ -10,11 +10,15 @@ export const navGroups: NavGroup[] = [
 				fragment: 'reactive-section',
 			},
 			{
-				label: 'Deep Rxjs Knowledge',
+				label: 'Advanced Rxjs',
 				fragment: 'deep-reactive-section',
 			},
 			{
-				label: 'Libraries Section',
+				label: 'Dependency Injection',
+				fragment: 'di-section',
+			},
+			{
+				label: 'Libraries',
 				fragment: 'libraries-section',
 			},
 		],
@@ -38,20 +42,6 @@ export const navGroups: NavGroup[] = [
 			{
 				label: 'Generic E-Shop',
 				fragment: 'g-eshop',
-			},
-		],
-	},
-	{
-		title: 'NestJS',
-		src: 'nestjs',
-		items: [
-			{
-				label: '12',
-				fragment: 'r',
-			},
-			{
-				label: '12',
-				fragment: 'r',
 			},
 		],
 	},
