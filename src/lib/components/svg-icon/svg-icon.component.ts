@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from '@angular/common';
 import {
 	Component,
 	OnInit,
@@ -12,9 +13,13 @@ export const ICONS_PATH = new InjectionToken<string>('ICONS_PATH');
 @Component({
 	selector: 'app-svg-icon',
 	standalone: true,
+	imports: [NgOptimizedImage],
 	templateUrl: './svg-icon.component.html',
 	styleUrls: ['./svg-icon.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
+	host: {
+		class: 'inline-block'
+	}
 })
 export class SvgIconComponent implements OnInit {
 	@Input() icon!: string;

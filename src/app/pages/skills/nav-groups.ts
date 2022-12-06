@@ -24,13 +24,21 @@ export const navGroups: NavGroup[] = [
 		src: 'angular-projects',
 		items: [
 			{
+				label: 'Host Observable',
+				fragment: 'host-observable',
+			},
+			{
+				label: 'Linked Elements',
+				fragment: 'linked-elements',
+			},
+			{
 				label: 'Enneto',
-				fragment: 'enneto'
+				fragment: 'enneto',
 			},
 			{
 				label: 'Generic E-Shop',
-				fragment: 'g-eshop'
-			}
+				fragment: 'g-eshop',
+			},
 		],
 	},
 	{
