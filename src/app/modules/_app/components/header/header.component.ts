@@ -37,8 +37,8 @@ export class HeaderComponent implements OnInit {
 	protected darkmode$ = this.darkmodeService.getDarkMode$();
 
 	protected links = [
-		{ url: '/portfolio', name: 'portfolio' },
-		{ name: 'blog', url: '/blog' },
+		{ url: '/home', name: 'home' },
+		{ url: '/skills', name: 'potfolio' },
 	];
 
 	constructor(protected darkmodeService: DarkModeService) {}

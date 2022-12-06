@@ -7,11 +7,11 @@ import { NotFoundComponent } from './modules/_app/components/not-found/not-found
 const routes: Routes = [
 	{
 		path: '',
-		redirectTo: 'portfolio',
+		redirectTo: 'home',
 		pathMatch: 'full',
 	},
 	{
-		path: 'portfolio',
+		path: 'home',
 		loadChildren: () =>
 			import('./pages/portfolio/portfolio.module').then(m => m.PortfolioModule),
 	},
