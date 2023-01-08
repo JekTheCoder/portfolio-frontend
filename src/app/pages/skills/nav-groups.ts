@@ -48,11 +48,16 @@ export const navGroups: NavGroup[] = [
 	{
 		title: 'Rust',
 		src: 'rust',
-    items: [
+		items: [
 			{
 				label: 'Code Conjurer',
-        fragment: 'code-conjurer',
-			}
-		]
-	}
+				fragment: 'code-conjurer',
+			},
+		],
+	},
+	{
+		title: 'Svelte',
+		src: 'svelte',
+		items: [],
+	},
 ];

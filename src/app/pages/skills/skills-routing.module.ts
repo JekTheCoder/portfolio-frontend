@@ -37,6 +37,14 @@ const routes: Routes = [
 						c => c.RustProjectsComponent
 					),
 			},
+			{
+				path: 'svelte',
+				title: 'Jeshua | Svelte',
+				loadComponent: () =>
+					import('./pages/svelte/svelte.component').then(
+						c => c.SvelteComponent
+					),
+			},
 		],
 	},
 ];

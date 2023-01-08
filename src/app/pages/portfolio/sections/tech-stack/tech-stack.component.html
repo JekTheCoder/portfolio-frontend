@@ -9,39 +9,35 @@
 					<app-svg-icon icon="angular"></app-svg-icon>
 				</app-tech-card>
 			</a>
-			<app-tech-card>
+			<app-tech-card disabled>
 				<span title>NestJs</span>
 				<app-svg-icon icon="nestjs"></app-svg-icon>
 			</app-tech-card>
-			<app-tech-card>
+			<app-tech-card disabled>
 				<span title>Node.js</span>
 				<app-svg-icon icon="node.js"></app-svg-icon>
 			</app-tech-card>
-			<app-tech-card>
+			<app-tech-card disabled>
 				<span title>Express</span>
-				<app-svg-icon
-					[ngClass]="{
-						invert: dark$ | async
-					}"
-					icon="express"
-				></app-svg-icon>
+				<app-svg-icon class="dark:invert" icon="express"></app-svg-icon>
 			</app-tech-card>
 			<a routerLink="/skills/rust">
 				<app-tech-card>
 					<span class="bg-green-700 font-semibold text-white" label>hype</span>
 					<span title>Rust</span>
-					<app-svg-icon
-						[ngClass]="{
-							invert: dark$ | async
-						}"
-						icon="rust"
-					></app-svg-icon>
+					<app-svg-icon class="dark:invert" icon="rust"></app-svg-icon>
 				</app-tech-card>
 			</a>
 			<app-tech-card disabled>
 				<span class="bg-indigo-700 font-semibold text-white" label>soon</span>
 				<span title>React</span>
 				<app-svg-icon icon="react"></app-svg-icon>
+			</app-tech-card>
+
+			<app-tech-card>
+				<span class="bg-indigo-700 font-semibold text-white" label>new</span>
+				<span title>Svelte</span>
+				<app-svg-icon icon="svelte"></app-svg-icon>
 			</app-tech-card>
 		</div>
 	</div>
