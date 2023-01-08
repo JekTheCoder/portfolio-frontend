@@ -1,9 +1,33 @@
 <header class="flex justify-between border-b py-1 border-normal">
 	<h3 class="text-6xl">Svelte</h3>
-	<app-svg-icon
-		class="h-full w-20 aspect-square"
-		icon="svelte"
-	></app-svg-icon>
+	<app-svg-icon class="h-full w-20 aspect-square" icon="svelte"></app-svg-icon>
 </header>
 
-<div class="grid grid-cols-1 gap-y-8 my-4"></div>
+<div class="grid grid-cols-1 gap-y-8 my-4">
+	<article ngxLinkedElement="catstagram" class="flex flex-row gap-x-8 justify-between">
+		<div class="">
+			<h1 class="text-normal text-3xl">Catstagram</h1>
+			<h2 class="font-normal italic">Svelte web-app, december 2022</h2>
+			<p>
+				Catstagram is a Instagram-like web app built following the svelte platzi
+				course.
+			</p>
+			<p>The app implements most of the web-app common features like</p>
+			<ul class="text-secondary">
+				<li>Theme and color variables</li>
+				<li>Rest http request</li>
+				<li>Dynamic post displaying</li>
+				<li>Animations</li>
+				<li>Inter-component value storing</li>
+			</ul>
+
+			<section class="no-mobile:hidden">
+				<app-github-src repoName="catstagram"></app-github-src>
+			</section>
+		</div>
+		<app-shadow-hover class="w-fit h-min max-w-[20rem]">
+			<img class="object-cover" src="/assets/catstagram.PNG" alt="catstagram" />
+			<app-github-src repoName="catstagram" onHover></app-github-src>
+		</app-shadow-hover>
+	</article>
+</div>

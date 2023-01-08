@@ -58,6 +58,11 @@ export const navGroups: NavGroup[] = [
 	{
 		title: 'Svelte',
 		src: 'svelte',
-		items: [],
+		items: [
+			{
+				label: 'Catstagram',
+        fragment: 'catstagram',
+			}
+		],
 	},
 ];
