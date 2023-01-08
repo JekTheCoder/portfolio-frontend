@@ -29,6 +29,14 @@ const routes: Routes = [
 						m => m.AngularProjectsComponent
 					),
 			},
+			{
+				path: 'rust',
+				title: 'Jeshua | Rust',
+				loadComponent: () =>
+					import('./pages/rust-projects/rust-projects.component').then(
+						c => c.RustProjectsComponent
+					),
+			},
 		],
 	},
 ];

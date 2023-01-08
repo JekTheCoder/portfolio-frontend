@@ -45,4 +45,11 @@ export const navGroups: NavGroup[] = [
 			},
 		],
 	},
+	{
+		title: 'Rust',
+		src: 'rust',
+    items: [
+
+		]
+	}
 ];

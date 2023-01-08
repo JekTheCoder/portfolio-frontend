@@ -26,16 +26,18 @@
 					icon="express"
 				></app-svg-icon>
 			</app-tech-card>
-			<app-tech-card>
-				<span class="bg-green-700 font-semibold text-white" label>hype</span>
-				<span title>Rust</span>
-				<app-svg-icon
-					[ngClass]="{
-						invert: dark$ | async
-					}"
-					icon="rust"
-				></app-svg-icon>
-			</app-tech-card>
+			<a routerLink="/skills/rust">
+				<app-tech-card>
+					<span class="bg-green-700 font-semibold text-white" label>hype</span>
+					<span title>Rust</span>
+					<app-svg-icon
+						[ngClass]="{
+							invert: dark$ | async
+						}"
+						icon="rust"
+					></app-svg-icon>
+				</app-tech-card>
+			</a>
 			<app-tech-card disabled>
 				<span class="bg-indigo-700 font-semibold text-white" label>soon</span>
 				<span title>React</span>
