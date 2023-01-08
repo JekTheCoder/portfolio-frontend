@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { DarkModeService } from 'src/app/modules/_app/services/dark-mode.service';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
 	selector: 'app-tech-stack',
@@ -7,10 +6,4 @@ import { DarkModeService } from 'src/app/modules/_app/services/dark-mode.service
 	styleUrls: ['./tech-stack.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TechStackComponent implements OnInit {
-	dark$ = this.dark.getDarkMode$();
-
-	constructor(private dark: DarkModeService) {}
-
-	ngOnInit(): void {}
-}
+export class TechStackComponent {}
