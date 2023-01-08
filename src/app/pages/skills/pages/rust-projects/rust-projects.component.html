@@ -1,4 +1,27 @@
 <header class="flex justify-between border-b py-1 border-normal">
 	<h3 class="text-6xl">Rust</h3>
-	<app-svg-icon class="h-full w-20 aspect-square dark:invert" icon="rust"></app-svg-icon>
+	<app-svg-icon
+		class="h-full w-20 aspect-square dark:invert"
+		icon="rust"
+	></app-svg-icon>
 </header>
+
+<div class="grid grid-cols-1 gap-y-8 my-4">
+	<article ngxLinkedElement="code-conjurer">
+		<h1 class="text-normal text-3xl">Code Conjurer</h1>
+		<h2 class="font-normal italic">Template cli, january 2023</h2>
+		<p>
+			"Code conjurer", also known as "cc", is a command line interface written in
+			the programming language Rust.
+		</p>
+		<p>
+			Its purpose is to generate code files from a single template or a set of
+			templates. The app includes a small template meta-language that allows for the
+			creation of dynamic templates that can be customized with variable names and
+			values.
+		</p>
+		<footer>
+			<app-github-src repoName="code-conjurer"></app-github-src>
+		</footer>
+	</article>
+</div>
