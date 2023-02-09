@@ -1,6 +1,7 @@
 {
   "projects": {
-    "portafolio-dev": "portfolio-aec60"
+    "portafolio-dev": "portfolio-aec60",
+    "default": "portfolio-aec60"
   },
   "targets": {},
   "etags": {}
