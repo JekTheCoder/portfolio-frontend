@@ -1,15 +1,24 @@
 <header class="w-full flex justify-evenly items-center py-4">
-	<a
-		*ngFor="let link of links"
-		#active="routerLinkActive"
-		routerLinkActive
-		[routerLink]="link.url"
-		[ngClass]="{
-			'font-bold': active.isActive
-		}"
-		class="transition-[font-weight]"
-		>{{ link.name }}</a
-	>
+	<nav class="w-5/12">
+		<ul class="flex justify-evenly gap-2 w-full">
+			<li *ngFor="let link of links">
+				<a
+					#active="routerLinkActive"
+					routerLinkActive
+					[routerLink]="link.url"
+					[ngClass]="{
+						'font-bold': active.isActive
+					}"
+					class="transition-[font-weight] hover:underline"
+					>{{ link.name }}</a
+				>
+			</li>
+
+			<li>
+				<a href="https://www.jeshuahinostroza.com" class="hover:underline">Blog!</a>
+			</li>
+		</ul>
+	</nav>
 
 	<div class="" *ngLet="darkmode$ | async as darkmode">
 		<mat-slide-toggle
