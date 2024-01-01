@@ -28,6 +28,18 @@ export const navGroups: NavGroup[] = [
 		src: 'angular-projects',
 		items: [
 			{
+				label: 'Enneto',
+				fragment: 'enneto',
+			},
+			{
+				label: 'Conecta Surveys',
+				fragment: 'conecta-survey',
+			},
+			{
+				label: 'Midagri',
+				fragment: 'midagri',
+			},
+			{
 				label: 'Host Observable',
 				fragment: 'host-observable',
 			},
@@ -35,20 +47,16 @@ export const navGroups: NavGroup[] = [
 				label: 'Linked Elements',
 				fragment: 'linked-elements',
 			},
-			{
-				label: 'Enneto',
-				fragment: 'enneto',
-			},
-			{
-				label: 'Generic E-Shop',
-				fragment: 'g-eshop',
-			},
 		],
 	},
 	{
 		title: 'Rust',
 		src: 'rust',
 		items: [
+			{
+				label: 'Blog server',
+				fragment: 'personal-blog',
+			},
 			{
 				label: 'Code Conjurer',
 				fragment: 'code-conjurer',
@@ -60,9 +68,13 @@ export const navGroups: NavGroup[] = [
 		src: 'svelte',
 		items: [
 			{
+				label: 'Blog website',
+				fragment: 'blog-website',
+			},
+			{
 				label: 'Catstagram',
-        fragment: 'catstagram',
-			}
+				fragment: 'catstagram',
+			},
 		],
 	},
 ];

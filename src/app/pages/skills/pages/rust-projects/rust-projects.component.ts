@@ -7,11 +7,18 @@ import {
 	LinkedElementsRouterDirective,
 } from 'linked-elements';
 import { GithubSrcComponent } from '@lib/components/github-src/github-src.component';
+import { ShadowHoverComponent } from '@lib/components/shadow-hover/shadow-hover.component';
 
 @Component({
 	selector: 'app-rust-projects',
 	standalone: true,
-	imports: [CommonModule, SvgIconComponent, LinkedElementsModule, GithubSrcComponent],
+	imports: [
+		CommonModule,
+		SvgIconComponent,
+		LinkedElementsModule,
+		GithubSrcComponent,
+		ShadowHoverComponent,
+	],
 	templateUrl: './rust-projects.component.html',
 	styleUrls: ['./rust-projects.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,

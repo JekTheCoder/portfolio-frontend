@@ -4,15 +4,79 @@
 </header>
 
 <div class="grid grid-cols-1 gap-y-8 my-4">
+	<article
+		ngxLinkedElement="blog-website"
+		class="flex flex-row gap-x-8 justify-between"
+	>
+		<div>
+			<h1 class="text-normal text-3xl">Blog Website</h1>
+			<h2 class="font-normal italic">Svelte web-app, december 2023</h2>
+
+			<p>The front-end of my blog website.</p>
+
+			<p>
+				Uses turbo to manage multiple apps and packages within the same repository
+			</p>
+			<p>
+				Has a custom ui library built from scratch using svelte components,
+				tailwindcss, scss and css variables
+			</p>
+			<p>
+				The website has their own server deployed on digitalocean using docker and
+				github actions
+			</p>
+
+			<section class="no-mobile:hidden">
+				<app-github-src repoName="blog-clients"></app-github-src>
+
+				<a
+					target="_blank"
+					href="https://www.jeshuahinostroza.com"
+				>
+					<app-svg-icon
+						class="h-4 w-4 inline-block mr-1 invert"
+						icon="globe"
+					></app-svg-icon>
+
+					<span class="text-white group-hover:underline">Site</span>
+				</a>
+			</section>
+		</div>
+
+		<app-shadow-hover class="w-fit h-min max-w-[20rem]">
+			<img class="object-cover" src="/assets/catstagram.PNG" alt="blog preview" />
+
+			<div class="flex gap-x-2" onHover>
+				<app-github-src repoName="blog-clients"></app-github-src>
+
+				<a
+					class="group w-max"
+					target="_blank"
+					href="https://www.jeshuahinostroza.com"
+				>
+					<app-svg-icon
+						class="h-4 w-4 inline-block mr-1 invert"
+						icon="globe"
+					></app-svg-icon>
+
+					<span class="text-white group-hover:underline">Site</span>
+				</a>
+			</div>
+		</app-shadow-hover>
+	</article>
+
 	<article ngxLinkedElement="catstagram" class="flex flex-row gap-x-8 justify-between">
 		<div class="">
 			<h1 class="text-normal text-3xl">Catstagram</h1>
 			<h2 class="font-normal italic">Svelte web-app, december 2022</h2>
+
 			<p>
 				Catstagram is a Instagram-like web app built following the svelte platzi
 				course.
 			</p>
+
 			<p>The app implements most of the web-app common features like</p>
+
 			<ul class="text-secondary">
 				<li>Theme and color variables</li>
 				<li>Rest http request</li>
@@ -25,6 +89,7 @@
 				<app-github-src repoName="catstagram"></app-github-src>
 			</section>
 		</div>
+
 		<app-shadow-hover class="w-fit h-min max-w-[20rem]">
 			<img class="object-cover" src="/assets/catstagram.PNG" alt="catstagram" />
 			<app-github-src repoName="catstagram" onHover></app-github-src>

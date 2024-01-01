@@ -7,11 +7,68 @@
 </header>
 
 <div class="grid grid-cols-1 gap-y-8 my-4">
+	<article ngxLinkedElement="personal-blog">
+		<h1 class="text-normal text-3xl">Personal Blog</h1>
+		<h2 class="font-normal italic">Server, december 2023</h2>
+		<p>My personal blog! I am very proud of it.</p>
+
+		<p>
+      Its a basic rust server build with actix-blog, sqlx and postgres.
+      Manages users and blogs with their comments, simple.
+      The development helped me to learn to use Domain Driven Development.
+		</p>
+
+    <p>
+      To deploy the servey I used docker and github workflows.
+      The deploy is automatically pushed to the digitalocean droplet on each main branch push.
+    </p>
+
+		<div class="flex justify-center my-2">
+			<app-shadow-hover class="w-fit h-min max-w-[20rem]">
+				<img class="object-cover" src="/assets/catstagram.PNG" alt="blog preview" />
+
+				<div class="flex gap-x-2" onHover>
+					<app-github-src repoName="actix-blog"></app-github-src>
+
+					<a
+						class="group w-max"
+						target="_blank"
+						href="https://www.jeshuahinostroza.com"
+					>
+						<app-svg-icon
+							class="h-4 w-4 inline-block mr-1 invert"
+							icon="globe"
+						></app-svg-icon>
+
+						<span class="text-white group-hover:underline">Site</span>
+					</a>
+				</div>
+			</app-shadow-hover>
+		</div>
+
+		<footer class="flex gap-x-2">
+			<app-github-src repoName="actix-blog"></app-github-src>
+
+			<a
+				class="group w-max"
+				target="_blank"
+				href="https://www.jeshuahinostroza.com"
+			>
+				<app-svg-icon
+					class="h-4 w-4 inline-block mr-1 invert"
+					icon="globe"
+				></app-svg-icon>
+
+				<span class="text-white group-hover:underline">Site</span>
+			</a>
+		</footer>
+	</article>
+
 	<article ngxLinkedElement="code-conjurer">
 		<h1 class="text-normal text-3xl">Code Conjurer</h1>
 		<h2 class="font-normal italic">Template cli, january 2023</h2>
 		<p>
-			"Code conjurer", also known as "cc", is a command line interface written in
+			"Code conjurer", also known as "cco", is a command line interface written in
 			the programming language Rust.
 		</p>
 		<p>
@@ -20,6 +77,7 @@
 			creation of dynamic templates that can be customized with variable names and
 			values.
 		</p>
+
 		<footer>
 			<app-github-src repoName="code-conjurer"></app-github-src>
 		</footer>
