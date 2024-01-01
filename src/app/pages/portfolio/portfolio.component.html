@@ -1,10 +1,19 @@
 <app-header></app-header>
+
 <ng-container *ngIf="isDark$ | async">
 	<div class="light-bg-gradient h-screen absolute top-0 w-full -z-10"></div>
 	<div class="dark-bg-gradient h-screen absolute bottom-0 w-full -z-10"></div>
 </ng-container>
+
 <section class="h-screen pt-28 px-12 m-auto max-w-4xl">
-	<app-presentation></app-presentation>
+	<app-presentation class="block mb-4"></app-presentation>
+
+	<p>
+		I have a blog now!, visit it
+		<a class="text-normal font-bold hover:underline" href="https://www.jeshuahinostroza.com"
+			>here</a
+		>
+	</p>
 
 	<div class="mt-4">
 		<a class="font-medium underline" routerLink="/skills">Projects</a>
@@ -16,7 +25,5 @@
 		</button>
 	</div>
 </section>
-<app-tech-stack
-	class="block mb-8"
-	ngxLinkedElement="tech-stack"
-></app-tech-stack>
+
+<app-tech-stack class="block mb-8" ngxLinkedElement="tech-stack"></app-tech-stack>
